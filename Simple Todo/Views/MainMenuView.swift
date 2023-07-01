@@ -23,6 +23,8 @@ struct MainMenuView: View {
                 
                 Divider()
                 
+                DeleteAllDoneButton()
+                
                 ClearButton()
                 
                 Divider()

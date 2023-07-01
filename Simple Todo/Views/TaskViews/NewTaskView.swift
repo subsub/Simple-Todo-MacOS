@@ -34,6 +34,8 @@ struct NewTaskView: View {
                     selectedDate = displayDate
                     task.timestamp = selectedDate?.ISO8601Format() ?? ""
                     notificationController.scheduleNotificationFor(task: task)
+                } else {
+                    notificationController.removeNotifications([task.id])
                 }
                 
                 taskDelegate.saveTask(task)

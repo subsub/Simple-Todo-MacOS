@@ -28,6 +28,8 @@
 		B23F964A2A4DE50000394187 /* NewTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F96492A4DE50000394187 /* NewTaskButton.swift */; };
 		B23F964C2A4DE8B400394187 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F964B2A4DE8B400394187 /* TaskList.swift */; };
 		B23F964F2A4DE99100394187 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F964E2A4DE99100394187 /* TaskModel.swift */; };
+		B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */; };
+		B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		B23F96492A4DE50000394187 /* NewTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskButton.swift; sourceTree = "<group>"; };
 		B23F964B2A4DE8B400394187 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		B23F964E2A4DE99100394187 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskController.swift; sourceTree = "<group>"; };
+		B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllDoneButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */,
 				B22B4A1B2A4E9269002F205D /* MyNavigationController.swift */,
 				B22B4A202A4EBD2B002F205D /* NotificationController.swift */,
+				B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */,
 				B22B4A192A4E1CDC002F205D /* ClearButton.swift */,
 				B22B4A262A4F2858002F205D /* QuitButton.swift */,
+				B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */,
 			);
 			path = MenuButtons;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				B23F96452A4DD2AE00394187 /* NewTaskView.swift in Sources */,
 				B20A6D732A4DF5EA00DCC582 /* UserDefaultsController.swift in Sources */,
 				B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */,
+				B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */,
 				B23F964A2A4DE50000394187 /* NewTaskButton.swift in Sources */,
 				B20A6D772A4E12E400DCC582 /* TaskDetailView.swift in Sources */,
 				B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */,
@@ -365,6 +372,7 @@
 				B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */,
 				B22B4A212A4EBD2B002F205D /* NotificationController.swift in Sources */,
 				B22B4A1C2A4E9269002F205D /* MyNavigationController.swift in Sources */,
+				B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */,
 				B23F96432A4DCEAB00394187 /* StatusMenuView.swift in Sources */,
 				B23F964F2A4DE99100394187 /* TaskModel.swift in Sources */,
 			);

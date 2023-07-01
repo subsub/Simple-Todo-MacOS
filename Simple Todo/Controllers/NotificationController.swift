@@ -16,6 +16,7 @@ class NotificationController :NSObject, ObservableObject {
     static let instance = NotificationController()
     
     private let notificationCenter = UNUserNotificationCenter.current()
+    let backgroundTaskScheduler = BackgroundTaskController.instance
     
     @Published var isDenied: Bool = false
     @Published var isAuthorized: Bool = false
@@ -68,6 +69,11 @@ class NotificationController :NSObject, ObservableObject {
         let request = UNNotificationRequest(identifier: notifCenterName, content: content, trigger: trigger)
         
         notificationCenter.add(request)
+        
+        // schedule background task
+        backgroundTaskScheduler.schedule(at: date, for: task.id) {
+            print(">> done scheduled")
+        }
     }
     
     func removeNotifications(_ ids: [String]) {

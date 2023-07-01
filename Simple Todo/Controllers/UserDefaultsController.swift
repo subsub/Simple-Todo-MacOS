@@ -36,6 +36,14 @@ class UserDefaultsDelegates: ObservableObject {
         }.count
     }
     
+    func overdueTasks() -> [TaskModel] {
+        taskModel.filter({ $0.isOverdue() })
+    }
+    
+    func totalOverdueTasks() -> Int {
+        overdueTasks().count
+    }
+    
     @AppStorage("tasks") var rawTasks: String = ""
     @Published var taskModel: [TaskModel] = []
     
@@ -68,6 +76,13 @@ class UserDefaultsDelegates: ObservableObject {
     func clearTask() {
         taskModel = []
         
+        save()
+    }
+    
+    func deleteAllDone() {
+        taskModel.removeAll { task in
+            task.status == .completed
+        }
         save()
     }
     
