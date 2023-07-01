@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskList: View {
-    @EnvironmentObject var taskDelegate: UserDefaultsDelegates
+    @EnvironmentObject var taskDelegate: TaskDelegate
     
     var body: some View {
         tasks
@@ -19,8 +19,8 @@ struct TaskList: View {
     
     var tasks: some View {
         VStack {
-            Text("Tasks")
-                .contrast(0.1)
+            Text("Ongoning Tasks")
+                .contrast(0.5)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(smallPadding)
             
@@ -34,7 +34,7 @@ struct TaskList: View {
                 .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0))
             
             Text("Completed Tasks")
-                .contrast(0.1)
+                .contrast(0.5)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(smallPadding)
             ForEach(taskDelegate.completedTask(), id: \.id) { task in
@@ -47,9 +47,8 @@ struct TaskList: View {
 }
 
 struct TaskList_Previews: PreviewProvider {
-    static let testObject = UserDefaultsDelegates()
     static var previews: some View {
         TaskList()
-            .environmentObject(testObject)
+            .environmentObject(TaskDelegate.instance)
     }
 }

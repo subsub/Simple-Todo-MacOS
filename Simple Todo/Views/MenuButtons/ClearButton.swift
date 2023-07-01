@@ -8,28 +8,14 @@
 import SwiftUI
 
 struct ClearButton: View {
-    @EnvironmentObject var taskDelegate: UserDefaultsDelegates
+    @EnvironmentObject var taskDelegate: TaskDelegate
     @State var isHovered: Bool = false
     
     var body: some View {
-        Button{
+        MyMenuButton {
+            Text("Delete All")
+        } callback: {
             taskDelegate.clearTask()
-        }
-        label: {
-            HStack{
-                HStack {
-                    Text("Delete All")
-                    Spacer()
-                }.padding(defaultPadding)
-                    .contentShape(Rectangle())
-            }
-        }
-        .background(
-            isHovered ? .blue : .clear
-        )
-        .buttonStyle(.plain)
-        .onHover { hovered in
-            isHovered = hovered
         }
     }
 }
@@ -37,5 +23,6 @@ struct ClearButton: View {
 struct ClearButton_Previews: PreviewProvider {
     static var previews: some View {
         ClearButton()
+            .environmentObject(TaskDelegate.instance)
     }
 }

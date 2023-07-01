@@ -9,12 +9,15 @@ import SwiftUI
 
 let defaultPadding: EdgeInsets = EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8)
 let smallPadding: EdgeInsets = EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4)
+let symmetricPadding: EdgeInsets = EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
 
 @main
 struct Simple_TodoApp: App {
 //    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
-    private let userDefaultDelegates = UserDefaultsDelegates.instance
+    private let taskDelegate = TaskDelegate.instance
     private let notificationController = NotificationController.instance
+    private let preferenceController = PreferenceController.instance
+    private let jiraController = JiraController.instance
     
     
     var body: some Scene {
@@ -23,14 +26,16 @@ struct Simple_TodoApp: App {
                 .onAppear{
                     notificationController.checkNotificationPermission()
                 }
-                .environmentObject(userDefaultDelegates)
+                .environmentObject(taskDelegate)
                 .environmentObject(notificationController)
+                .environmentObject(preferenceController)
+                .environmentObject(jiraController)
         }, label: {
             StatusMenuView()
                 .onReceive(notifCenterPublisher){ output in
-                    userDefaultDelegates.loadTasks()
+                    taskDelegate.loadTasks()
                 }
-                .environmentObject(userDefaultDelegates)
+                .environmentObject(taskDelegate)
         })
         .menuBarExtraStyle(.window)
     }

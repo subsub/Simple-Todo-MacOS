@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "24FE3C54-6116-48E8-8C66-93C41D9F9269"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF348BFF-B11E-4A7D-866E-5BCE4EE5DEFE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Models/TaskModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "setJiraCard(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "60E11C50-07F9-47E2-B629-BBE67485D6D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Controllers/JiraController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "loadIssueDetail(by:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "60E11C50-07F9-47E2-B629-BBE67485D6D2 - b2cd1ff23a0cd1e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple_Todo.JiraController.loadIssueDetail(by: Swift.String, _: (Swift.Optional&lt;Simple_Todo.JiraCardDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Simple Todo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhan.sarif/workspace/app/native/macos/simple-todo/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "668">
+               </Location>
+               <Location
+                  uuid = "60E11C50-07F9-47E2-B629-BBE67485D6D2 - b2cd1ff23a0cd1e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple_Todo.JiraController.loadIssueDetail(by: Swift.String, _: (Swift.Optional&lt;Simple_Todo.JiraCardDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Simple Todo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhan.sarif/workspace/app/native/macos/simple-todo/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "824">
+               </Location>
+               <Location
+                  uuid = "60E11C50-07F9-47E2-B629-BBE67485D6D2 - b2cd1ff23a0cd1e3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple_Todo.JiraController.loadIssueDetail(by: Swift.String, _: (Swift.Optional&lt;Simple_Todo.JiraCardDetail&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Simple Todo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhan.sarif/workspace/app/native/macos/simple-todo/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1048">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

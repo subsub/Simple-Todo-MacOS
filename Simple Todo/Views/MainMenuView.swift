@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    @EnvironmentObject var taskDelegate: UserDefaultsDelegates
+    @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var notificationController: NotificationController
     @State var keyObserver: NSKeyValueObservation?
     
@@ -29,6 +29,10 @@ struct MainMenuView: View {
                 
                 Divider()
                 
+                PreferenceButton()
+                
+                Divider()
+                
                 QuitButton()
             }
         }
@@ -45,9 +49,8 @@ struct MainMenuView: View {
 }
 
 struct MainMenuView_Previews: PreviewProvider {
-    static let testObject = UserDefaultsDelegates()
     static var previews: some View {
         MainMenuView()
-            .environmentObject(testObject)
+            .environmentObject(TaskDelegate.instance)
     }
 }

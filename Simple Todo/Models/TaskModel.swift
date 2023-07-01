@@ -12,6 +12,7 @@ class TaskModel: Codable, Identifiable {
     var title: String
     var timestamp: String
     var status: TaskStatus
+    var jiraCard: String? = nil
     
     init(title: String, timestamp: String) {
         self.id = UUID().uuidString
@@ -54,6 +55,14 @@ class TaskModel: Codable, Identifiable {
         }
         
         return date.timeIntervalSinceNow.isLess(than: 0.0)
+    }
+    
+    func setJiraCard(_ card: String) {
+        if let url = URL(string: card) {
+            jiraCard = url.lastPathComponent
+            return
+        }
+        jiraCard = card
     }
 }
 

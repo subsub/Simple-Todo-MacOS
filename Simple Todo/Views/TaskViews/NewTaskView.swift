@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct NewTaskView: View {
-    @EnvironmentObject var taskDelegate: UserDefaultsDelegates
+    @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var navigationState: MyNavigationState
     @EnvironmentObject var notificationController: NotificationController
+    @EnvironmentObject var preferenceController: PreferenceController
     @State var taskTitle: String = ""
     @State var isReminder: Bool = false
     @State var displayDate: Date = .now
     @State var selectedDate: Date? = nil
     @State var navbarTitle: String = "Create New Task"
     @State var taskId: String? = nil
+    @State var jiraId: String = ""
     
     var body: some View {
         VStack {
@@ -28,6 +30,9 @@ struct NewTaskView: View {
                     timestamp: "")
                 if let taskId = taskId {
                     task.id = taskId
+                }
+                if !jiraId.isEmpty {
+                    task.setJiraCard(jiraId)
                 }
                 
                 if isReminder {
@@ -58,6 +63,12 @@ struct NewTaskView: View {
             
             reminderView
                 .padding(defaultPadding)
+            
+            if preferenceController.hasJiraAuthKey() {
+                Divider()
+                
+                jiraIntegrationView
+            }
         }
         .onAppear{
             if let taskId = navigationState.data["id"] as? String, let task = taskDelegate.getTask(by: taskId) {
@@ -82,10 +93,22 @@ struct NewTaskView: View {
             
         }
     }
+    
+    var jiraIntegrationView: some View {
+        HStack {
+            Text("Jira Card")
+            TextField("Jira Card", text: $jiraId)
+        }
+        .padding(defaultPadding)
+    }
 }
 
 struct NewTaskView_Previews: PreviewProvider {
     static var previews: some View {
         NewTaskView()
+            .environmentObject(TaskDelegate.instance)
+            .environmentObject(MyNavigationState())
+            .environmentObject(NotificationController.instance)
+            .environmentObject(PreferenceController.instance)
     }
 }

@@ -12,13 +12,7 @@ struct NewTaskButton: View {
     
     var body: some View {
         MyNavigationLink(id: "new-task") {
-            HStack {
-                Text("New Task")
-                Spacer()
-//                    Text("⌘ N")
-//                        .contrast(isHovered ? 1.0 : 0.1)
-            }.padding(defaultPadding)
-                .contentShape(Rectangle())
+            Text("New Task")
         } destination: {
             NewTaskView()
         }
@@ -28,5 +22,6 @@ struct NewTaskButton: View {
 struct NewTaskButton_Previews: PreviewProvider {
     static var previews: some View {
         NewTaskButton()
+            .environmentObject(MyNavigationState())
     }
 }

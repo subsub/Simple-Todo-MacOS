@@ -31,6 +31,7 @@ struct MyNavigationBar: View {
         VStack {
             HStack {
                 Button {
+                    
                     onBackButton()
                 } label: {
                     Image(systemName: "chevron.left")

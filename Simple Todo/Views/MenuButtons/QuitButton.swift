@@ -11,24 +11,10 @@ struct QuitButton: View {
     @State var isHovered: Bool = false
     
     var body: some View {
-        Button{
+        MyMenuButton {
+            Text("Quit")
+        } callback: {
             NSApplication.shared.terminate(nil)
-        }
-        label: {
-            HStack{
-                HStack {
-                    Text("Quit")
-                    Spacer()
-                }.padding(defaultPadding)
-                    .contentShape(Rectangle())
-            }
-        }
-        .background(
-            isHovered ? .blue : .clear
-        )
-        .buttonStyle(.plain)
-        .onHover { hovered in
-            isHovered = hovered
         }
     }
 }

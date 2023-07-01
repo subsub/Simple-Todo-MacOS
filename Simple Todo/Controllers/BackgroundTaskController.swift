@@ -10,12 +10,12 @@ import BackgroundTasks
 
 let bgTaskIdentifier = "id.subkhansarif.Simple-Todo"
 class BackgroundTaskController {
-    static let instance = BackgroundTaskController(taskDelegate: UserDefaultsDelegates.instance)
+    static let instance = BackgroundTaskController(taskDelegate: TaskDelegate.instance)
     
     let scheduler = NSBackgroundActivityScheduler(identifier: bgTaskIdentifier)
-    let taskDelegate: UserDefaultsDelegates
+    let taskDelegate: TaskDelegate
     
-    init(taskDelegate: UserDefaultsDelegates) {
+    init(taskDelegate: TaskDelegate) {
         self.taskDelegate = taskDelegate
     }
     

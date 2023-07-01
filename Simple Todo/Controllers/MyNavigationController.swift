@@ -16,16 +16,19 @@ class MyNavigationState: ObservableObject {
     @Published var data: [String: Any] = [:]
     
     func popTo(id: String?) {
-        currentView = id
+        withAnimation(.easeInOut(duration: 0.2)) {
+            currentView = id
+        }
         data.removeAll()
     }
     
     func push(id: String?, data: [String: Any]? = nil) {
-        currentView = id
-        guard let data = data else {
-            return
+        withAnimation(.easeInOut(duration: 0.2)) {
+            currentView = id
         }
-        self.data = data
+        if let data = data {
+            self.data = data
+        }
     }
 }
 
@@ -36,6 +39,7 @@ struct MyNavigationLink: View {
     var destination: AnyView
     let id: String
     var focusColor: Color? = .blue
+    var autoRedirect: Bool = true
     
     init(focusColor: Color? = nil,
          @ViewBuilder content: @escaping () -> some View,
@@ -48,22 +52,32 @@ struct MyNavigationLink: View {
     
     init(id: String,
          focusColor: Color? = nil,
+         autoRedirect: Bool = true,
          @ViewBuilder content: @escaping () -> some View, @ViewBuilder destination: @escaping () -> some View) {
         self.id = id
         self.content = AnyView(content())
         self.destination = AnyView(destination())
         self.focusColor = focusColor ?? .blue
+        self.autoRedirect = autoRedirect
     }
     
     var body: some View {
         Button {
-            navigationState.currentView = id
+            if autoRedirect {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    navigationState.currentView = id
+                }
+            }
         } label: {
-            content
+            HStack {
+                content
+                Spacer()
+            }.padding(defaultPadding)
+                .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .background(
-            isHovered ? focusColor : .clear
+                isHovered ? focusColor : .clear
         )
         .onHover { hovered in
             isHovered = hovered
@@ -105,16 +119,19 @@ struct MyNavigationView: View {
         let currentView = navigationState.viewMaps[navigationState.currentView ?? ""]
         VStack {
             if currentView != nil {
-                currentView
+                currentView!.transition(.slide)
             } else {
-                content
+                content.transition(.slide)
             }
         }
         .onAppear {
             keyObserver = NSApplication.shared.observe(\.keyWindow) { x, y in
                 print("Is Visible: \(NSApplication.shared.keyWindow != nil)")
                 if (NSApplication.shared.keyWindow == nil) {
-                    navigationState.currentView = nil
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        
+                        navigationState.currentView = nil
+                    }
                 }
             }
         }

@@ -9,9 +9,12 @@ import SwiftUI
 
 struct TaskDetailView: View {
     @EnvironmentObject var navigationState: MyNavigationState
-    @EnvironmentObject var taskDelegate: UserDefaultsDelegates
+    @EnvironmentObject var taskDelegate: TaskDelegate
+    @EnvironmentObject var preferenceController: PreferenceController
+    @EnvironmentObject var jiraController: JiraController
     var id: String
     var task: TaskModel
+    @State var jiraCardDetail: JiraCardDetail? = nil
     
     var body: some View {
         VStack {
@@ -22,6 +25,9 @@ struct TaskDetailView: View {
             }
             
             taskDetail
+            
+            
+            jiraDetail
             
             HStack {
                 Button {
@@ -50,6 +56,24 @@ struct TaskDetailView: View {
             }
         }
     }
+    
+    var jiraDetail: some View {
+        VStack(alignment: .leading) {
+            if task.jiraCard?.isEmpty == false {
+                VStack(alignment: .leading) {
+                    Text(jiraCardDetail?.summary ?? "")
+                }
+                .frame(maxWidth: .infinity)
+                .onAppear {
+                    jiraController.loadStatuses()
+                    jiraController.loadIssueDetail(by: task.jiraCard!) { detail in
+                        jiraCardDetail = detail
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 struct TaskDetailView_Previews: PreviewProvider {
@@ -57,6 +81,9 @@ struct TaskDetailView_Previews: PreviewProvider {
         let task = TaskModel(title: "Some teng", timestamp: "")
         let date = Date.now
         task.timestamp = date.ISO8601Format()
+        task.jiraCard = "PBI-534"
         return TaskDetailView(id: task.id, task: task)
+            .environmentObject(PreferenceController.instance)
+            .environmentObject(JiraController.instance)
     }
 }

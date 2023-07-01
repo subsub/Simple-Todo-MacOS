@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-private let jsonEncoder = JSONEncoder()
-private let jsonDecoder = JSONDecoder()
-
-class UserDefaultsDelegates: ObservableObject {
+class TaskDelegate: CodableUtil, ObservableObject {
     
-    static let instance = UserDefaultsDelegates()
+    static let instance = TaskDelegate()
+    
+    @AppStorage("tasks") var rawTasks: String = ""
+    @Published var taskModel: [TaskModel] = []
+    
+    override init() {
+        super.init()
+        self.loadTasks()
+    }
     
     func uncompletedTask() -> [TaskModel] {
         taskModel.filter { task in
@@ -44,15 +49,8 @@ class UserDefaultsDelegates: ObservableObject {
         overdueTasks().count
     }
     
-    @AppStorage("tasks") var rawTasks: String = ""
-    @Published var taskModel: [TaskModel] = []
-    
-    init() {
-        loadTasks()
-    }
-    
     func loadTasks() {
-        self.taskModel = decodeTasks()
+        self.taskModel = decode(taskModel, from: rawTasks) ?? taskModel
     }
     
     func getTask(by id: String) -> TaskModel? {
@@ -98,37 +96,10 @@ class UserDefaultsDelegates: ObservableObject {
     }
     
     private func save() {
-        guard let taskJson = encodeTasks() else {
+        guard let taskJson = encode(data: taskModel) else {
             return
         }
         
         rawTasks = taskJson
     }
-    
-    private func encodeTasks() -> String? {
-        do {
-            let jsonData = try jsonEncoder.encode(taskModel)
-            let json = String(data: jsonData, encoding: String.Encoding.utf8)
-            print(">> encodeTasks: \(String(describing: json))")
-            return json
-        } catch {
-            print(">> Failed encode tasks")
-        }
-        return nil
-    }
-    
-    private func decodeTasks() -> [TaskModel] {
-        do {
-            guard let jsonData = rawTasks.data(using: String.Encoding.utf8) else {
-                return []
-            }
-            let task = try jsonDecoder.decode([TaskModel].self, from: jsonData)
-            print(">> decodeTasks: \(task)")
-            return task
-        } catch {
-            print(">> Failed to decode Tasks")
-        }
-        return []
-    }
-    
 }

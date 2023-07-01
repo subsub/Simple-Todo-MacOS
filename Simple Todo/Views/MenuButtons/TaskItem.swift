@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskItem: View {
-    @EnvironmentObject var taskDelegate: UserDefaultsDelegates
+    @EnvironmentObject var taskDelegate: TaskDelegate
     
     var task: TaskModel
     @State var isCompleted: Bool
@@ -53,16 +53,25 @@ struct TaskItem: View {
             MyNavigationLink(id: task.id) {
                 HStack {
                     VStack {
+                        if task.jiraCard?.isEmpty == false {
+                            Text("[\(task.jiraCard!)]")
+                                .fontWeight(.semibold)
+                                .font(.system(size: 12))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+
                         Text(task.title)
                             .strikethrough(task.status == .completed)
                             .contrast(task.status == .completed && !isContentHovered ? 0.1 : 1.0)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
                         if !task.timestamp.isEmpty {
                             HStack {
                                 if task.isOverdue() && task.status != .completed {
-                                    Text("‼️")
+                                    Text("❗️")
                                         .font(.system(size: 11))
+                                } else {
+                                    Text("🔔")
+                                        .font(.system(size: 10))
                                 }
                                 Text(task.formattedDate())
                                     .font(.system(size: 11))
@@ -99,9 +108,11 @@ struct TaskItem_Previews: PreviewProvider {
         task.status = .created
         let date = Date.now
         task.timestamp = date.ISO8601Format()
+        task.jiraCard = "PBI-534"
         return TaskItem(
             task: task,
             isCompleted: task.status == .completed)
         .environmentObject(MyNavigationState())
+        .environmentObject(TaskDelegate.instance)
     }
 }

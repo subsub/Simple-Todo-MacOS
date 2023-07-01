@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58C19EA52A506751004C36FE /* JiraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C19EA42A506751004C36FE /* JiraController.swift */; };
+		58C19EA72A506868004C36FE /* JiraCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C19EA62A506868004C36FE /* JiraCardDetail.swift */; };
+		58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C342A50186C00CAA3C4 /* MyMenuButton.swift */; };
+		58E25C372A501BC900CAA3C4 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C362A501BC900CAA3C4 /* PreferenceButton.swift */; };
+		58E25C392A501BFD00CAA3C4 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C382A501BFD00CAA3C4 /* PreferenceView.swift */; };
+		58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C3A2A50474C00CAA3C4 /* PreferenceController.swift */; };
+		58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C3C2A50478100CAA3C4 /* UserPreference.swift */; };
+		58E25C402A50484100CAA3C4 /* CodableUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C3F2A50484100CAA3C4 /* CodableUtil.swift */; };
+		58E25C422A504E3C00CAA3C4 /* JiraAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C412A504E3C00CAA3C4 /* JiraAuthenticationView.swift */; };
+		58E25C442A5056AE00CAA3C4 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C432A5056AE00CAA3C4 /* String+extension.swift */; };
 		B20A6D732A4DF5EA00DCC582 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */; };
 		B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */; };
 		B20A6D772A4E12E400DCC582 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */; };
@@ -50,6 +60,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58C19EA42A506751004C36FE /* JiraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraController.swift; sourceTree = "<group>"; };
+		58C19EA62A506868004C36FE /* JiraCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraCardDetail.swift; sourceTree = "<group>"; };
+		58E25C342A50186C00CAA3C4 /* MyMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuButton.swift; sourceTree = "<group>"; };
+		58E25C362A501BC900CAA3C4 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
+		58E25C382A501BFD00CAA3C4 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		58E25C3A2A50474C00CAA3C4 /* PreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceController.swift; sourceTree = "<group>"; };
+		58E25C3C2A50478100CAA3C4 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
+		58E25C3F2A50484100CAA3C4 /* CodableUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableUtil.swift; sourceTree = "<group>"; };
+		58E25C412A504E3C00CAA3C4 /* JiraAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraAuthenticationView.swift; sourceTree = "<group>"; };
+		58E25C432A5056AE00CAA3C4 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
@@ -105,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58E25C3E2A50482300CAA3C4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				58E25C3F2A50484100CAA3C4 /* CodableUtil.swift */,
+				58E25C432A5056AE00CAA3C4 /* String+extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B20A6D712A4DF5D500DCC582 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +141,8 @@
 				B22B4A1B2A4E9269002F205D /* MyNavigationController.swift */,
 				B22B4A202A4EBD2B002F205D /* NotificationController.swift */,
 				B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */,
+				58E25C3A2A50474C00CAA3C4 /* PreferenceController.swift */,
+				58C19EA42A506751004C36FE /* JiraController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -129,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				B22B4A1E2A4EB60E002F205D /* MyNavigationBar.swift */,
+				58E25C342A50186C00CAA3C4 /* MyMenuButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -156,6 +188,7 @@
 		B23F96102A4DC80300394187 /* Simple Todo */ = {
 			isa = PBXGroup;
 			children = (
+				58E25C3E2A50482300CAA3C4 /* Utils */,
 				B20A6D712A4DF5D500DCC582 /* Controllers */,
 				B23F964D2A4DE98200394187 /* Models */,
 				B23F96412A4DCA0700394187 /* Views */,
@@ -202,6 +235,8 @@
 				B23F96482A4DE4E900394187 /* MenuButtons */,
 				B23F963F2A4DCA0300394187 /* MainMenuView.swift */,
 				B23F96422A4DCEAB00394187 /* StatusMenuView.swift */,
+				58E25C382A501BFD00CAA3C4 /* PreferenceView.swift */,
+				58E25C412A504E3C00CAA3C4 /* JiraAuthenticationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +250,7 @@
 				B22B4A192A4E1CDC002F205D /* ClearButton.swift */,
 				B22B4A262A4F2858002F205D /* QuitButton.swift */,
 				B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */,
+				58E25C362A501BC900CAA3C4 /* PreferenceButton.swift */,
 			);
 			path = MenuButtons;
 			sourceTree = "<group>";
@@ -223,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				B23F964E2A4DE99100394187 /* TaskModel.swift */,
+				58E25C3C2A50478100CAA3C4 /* UserPreference.swift */,
+				58C19EA62A506868004C36FE /* JiraCardDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -359,22 +397,32 @@
 			files = (
 				B23F964C2A4DE8B400394187 /* TaskList.swift in Sources */,
 				B23F96452A4DD2AE00394187 /* NewTaskView.swift in Sources */,
+				58C19EA72A506868004C36FE /* JiraCardDetail.swift in Sources */,
 				B20A6D732A4DF5EA00DCC582 /* UserDefaultsController.swift in Sources */,
 				B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */,
 				B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */,
 				B23F964A2A4DE50000394187 /* NewTaskButton.swift in Sources */,
 				B20A6D772A4E12E400DCC582 /* TaskDetailView.swift in Sources */,
 				B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */,
+				58E25C372A501BC900CAA3C4 /* PreferenceButton.swift in Sources */,
+				58E25C402A50484100CAA3C4 /* CodableUtil.swift in Sources */,
 				B22B4A1A2A4E1CDC002F205D /* ClearButton.swift in Sources */,
+				58C19EA52A506751004C36FE /* JiraController.swift in Sources */,
 				B23F96402A4DCA0300394187 /* MainMenuView.swift in Sources */,
+				58E25C442A5056AE00CAA3C4 /* String+extension.swift in Sources */,
+				58E25C422A504E3C00CAA3C4 /* JiraAuthenticationView.swift in Sources */,
 				B22B4A1F2A4EB60E002F205D /* MyNavigationBar.swift in Sources */,
 				B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */,
+				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
+				58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */,
+				58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */,
 				B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */,
 				B22B4A212A4EBD2B002F205D /* NotificationController.swift in Sources */,
 				B22B4A1C2A4E9269002F205D /* MyNavigationController.swift in Sources */,
 				B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */,
 				B23F96432A4DCEAB00394187 /* StatusMenuView.swift in Sources */,
 				B23F964F2A4DE99100394187 /* TaskModel.swift in Sources */,
+				58E25C392A501BFD00CAA3C4 /* PreferenceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
