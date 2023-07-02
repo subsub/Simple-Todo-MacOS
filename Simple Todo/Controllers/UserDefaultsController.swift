@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-class TaskDelegate: CodableUtil, ObservableObject {
+class TaskDelegate: ObservableObject {
     
     static let instance = TaskDelegate()
     
     @AppStorage("tasks") var rawTasks: String = ""
     @Published var taskModel: [TaskModel] = []
     
-    override init() {
-        super.init()
+    init() {
         self.loadTasks()
     }
     

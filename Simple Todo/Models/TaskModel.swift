@@ -42,11 +42,7 @@ class TaskModel: Codable, Identifiable {
     }
     
     func formattedDate() -> String {
-        guard let originDate = ISO8601DateFormatter().date(from: timestamp) else {
-            return ""
-        }
-        
-        return originDate.formatted(date: .abbreviated, time: .shortened)
+        return timestamp.asFormattedDate()
     }
     
     func isOverdue() -> Bool {

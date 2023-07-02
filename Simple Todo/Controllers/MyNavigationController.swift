@@ -79,6 +79,8 @@ struct MyNavigationLink: View {
         .background(
                 isHovered ? focusColor : .clear
         )
+        .cornerRadius(4)
+        .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
         .onHover { hovered in
             isHovered = hovered
         }

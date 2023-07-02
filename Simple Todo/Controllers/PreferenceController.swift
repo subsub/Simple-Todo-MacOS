@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-class PreferenceController: CodableUtil, ObservableObject {
+class PreferenceController: ObservableObject {
     static let instance = PreferenceController()
     
     @AppStorage("user-preference") var rawPreferences: String = ""
     @Published var preference: UserPreference = UserPreference()
     
-    override init() {
-        super.init()
+    init() {
         self.load()
     }
     

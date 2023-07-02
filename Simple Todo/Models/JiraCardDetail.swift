@@ -7,17 +7,20 @@
 
 import SwiftUI
 
-class JiraCardDetail: CodableUtil, Codable {
+class JiraCardDetail: Codable {
     var summary: String?
     var description: String?
     var labels: [String]?
     var reporterName: String?
     var status: String?
+    var statusId: String?
+    var transitionId: String?
     var priority: String?
     var dueDate: String?
     var createdAt: String?
     var parentId: String?
     var parentSummary: String?
+    var issueType: String?
     
     convenience init(from data: Data) {
         self.init()
@@ -31,8 +34,9 @@ class JiraCardDetail: CodableUtil, Codable {
         if let reporter = fields["reporter"] as? [String: Any], let reporterName = reporter["displayName"] as? String {
             self.reporterName = reporterName
         }
-        if let status = fields["status"] as? [String: Any], let statusName = status["name"] as? String {
+        if let status = fields["status"] as? [String: Any], let statusName = status["name"] as? String, let statusId = status["id"] as? String {
             self.status = statusName
+            self.statusId = statusId
         }
         if let priority = fields["priority"] as? [String: Any], let priorityName = priority["name"] as? String {
             self.priority = priorityName
@@ -44,6 +48,9 @@ class JiraCardDetail: CodableUtil, Codable {
             if let parentFields = parent["fields"] as? [String: Any], let parentSummary = parentFields["summary"] as? String {
                 self.parentSummary = parentSummary
             }
+        }
+        if let issueType = fields["issuetype"] as? [String: Any], let issueTypeId = issueType["id"] as? String {
+            self.issueType = issueTypeId
         }
     }
 }

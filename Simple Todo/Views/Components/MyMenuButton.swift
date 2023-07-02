@@ -40,6 +40,8 @@ struct MyMenuButton: View {
         .background(
             isHovered ? .blue : .clear
         )
+        .cornerRadius(4)
+        .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
         .buttonStyle(.plain)
         .onHover { hovered in
             isHovered = hovered

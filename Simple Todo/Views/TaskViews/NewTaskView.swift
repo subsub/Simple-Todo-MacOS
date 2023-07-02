@@ -77,6 +77,7 @@ struct NewTaskView: View {
                 isReminder = !task.timestamp.isEmpty
                 selectedDate = task.asDate()
                 displayDate = task.asDate() ?? .now
+                jiraId = task.jiraCard ?? ""
                 self.taskId = task.id
             }
             
