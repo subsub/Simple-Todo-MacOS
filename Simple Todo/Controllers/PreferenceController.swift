@@ -25,6 +25,7 @@ class PreferenceController: ObservableObject {
         let base64 = "\(username):\(apiKey)".toBase64()
         preference.jiraAuthenticationKey = base64
         preference.jiraServerUrl = host
+        preference.jiraEmail = username
         save()
     }
     

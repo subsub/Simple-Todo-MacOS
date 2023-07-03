@@ -35,6 +35,7 @@ struct MainMenuView: View {
                 
                 QuitButton()
             }
+            .frame(maxHeight: .infinity, alignment: .topLeading)
         }
         .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
         .onAppear {

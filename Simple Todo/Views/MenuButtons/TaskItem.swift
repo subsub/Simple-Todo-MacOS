@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TaskItem: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
+    @EnvironmentObject var jiraController: JiraController
     
     var task: TaskModel
     @State var isCompleted: Bool
@@ -43,7 +44,7 @@ struct TaskItem: View {
                         }
                     }
                 }
-                    .foregroundColor(isCheckmarkHovered ? .blue : nil)
+                .foregroundColor(isCheckmarkHovered ? .blue : nil)
             }
             .buttonStyle(.plain)
             .onHover { hovered in
@@ -54,30 +55,33 @@ struct TaskItem: View {
                 HStack {
                     VStack {
                         if task.jiraCard?.isEmpty == false {
-                            Text("[\(task.jiraCard!)]")
-                                .fontWeight(.semibold)
-                                .font(.system(size: 12))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-
-                        Text(task.title)
-                            .strikethrough(task.status == .completed)
-                            .contrast(task.status == .completed && !isContentHovered ? 0.1 : 1.0)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        if !task.timestamp.isEmpty {
                             HStack {
-                                if task.isOverdue() && task.status != .completed {
-                                    Text("❗️")
+                                Text("[\(task.jiraCard!)]")
+                                    .foregroundColor(ColorTheme.instance.textDefault)
+                                    .font(.system(size: 12))
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        VStack {
+                            Text(task.title)
+                                .strikethrough(task.status == .completed)
+                                .contrast(task.status == .completed && !isContentHovered ? 0.1 : 1.0)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            if !task.timestamp.isEmpty {
+                                HStack {
+                                    if task.isOverdue() && task.status != .completed {
+                                        Text("❗️")
+                                            .font(.system(size: 11))
+                                    } else {
+                                        Text("🔔")
+                                            .font(.system(size: 10))
+                                    }
+                                    Text(task.formattedDate())
                                         .font(.system(size: 11))
-                                } else {
-                                    Text("🔔")
-                                        .font(.system(size: 10))
+                                        .foregroundColor(task.isOverdue() ? .red : nil)
+                                        .contrast(task.status == .completed && !isContentHovered ? 0.1 : 0.8)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                 }
-                                Text(task.formattedDate())
-                                    .font(.system(size: 11))
-                                    .foregroundColor(task.isOverdue() ? .red : nil)
-                                    .contrast(task.status == .completed && !isContentHovered ? 0.1 : 0.8)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
                     }
@@ -114,5 +118,6 @@ struct TaskItem_Previews: PreviewProvider {
             isCompleted: task.status == .completed)
         .environmentObject(MyNavigationState())
         .environmentObject(TaskDelegate.instance)
+        .environmentObject(JiraController.instance)
     }
 }

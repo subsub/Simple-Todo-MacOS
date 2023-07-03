@@ -12,6 +12,7 @@ struct NewTaskView: View {
     @EnvironmentObject var navigationState: MyNavigationState
     @EnvironmentObject var notificationController: NotificationController
     @EnvironmentObject var preferenceController: PreferenceController
+    @EnvironmentObject var jiraController: JiraController
     @State var taskTitle: String = ""
     @State var isReminder: Bool = false
     @State var displayDate: Date = .now
@@ -19,6 +20,8 @@ struct NewTaskView: View {
     @State var navbarTitle: String = "Create New Task"
     @State var taskId: String? = nil
     @State var jiraId: String = ""
+    @State var isLoading: Bool = false
+    @State var cardTitle: String = ""
     
     var body: some View {
         VStack {
@@ -96,9 +99,38 @@ struct NewTaskView: View {
     }
     
     var jiraIntegrationView: some View {
-        HStack {
-            Text("Jira Card")
-            TextField("Jira Card", text: $jiraId)
+        VStack {
+            HStack {
+                Text("Jira Card")
+                TextField("Jira Card", text: $jiraId)
+//                Button("Check") {
+//                    if !jiraId.isEmpty {
+//                        isLoading = true
+//                        jiraController.loadIssueDetail(by: jiraId) { detail in
+//                            if detail == nil {
+//                                cardTitle = "No issue found with key \(jiraId)"
+//                            } else {
+//                                cardTitle = "[\(String(describing: detail!.key))] \(String(describing: detail!.summary))"
+//                            }
+//                            isLoading = false
+//                        }
+//                    } else {
+//                        cardTitle = ""
+//                    }
+//                }
+            }
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(.circular)
+                    .scaleEffect(0.5)
+            } else {
+                HStack {
+                    Text("Jira Card")
+                        .opacity(0)
+                    Text(cardTitle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
         }
         .padding(defaultPadding)
     }

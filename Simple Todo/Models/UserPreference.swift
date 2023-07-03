@@ -10,4 +10,5 @@ import Foundation
 struct UserPreference: Codable {
     var jiraAuthenticationKey: String?
     var jiraServerUrl: String?
+    var jiraEmail: String?
 }

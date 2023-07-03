@@ -13,6 +13,7 @@ struct NewTaskButton: View {
     var body: some View {
         MyNavigationLink(id: "new-task") {
             Text("New Task")
+                .foregroundColor(ColorTheme.instance.textDefault)
         } destination: {
             NewTaskView()
         }

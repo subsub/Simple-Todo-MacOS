@@ -54,8 +54,20 @@ class TransitionTo: Codable, Identifiable {
     var id: String
     var name: String
     var statusCategory: StatusCategory
+    
+    init(id: String, name: String, statusCategory: StatusCategory) {
+        self.id = id
+        self.name = name
+        self.statusCategory = statusCategory
+    }
+    
+    static let empty = TransitionTo(id: "", name: "", statusCategory: StatusCategory(id: 0))
 }
 
 class StatusCategory: Codable, Identifiable {
     var id: Int
+    
+    init(id: Int) {
+        self.id = id
+    }
 }
