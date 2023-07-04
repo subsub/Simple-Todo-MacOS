@@ -15,6 +15,7 @@ protocol ColorDelegate {
     var textInactive: Color { get }
     var textButtonDefault: Color { get }
     var textButtonInactive: Color { get }
+    var warning: Color { get }
 }
 
 struct ColorTheme: ColorDelegate {
@@ -36,4 +37,7 @@ struct ColorTheme: ColorDelegate {
         get { .init(light: .init(hex: "#ffadadad"), dark: .init(hex: "#ff191919")) }
     }
     
+    var warning: Color {
+        get { .init(light: .init(hex: "#ffa82a00"), dark: .init(hex: "#ffff602b"))}
+    }
 }

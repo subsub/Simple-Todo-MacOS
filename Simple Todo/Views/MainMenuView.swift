@@ -10,32 +10,51 @@ import SwiftUI
 struct MainMenuView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var notificationController: NotificationController
+    @EnvironmentObject var preferenceController: PreferenceController
     @State var keyObserver: NSKeyValueObservation?
     
     var body: some View {
         MyNavigationController {
             VStack {
-                NewTaskButton()
+                VStack {
+                    NewTaskButton()
+                    
+                    Divider()
+                    
+                    // disable for now
+                    if preferenceController.hasJiraAuthKey() && false {
+                        IssueTrackerButton()
+                        
+                        Divider()
+                    }
+                }
                 
-                Divider()
+                VStack {
+                    
+                    TaskList()
+                    
+                    Divider()
+                    
+                    DeleteAllDoneButton()
+                    
+                    ClearButton()
+                    
+                    Divider()
+                }
                 
-                TaskList()
+                VStack {
+                    
+                    PreferenceButton()
+                    
+                    Divider()
+                    
+                    QuitButton()
+                    
+                }
                 
-                Divider()
+                Spacer()
                 
-                DeleteAllDoneButton()
-                
-                ClearButton()
-                
-                Divider()
-                
-                PreferenceButton()
-                
-                Divider()
-                
-                QuitButton()
             }
-            .frame(maxHeight: .infinity, alignment: .topLeading)
         }
         .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
         .onAppear {
@@ -53,5 +72,6 @@ struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuView()
             .environmentObject(TaskDelegate.instance)
+            .environmentObject(PreferenceController.instance)
     }
 }

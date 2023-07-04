@@ -22,23 +22,29 @@ enum ToastType {
 }
 
 struct MyToast: View {
-    @State var isShowing: Bool
+    @Binding var isShowing: Bool
     var title: String
     var type: ToastType
     
     var body: some View {
-        HStack {
+        VStack {
             if isShowing {
                 Text(title)
                     .padding(defaultPadding)
                     .background(type.backgroundColor())
-                    .transition(.move(edge: .top))
+                    .cornerRadius(4)
                     .onAppear {
-                        delay()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            withAnimation {
+                                isShowing = false
+                            }
+                        }
                     }
             }
         }
+        .transition(.move(edge: .top))
         .cornerRadius(8)
+        .frame(maxHeight: .infinity, alignment: .topLeading)
     }
     
     func delay() {
@@ -52,6 +58,6 @@ struct MyToast: View {
 
 struct MyToast_Previews: PreviewProvider {
     static var previews: some View {
-        MyToast(isShowing: true, title: "Something", type: .Success)
+        MyToast(isShowing: .constant(true), title: "Something", type: .Success)
     }
 }

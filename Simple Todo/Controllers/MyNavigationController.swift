@@ -71,6 +71,7 @@ struct MyNavigationLink: View {
         } label: {
             HStack {
                 content
+                    .foregroundColor(ColorTheme.instance.textDefault)
                 Spacer()
             }.padding(defaultPadding)
                 .contentShape(Rectangle())

@@ -21,56 +21,79 @@ struct NewTaskView: View {
     @State var taskId: String? = nil
     @State var jiraId: String = ""
     @State var isLoading: Bool = false
-    @State var cardTitle: String = ""
+    @State var message: String = ""
+    @State var shouldShowToast: Bool = false
     
     var body: some View {
         VStack {
             MyNavigationBar(title: navbarTitle, confirmText: "Save", confirmButtonEnabled: !taskTitle.isEmpty) {
+                if isLoading {
+                    return
+                }
                 navigationState.popTo(id: nil)
             } onConfirmButton: {
+                
                 let task = TaskModel(
                     title: taskTitle,
                     timestamp: "")
+                
                 if let taskId = taskId {
                     task.id = taskId
                 }
+                
                 if !jiraId.isEmpty {
-                    task.setJiraCard(jiraId)
-                }
-                
-                if isReminder {
-                    selectedDate = displayDate
-                    task.timestamp = selectedDate?.ISO8601Format() ?? ""
-                    notificationController.scheduleNotificationFor(task: task)
+                    isLoading = true
+                    jiraController.loadIssueDetail(by: jiraId) { jiraDetail in
+                        isLoading = false
+                        guard let detail = jiraDetail else {
+                            message = "Issue not found: \(jiraId)"
+                            withAnimation {
+                                shouldShowToast = true
+                            }
+                            return
+                        }
+                        task.setJiraCard(jiraId)
+                        task.jiraStatus = detail.status
+                        save(task: task)
+                    }
                 } else {
-                    notificationController.removeNotifications([task.id])
+                    isLoading = false
+                    save(task: task)
                 }
-                
-                taskDelegate.saveTask(task)
-                navigationState.popTo(id: nil)
             }
             
-            TextField("Task", text: $taskTitle)
-                .padding(defaultPadding)
-            
-            Divider()
-            
-            Toggle(isOn: $isReminder) {
-                HStack{
-                    Text("Remind me")
-                    Spacer()
+            ZStack {
+                VStack {
+                    TextField("Task", text: $taskTitle)
+                        .padding(defaultPadding)
+                    
+                    Divider()
+                    
+                    Toggle(isOn: $isReminder) {
+                        HStack{
+                            Text("Remind me")
+                            Spacer()
+                        }
+                    }.toggleStyle(.switch)
+                        .padding(defaultPadding)
+                    
+                    
+                    reminderView
+                        .padding(defaultPadding)
+                    
+                    if preferenceController.hasJiraAuthKey() {
+                        Divider()
+                        
+                        jiraIntegrationView
+                    }
                 }
-            }.toggleStyle(.switch)
-                .padding(defaultPadding)
-            
-            
-            reminderView
-                .padding(defaultPadding)
-            
-            if preferenceController.hasJiraAuthKey() {
-                Divider()
                 
-                jiraIntegrationView
+                if isLoading {
+                    ProgressView()
+                }
+                
+                MyToast(isShowing: $shouldShowToast, title: message, type: .Error)
+                
             }
         }
         .onAppear{
@@ -85,6 +108,19 @@ struct NewTaskView: View {
             }
             
         }
+    }
+    
+    func save(task: TaskModel) {
+        if isReminder {
+            selectedDate = displayDate
+            task.timestamp = selectedDate?.ISO8601Format() ?? ""
+            notificationController.scheduleNotificationFor(task: task)
+        } else {
+            notificationController.removeNotifications([task.id])
+        }
+        
+        taskDelegate.saveTask(task)
+        navigationState.popTo(id: nil)
     }
     
     var reminderView: some View {
@@ -103,33 +139,6 @@ struct NewTaskView: View {
             HStack {
                 Text("Jira Card")
                 TextField("Jira Card", text: $jiraId)
-//                Button("Check") {
-//                    if !jiraId.isEmpty {
-//                        isLoading = true
-//                        jiraController.loadIssueDetail(by: jiraId) { detail in
-//                            if detail == nil {
-//                                cardTitle = "No issue found with key \(jiraId)"
-//                            } else {
-//                                cardTitle = "[\(String(describing: detail!.key))] \(String(describing: detail!.summary))"
-//                            }
-//                            isLoading = false
-//                        }
-//                    } else {
-//                        cardTitle = ""
-//                    }
-//                }
-            }
-            if isLoading {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .scaleEffect(0.5)
-            } else {
-                HStack {
-                    Text("Jira Card")
-                        .opacity(0)
-                    Text(cardTitle)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
             }
         }
         .padding(defaultPadding)

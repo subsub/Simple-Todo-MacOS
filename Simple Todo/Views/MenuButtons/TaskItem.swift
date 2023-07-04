@@ -14,7 +14,6 @@ struct TaskItem: View {
     var task: TaskModel
     @State var isCompleted: Bool
     @State var isCheckmarkHovered: Bool = false
-    @State var isContentHovered: Bool = false
     
     init(task: TaskModel, isCompleted: Bool) {
         self.task = task
@@ -59,13 +58,21 @@ struct TaskItem: View {
                                 Text("[\(task.jiraCard!)]")
                                     .foregroundColor(ColorTheme.instance.textDefault)
                                     .font(.system(size: 12))
+                                if let jiraStatus = task.jiraStatus, !jiraStatus.isEmpty {
+                                    Text(jiraStatus)
+                                        .font(.system(size: 10))
+                                        .foregroundColor(ColorTheme.instance.textDefault)
+                                        .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
+                                        .background(ColorTheme.instance.textButtonInactive.opacity(0.5))
+                                        .cornerRadius(4)
+                                }
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         VStack {
                             Text(task.title)
+                                .foregroundColor(ColorTheme.instance.textDefault)
                                 .strikethrough(task.status == .completed)
-                                .contrast(task.status == .completed && !isContentHovered ? 0.1 : 1.0)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             if !task.timestamp.isEmpty {
                                 HStack {
@@ -78,8 +85,7 @@ struct TaskItem: View {
                                     }
                                     Text(task.formattedDate())
                                         .font(.system(size: 11))
-                                        .foregroundColor(task.isOverdue() ? .red : nil)
-                                        .contrast(task.status == .completed && !isContentHovered ? 0.1 : 0.8)
+                                        .foregroundColor(task.isOverdue() ? ColorTheme.instance.warning : nil)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
@@ -92,10 +98,6 @@ struct TaskItem: View {
                 }
                 .padding(smallPadding)
                 .contentShape(Rectangle())
-                .onHover { hovered in
-                    isContentHovered = hovered
-                }
-                
             } destination: {
                 TaskDetailView(id: task.id, task: task)
             }
@@ -113,6 +115,7 @@ struct TaskItem_Previews: PreviewProvider {
         let date = Date.now
         task.timestamp = date.ISO8601Format()
         task.jiraCard = "PBI-534"
+        task.jiraStatus = "Devbox Done"
         return TaskItem(
             task: task,
             isCompleted: task.status == .completed)

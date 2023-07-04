@@ -21,6 +21,7 @@ struct TaskDetailView: View {
     @State var currentStatus: String = ""
     @State var isUpdateSuccess: Bool = true
     @State var updateResponse: String = ""
+    @State var shouldShowToast: Bool = false
     
     var body: some View {
         ScrollView {
@@ -35,27 +36,12 @@ struct TaskDetailView: View {
                     VStack {
                         taskDetail
                         
-                        jiraDetail
+                        if preferenceController.hasJiraAuthKey() && task.jiraCard?.isEmpty == false {
+                            jiraDetail
+                        }
                         
                     }
-                    VStack {
-                        if !updateResponse.isEmpty {
-                            Text(updateResponse)
-                                .padding(defaultPadding)
-                                .background((isUpdateSuccess ? ToastType.Success : ToastType.Error).backgroundColor())
-                                .transition(.move(edge: .top))
-                                .cornerRadius(4)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                        withAnimation {
-                                            updateResponse = ""
-                                        }
-                                    }
-                                }
-                        }
-                        //                        MyToast(isShowing: !updateResponse.isEmpty, title: updateResponse, type: isUpdateSuccess ? .Success : .Error)
-                    }
-                    .frame(maxHeight: .infinity, alignment: .topLeading)
+                    MyToast(isShowing: $shouldShowToast, title: updateResponse, type: isUpdateSuccess ? .Success : .Error)
                     
                 }
                 
@@ -81,10 +67,8 @@ struct TaskDetailView: View {
             HStack {
                 Text("Title")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Due At")
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Status")
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: 150, alignment: .leading)
             }
             .padding(EdgeInsets(top: 8, leading: 0, bottom: 4, trailing: 0))
             .frame(maxWidth: .infinity)
@@ -92,10 +76,8 @@ struct TaskDetailView: View {
             HStack {
                 Text(task.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(task.formattedDate())
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text(String(describing: task.status))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: 150, alignment: .leading)
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 8, trailing: 0))
             .frame(maxWidth: .infinity)
@@ -149,13 +131,32 @@ struct TaskDetailView: View {
                 Divider()
                 
                 VStack {
+                    
+                    // MARK: open in browser link
+                    if let host = preferenceController.preference.jiraServerUrl, let path = jiraCardDetail?.browseUrl(host: host), let url = URL(string: path) {
+                        Link(destination: url) {
+                            HStack {
+                                Text("Open in browser")
+                                    .font(.system(size: 10))
+                                    .foregroundColor(ColorTheme.instance.textButtonDefault)
+                                Spacer()
+                                Image(systemName: "arrow.up.right")
+                                    .foregroundColor(ColorTheme.instance.textButtonDefault)
+                                    .scaleEffect(0.8)
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    // end link
+                    
                     // MARK: transition
                     Text("Status")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
                     Picker("", selection: $currentStatus) {
                         ForEach(transitions) { status in
-                            if status.id == jiraCardDetail?.statusId {
+                            if status.id == jiraCardDetail?.statusId || status.id == jiraCardDetail?.transitionId {
                                 Text(status.name)
                                     .tag(status.id)
                             } else {
@@ -176,13 +177,16 @@ struct TaskDetailView: View {
                             isLoading = true
                             jiraController.updateIssueStatus(by: task.jiraCard!, to: selectedTransition) { success in
                                 withAnimation {
-                                    isLoading = false
                                     isUpdateSuccess = success
+                                    shouldShowToast = true
                                     if success {
                                         jiraCardDetail?.transitionId = newStatus
                                         updateResponse = "Transition set to \(selectedTransition.name)"
+                                        currentStatus = ""
+                                        loadIssueDetail()
                                     } else {
                                         updateResponse = "Failed to set Transition"
+                                        isLoading = false
                                     }
                                 }
                             }
@@ -199,13 +203,13 @@ struct TaskDetailView: View {
                             Text("Assignee:")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             HStack {
-                                    AsyncImage(url: URL(string: jiraCardDetail?.assigneeAvatar ?? ""))
-                                        .frame(width: 16, height: 16)
-                                        .clipShape(Circle())
-                                    Text(assignee)
-                                    if preferenceController.preference.jiraEmail == jiraCardDetail?.assigneeEmail {
-                                        Text("(Me)")
-                                    }
+                                AsyncImage(url: URL(string: jiraCardDetail?.assigneeAvatar ?? ""))
+                                    .frame(width: 16, height: 16)
+                                    .clipShape(Circle())
+                                Text(assignee)
+                                if preferenceController.preference.jiraEmail == jiraCardDetail?.assigneeEmail {
+                                    Text("(Me)")
+                                }
                                 
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -240,24 +244,40 @@ struct TaskDetailView: View {
         .padding(8.0)
         .onAppear {
             isLoading = true
-            jiraController.loadIssueDetail(by: task.jiraCard!) { detail in
-                jiraCardDetail = detail
-                if detail != nil && detail!.issueType != nil {
-                    jiraController.loadTransition(by: task.jiraCard!, of: detail!.issueType!) { transitions in
-                        self.transitions = transitions ?? []
-                        self.jiraCardDetail?.transitionId = self.transitions.first { tr in
-                            tr.to.id == detail!.statusId
-                        }?.id
-                        if (currentStatus.isEmpty && jiraCardDetail?.statusId?.isEmpty == false) {
-                            self.transitions.insert(JiraTransition(id: jiraCardDetail?.statusId! ?? "", name: jiraCardDetail?.status ?? "", hasScreen: false, isGlobal: false, isInitial: true, isConditional: true, isLooped: false, to: TransitionTo.empty), at: 0)
-                        }
-                        currentStatus = self.jiraCardDetail?.transitionId ?? jiraCardDetail?.statusId ?? ""
-                        isLoading = false
-                    }
-                } else {
-                    isLoading = false
-                }
+            loadIssueDetail()
+        }
+    }
+    
+    func loadIssueDetail() {
+        jiraController.loadIssueDetail(by: task.jiraCard!) { detail in
+            self.jiraCardDetail = detail
+            self.task.jiraStatus = detail?.status
+            self.taskDelegate.saveTask(task)
+            if detail != nil && detail!.issueType != nil {
+                self.loadTransition()
+            } else {
+                isLoading = false
             }
+        }
+    }
+    
+    func loadTransition() {
+        guard let detail = jiraCardDetail else {
+            isLoading = false
+            return
+        }
+        
+        jiraController.loadTransition(by: task.jiraCard!) { transitions in
+            self.transitions.removeAll()
+            self.transitions = transitions ?? []
+            self.jiraCardDetail?.transitionId = self.transitions.first { tr in
+                tr.to.id == detail.statusId
+            }?.id
+            if (currentStatus.isEmpty && jiraCardDetail?.statusId?.isEmpty == false) {
+                self.transitions.insert(JiraTransition(id: jiraCardDetail?.statusId! ?? "", name: jiraCardDetail?.status ?? "", hasScreen: false, isGlobal: false, isInitial: true, isConditional: true, isLooped: false, to: TransitionTo.empty), at: 0)
+            }
+            currentStatus = self.jiraCardDetail?.transitionId ?? jiraCardDetail?.statusId ?? ""
+            isLoading = false
         }
     }
     

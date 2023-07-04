@@ -28,6 +28,7 @@
 		B22B4A212A4EBD2B002F205D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A202A4EBD2B002F205D /* NotificationController.swift */; };
 		B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A242A4F16AE002F205D /* AppDelegate.swift */; };
 		B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A262A4F2858002F205D /* QuitButton.swift */; };
+		B23622682A5441CB005ECEC7 /* TaskComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23622672A5441CB005ECEC7 /* TaskComment.swift */; };
 		B23B3B4F2A51E72900CEF418 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B4E2A51E72900CEF418 /* Constants.swift */; };
 		B23B3B512A51E7A500CEF418 /* MyToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B502A51E7A500CEF418 /* MyToast.swift */; };
 		B23B3B532A51EA2200CEF418 /* Color+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B522A51EA2200CEF418 /* Color+extension.swift */; };
@@ -43,6 +44,8 @@
 		B23F964A2A4DE50000394187 /* NewTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F96492A4DE50000394187 /* NewTaskButton.swift */; };
 		B23F964C2A4DE8B400394187 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F964B2A4DE8B400394187 /* TaskList.swift */; };
 		B23F964F2A4DE99100394187 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F964E2A4DE99100394187 /* TaskModel.swift */; };
+		B24FBD922A534A8400D4D4E5 /* IssueTrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FBD912A534A8400D4D4E5 /* IssueTrackerButton.swift */; };
+		B24FBD942A534C5D00D4D4E5 /* IssueTrackerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */; };
 		B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */; };
 		B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */; };
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
@@ -86,6 +89,7 @@
 		B22B4A202A4EBD2B002F205D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		B22B4A242A4F16AE002F205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22B4A262A4F2858002F205D /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
+		B23622672A5441CB005ECEC7 /* TaskComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComment.swift; sourceTree = "<group>"; };
 		B23B3B4E2A51E72900CEF418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B23B3B502A51E7A500CEF418 /* MyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToast.swift; sourceTree = "<group>"; };
 		B23B3B522A51EA2200CEF418 /* Color+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extension.swift"; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		B23F96492A4DE50000394187 /* NewTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskButton.swift; sourceTree = "<group>"; };
 		B23F964B2A4DE8B400394187 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		B23F964E2A4DE99100394187 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B24FBD912A534A8400D4D4E5 /* IssueTrackerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerButton.swift; sourceTree = "<group>"; };
+		B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerListView.swift; sourceTree = "<group>"; };
 		B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskController.swift; sourceTree = "<group>"; };
 		B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllDoneButton.swift; sourceTree = "<group>"; };
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 			children = (
 				B23F96442A4DD2AE00394187 /* NewTaskView.swift */,
 				B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */,
+				B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */,
 			);
 			path = TaskViews;
 			sourceTree = "<group>";
@@ -267,6 +274,7 @@
 				B22B4A262A4F2858002F205D /* QuitButton.swift */,
 				B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */,
 				58E25C362A501BC900CAA3C4 /* PreferenceButton.swift */,
+				B24FBD912A534A8400D4D4E5 /* IssueTrackerButton.swift */,
 			);
 			path = MenuButtons;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 				58E25C3C2A50478100CAA3C4 /* UserPreference.swift */,
 				58C19EA62A506868004C36FE /* JiraCardDetail.swift */,
 				B222F4432A50A58200EFDB87 /* JiraTransition.swift */,
+				B23622672A5441CB005ECEC7 /* TaskComment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,8 +453,11 @@
 				58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */,
 				B23B3B532A51EA2200CEF418 /* Color+extension.swift in Sources */,
 				B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */,
+				B24FBD942A534C5D00D4D4E5 /* IssueTrackerListView.swift in Sources */,
+				B24FBD922A534A8400D4D4E5 /* IssueTrackerButton.swift in Sources */,
 				B22B4A212A4EBD2B002F205D /* NotificationController.swift in Sources */,
 				B22B4A1C2A4E9269002F205D /* MyNavigationController.swift in Sources */,
+				B23622682A5441CB005ECEC7 /* TaskComment.swift in Sources */,
 				B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */,
 				B23F96432A4DCEAB00394187 /* StatusMenuView.swift in Sources */,
 				B23B3B512A51E7A500CEF418 /* MyToast.swift in Sources */,

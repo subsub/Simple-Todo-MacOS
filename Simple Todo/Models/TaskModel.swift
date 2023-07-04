@@ -13,6 +13,7 @@ class TaskModel: Codable, Identifiable {
     var timestamp: String
     var status: TaskStatus
     var jiraCard: String? = nil
+    var jiraStatus: String? = nil
     
     init(title: String, timestamp: String) {
         self.id = UUID().uuidString

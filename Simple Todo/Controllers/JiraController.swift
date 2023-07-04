@@ -17,7 +17,7 @@ class JiraController: ObservableObject {
     
     private let preferenceController = PreferenceController.instance
     
-    func loadTransition(by taskId: String, of type: String, _ completion: @escaping ([JiraTransition]?) -> Void) {
+    func loadTransition(by taskId: String, _ completion: @escaping ([JiraTransition]?) -> Void) {
         let path = getTransitionsPath.replacing("{issue-id}", with: taskId)
         
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {

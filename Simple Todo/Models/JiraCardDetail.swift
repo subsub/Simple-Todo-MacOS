@@ -27,6 +27,13 @@ class JiraCardDetail: Codable {
     var assigneeEmail: String?
     var assigneeAvatar: String?
     
+    func browseUrl(host: String) -> String {
+        guard let key = key else {
+            return ""
+        }
+        return "\(host)/browse/\(key)"
+    }
+    
     convenience init(from data: Data) {
         self.init()
         guard let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let fields = dict["fields"] as? [String: Any] else {

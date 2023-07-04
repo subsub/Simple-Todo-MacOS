@@ -30,6 +30,7 @@ struct MyMenuButton: View {
             HStack{
                 HStack {
                     label
+                        .foregroundColor(ColorTheme.instance.textDefault)
                     if expanded {
                         Spacer()
                     }
