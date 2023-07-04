@@ -9,26 +9,32 @@ import SwiftUI
 import BackgroundTasks
 
 let bgTaskIdentifier = "id.subkhansarif.Simple-Todo"
-class BackgroundTaskController {
+class BackgroundTaskController: ObservableObject {
     static let instance = BackgroundTaskController(taskDelegate: TaskDelegate.instance)
     
     let scheduler = NSBackgroundActivityScheduler(identifier: bgTaskIdentifier)
     let taskDelegate: TaskDelegate
     
+    @Published var reloadCount: Double = 0
+    
     init(taskDelegate: TaskDelegate) {
         self.taskDelegate = taskDelegate
+        
+        // scheduling an activity to fire every 5 minutes
+        self.scheduler.interval = 5 * 60
+        self.scheduler.tolerance = 3 * 50
+        self.scheduler.repeats = true
     }
     
-    func schedule(at date: Date, for id: String, _ mainCompletion: @escaping ()->Void) {
+    func scheduleRefresh() {
         scheduler.schedule { [weak self] completion in
             print(">> background task running...")
             DispatchQueue.main.async {
                 self?.taskDelegate.loadTasks()
-                mainCompletion()
+                self?.reloadCount += 1
             }
             completion(NSBackgroundActivityScheduler.Result.finished)
             print(">> background task complete")
         }
-        print(">> scheduled background task for id: \(id)")
     }
 }

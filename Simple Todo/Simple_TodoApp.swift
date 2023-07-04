@@ -18,6 +18,7 @@ struct Simple_TodoApp: App {
     private let notificationController = NotificationController.instance
     private let preferenceController = PreferenceController.instance
     private let jiraController = JiraController.instance
+    private let backgroundTaskScheduler = BackgroundTaskController.instance
     
     
     var body: some Scene {
@@ -32,10 +33,14 @@ struct Simple_TodoApp: App {
                 .environmentObject(jiraController)
         }, label: {
             StatusMenuView()
+                .onAppear {
+                    backgroundTaskScheduler.scheduleRefresh()
+                }
                 .onReceive(notifCenterPublisher){ output in
                     taskDelegate.loadTasks()
                 }
                 .environmentObject(taskDelegate)
+                .environmentObject(backgroundTaskScheduler)
         })
         .menuBarExtraStyle(.window)
     }

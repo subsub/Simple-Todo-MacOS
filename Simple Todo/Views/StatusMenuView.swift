@@ -9,12 +9,19 @@ import SwiftUI
 
 struct StatusMenuView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
+    @EnvironmentObject var bgScheduler: BackgroundTaskController
+    
+    @State var reloadCount: Double = 0
     
     var body: some View {
         HStack {
             statusIcon
             statusText
         }.padding(4)
+            .onChange(of: bgScheduler.reloadCount) { newValue in
+                reloadCount += 1
+                print(">> reloadCount: \(reloadCount)")
+            }
     }
     
     var statusIcon: some View {
@@ -42,5 +49,6 @@ struct StatusMenuView_Previews: PreviewProvider {
     static var previews: some View {
         StatusMenuView()
             .environmentObject(TaskDelegate.instance)
+            .environmentObject(BackgroundTaskController.instance)
     }
 }
