@@ -29,8 +29,6 @@
 		B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A242A4F16AE002F205D /* AppDelegate.swift */; };
 		B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A262A4F2858002F205D /* QuitButton.swift */; };
 		B23622682A5441CB005ECEC7 /* TaskComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23622672A5441CB005ECEC7 /* TaskComment.swift */; };
-		B23622702A544C1C005ECEC7 /* BackgroundDownloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B236226F2A544C1C005ECEC7 /* BackgroundDownloadHandler.swift */; };
-		B23622752A544C1C005ECEC7 /* BgTask.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = B236226D2A544C1C005ECEC7 /* BgTask.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B23B3B4F2A51E72900CEF418 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B4E2A51E72900CEF418 /* Constants.swift */; };
 		B23B3B512A51E7A500CEF418 /* MyToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B502A51E7A500CEF418 /* MyToast.swift */; };
 		B23B3B532A51EA2200CEF418 /* Color+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B522A51EA2200CEF418 /* Color+extension.swift */; };
@@ -56,13 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B23622732A544C1C005ECEC7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B23F96062A4DC80300394187 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B236226C2A544C1C005ECEC7;
-			remoteInfo = BgTask;
-		};
 		B23F96232A4DC80400394187 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B23F96062A4DC80300394187 /* Project object */;
@@ -86,7 +77,6 @@
 			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				B23622752A544C1C005ECEC7 /* BgTask.appex in Embed ExtensionKit Extensions */,
 			);
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,7 +105,6 @@
 		B22B4A242A4F16AE002F205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22B4A262A4F2858002F205D /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
 		B23622672A5441CB005ECEC7 /* TaskComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComment.swift; sourceTree = "<group>"; };
-		B236226D2A544C1C005ECEC7 /* BgTask.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = BgTask.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B236226F2A544C1C005ECEC7 /* BackgroundDownloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDownloadHandler.swift; sourceTree = "<group>"; };
 		B23622712A544C1C005ECEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23622722A544C1C005ECEC7 /* BgTask.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BgTask.entitlements; sourceTree = "<group>"; };
@@ -149,13 +138,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B236226A2A544C1C005ECEC7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B23F960B2A4DC80300394187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,7 +234,6 @@
 				B23F960E2A4DC80300394187 /* Simple Todo Bar.app */,
 				B23F96222A4DC80400394187 /* Simple TodoTests.xctest */,
 				B23F962C2A4DC80400394187 /* Simple TodoUITests.xctest */,
-				B236226D2A544C1C005ECEC7 /* BgTask.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,23 +327,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B236226C2A544C1C005ECEC7 /* BgTask */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B23622762A544C1C005ECEC7 /* Build configuration list for PBXNativeTarget "BgTask" */;
-			buildPhases = (
-				B23622692A544C1C005ECEC7 /* Sources */,
-				B236226A2A544C1C005ECEC7 /* Frameworks */,
-				B236226B2A544C1C005ECEC7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BgTask;
-			productName = BgTask;
-			productReference = B236226D2A544C1C005ECEC7 /* BgTask.appex */;
-			productType = "com.apple.product-type.extensionkit-extension";
-		};
 		B23F960D2A4DC80300394187 /* Simple Todo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B23F96362A4DC80400394187 /* Build configuration list for PBXNativeTarget "Simple Todo" */;
@@ -375,7 +339,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B23622742A544C1C005ECEC7 /* PBXTargetDependency */,
 			);
 			name = "Simple Todo";
 			packageProductDependencies = (
@@ -431,9 +394,6 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					B236226C2A544C1C005ECEC7 = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
 					B23F960D2A4DC80300394187 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -466,19 +426,11 @@
 				B23F960D2A4DC80300394187 /* Simple Todo */,
 				B23F96212A4DC80400394187 /* Simple TodoTests */,
 				B23F962B2A4DC80400394187 /* Simple TodoUITests */,
-				B236226C2A544C1C005ECEC7 /* BgTask */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B236226B2A544C1C005ECEC7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B23F960C2A4DC80300394187 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,14 +457,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B23622692A544C1C005ECEC7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B23622702A544C1C005ECEC7 /* BackgroundDownloadHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B23F960A2A4DC80300394187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -578,11 +522,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B23622742A544C1C005ECEC7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B236226C2A544C1C005ECEC7 /* BgTask */;
-			targetProxy = B23622732A544C1C005ECEC7 /* PBXContainerItemProxy */;
-		};
 		B23F96242A4DC80400394187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B23F960D2A4DC80300394187 /* Simple Todo */;
@@ -596,60 +535,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		B23622772A544C1C005ECEC7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = BgTask/BgTask.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K4S6P4RB2W;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BgTask/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = BgTask;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo.BgTask";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		B23622782A544C1C005ECEC7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = BgTask/BgTask.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K4S6P4RB2W;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BgTask/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = BgTask;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo.BgTask";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		B23F96342A4DC80400394187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -900,15 +785,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B23622762A544C1C005ECEC7 /* Build configuration list for PBXNativeTarget "BgTask" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B23622772A544C1C005ECEC7 /* Debug */,
-				B23622782A544C1C005ECEC7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B23F96092A4DC80300394187 /* Build configuration list for PBXProject "Simple Todo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
