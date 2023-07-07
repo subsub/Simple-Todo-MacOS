@@ -41,7 +41,7 @@ class TaskDelegate: ObservableObject {
     }
     
     func overdueTasks() -> [TaskModel] {
-        taskModel.filter({ $0.isOverdue() })
+        taskModel.filter({ $0.isOverdue() && $0.status != .completed })
     }
     
     func totalOverdueTasks() -> Int {

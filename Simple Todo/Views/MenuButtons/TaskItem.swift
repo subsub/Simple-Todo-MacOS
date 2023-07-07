@@ -57,9 +57,9 @@ struct TaskItem: View {
                             HStack {
                                 Text("[\(task.jiraCard!)]")
                                     .foregroundColor(ColorTheme.instance.textDefault)
-                                    .font(.system(size: 12))
+                                    .font(.system(size: 11))
                                 if let jiraStatus = task.jiraStatus, !jiraStatus.isEmpty {
-                                    Text(jiraStatus)
+                                    Text(jiraStatus.uppercased())
                                         .font(.system(size: 10))
                                         .foregroundColor(ColorTheme.instance.textDefault)
                                         .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))

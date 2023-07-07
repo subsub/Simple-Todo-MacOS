@@ -17,6 +17,7 @@ struct TaskDetailView: View {
     var task: TaskModel
     @State var jiraCardDetail: JiraCardDetail? = nil
     @State var isLoading: Bool = false
+    @State var isStatusLoading: Bool = false
     @State var transitions: [JiraTransition] = []
     @State var currentStatus: String = ""
     @State var isUpdateSuccess: Bool = true
@@ -106,7 +107,7 @@ struct TaskDetailView: View {
                             ForEach(labels, id: \.self) { label in
                                 Text(label)
                                     .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
-                                    .background(.gray.opacity(0.3))
+                                    .background(ColorTheme.instance.textInactive.opacity(0.3))
                                     .cornerRadius(4)
                             }
                         }
@@ -118,11 +119,50 @@ struct TaskDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .topLeading)
                     
                     // MARK: description
-                    DisclosureGroup("Description") {
-                        Markdown(jiraCardDetail?.description ?? "")
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    DisclosureGroup("Description:") {
+                        ScrollView {
+                            Markdown(jiraCardDetail?.description?.findAndReplaceQuote()
+                                .findAndReplaceLink()
+                                .findAndReplaceCode()
+                                     ?? "")
+                            .markdownBlockStyle(\.blockquote) { configuration in
+                                configuration
+                                    .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+                                    .overlay(alignment: .leading) {
+                                        Rectangle()
+                                            .fill(ColorTheme.instance.textDefault.opacity(0.1))
+                                            .frame(width: 4)
+                                    }
+                                    .background(ColorTheme.instance.textInactive.opacity(0.3))
+                                    .foregroundColor(ColorTheme.instance.textDefault.opacity(0.6))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .markdownTextStyle(\.code, textStyle: {
+                                ForegroundColor(ColorTheme.instance.textDefault)
+                                FontFamilyVariant(.monospaced)
+                                BackgroundColor(ColorTheme.instance.textDefault.opacity(0.2))
+                            })
+                                .padding(8)
+                                .background(ColorTheme.instance.textInactive.opacity(0.1))
+                        }
+                        .cornerRadius(8)
+                            .frame(maxWidth: .infinity, maxHeight: 300, alignment: .topLeading)
                     }
                     // end description
+                    
+                    Divider()
+                    
+                    // MARK: comments
+                    if let jiraCard = task.jiraCard {
+                        DisclosureGroup("Comments:") {
+                            ScrollView {
+                                IssueCommentView(jiraKey: jiraCard)
+                            }
+                            .cornerRadius(8)
+                                .frame(maxWidth: .infinity, maxHeight: 300, alignment: .topLeading)
+                        }
+                    }
+                    
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, alignment: .topLeading)
@@ -154,45 +194,55 @@ struct TaskDetailView: View {
                     Text("Status")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
-                    Picker("", selection: $currentStatus) {
-                        ForEach(transitions) { status in
-                            if status.id == jiraCardDetail?.statusId || status.id == jiraCardDetail?.transitionId {
-                                Text(status.name)
-                                    .tag(status.id)
-                            } else {
-                                Text("Transition to \(status.name)")
-                                    .tag(status.id)
+                    if isStatusLoading {
+                        loadingView
+                    } else {
+                        Picker("", selection: $currentStatus) {
+                            ForEach(transitions) { status in
+                                if status.id == jiraCardDetail?.statusId || status.id == jiraCardDetail?.transitionId {
+                                    Text(status.name.uppercased())
+                                        .tag(status.id)
+                                } else {
+                                    HStack {
+                                        if status.name.lowercased() != status.to.name.lowercased() {
+                                            Text("\(status.name) → \(status.to.name.uppercased())")
+                                        } else {
+                                            Text("Transition to → \(status.to.name.uppercased())")
+                                        }
+                                    }.tag(status.id)
+                                }
                             }
                         }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .onChange(of: currentStatus) { newStatus in
-                        guard let selectedTransition = transitions.first(where: { transition in
-                            transition.id == newStatus
-                        }) else {
-                            return
-                        }
-                        
-                        if newStatus != jiraCardDetail?.transitionId && newStatus != jiraCardDetail?.statusId {
-                            isLoading = true
-                            jiraController.updateIssueStatus(by: task.jiraCard!, to: selectedTransition) { success in
-                                withAnimation {
-                                    isUpdateSuccess = success
-                                    shouldShowToast = true
-                                    if success {
-                                        jiraCardDetail?.transitionId = newStatus
-                                        updateResponse = "Transition set to \(selectedTransition.name)"
-                                        currentStatus = ""
-                                        loadIssueDetail()
-                                    } else {
-                                        updateResponse = "Failed to set Transition"
-                                        isLoading = false
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .onChange(of: currentStatus) { newStatus in
+                            guard let selectedTransition = transitions.first(where: { transition in
+                                transition.id == newStatus
+                            }) else {
+                                return
+                            }
+                            
+                            if newStatus != jiraCardDetail?.transitionId && newStatus != jiraCardDetail?.statusId {
+                                isStatusLoading = true
+                                jiraController.updateIssueStatus(by: task.jiraCard!, to: selectedTransition) { success in
+                                    withAnimation {
+                                        isUpdateSuccess = success
+                                        shouldShowToast = true
+                                        if success {
+                                            jiraCardDetail?.transitionId = newStatus
+                                            updateResponse = "Transitioned to \(selectedTransition.to.name.uppercased())"
+                                            currentStatus = ""
+                                            loadIssueDetail()
+                                        } else {
+                                            updateResponse = "Failed to set Transition"
+                                            isStatusLoading = false
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                     // end transition
+                    
                     
                     Divider()
                         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0))
@@ -257,6 +307,7 @@ struct TaskDetailView: View {
                 self.loadTransition()
             } else {
                 isLoading = false
+                isStatusLoading = false
             }
         }
     }
@@ -264,6 +315,7 @@ struct TaskDetailView: View {
     func loadTransition() {
         guard let detail = jiraCardDetail else {
             isLoading = false
+            isStatusLoading = false
             return
         }
         
@@ -278,6 +330,7 @@ struct TaskDetailView: View {
             }
             currentStatus = self.jiraCardDetail?.transitionId ?? jiraCardDetail?.statusId ?? ""
             isLoading = false
+            isStatusLoading = false
         }
     }
     
