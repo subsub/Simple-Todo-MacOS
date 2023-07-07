@@ -51,6 +51,8 @@
 		B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */; };
 		B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */; };
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
+		B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */; };
+		B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B824512A58B6110096F943 /* AccountDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,7 +122,7 @@
 		B23B3B4E2A51E72900CEF418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B23B3B502A51E7A500CEF418 /* MyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToast.swift; sourceTree = "<group>"; };
 		B23B3B522A51EA2200CEF418 /* Color+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extension.swift"; sourceTree = "<group>"; };
-		B23F960E2A4DC80300394187 /* Simple Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Todo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B23F960E2A4DC80300394187 /* Simple Todo Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Todo Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23F96112A4DC80300394187 /* Simple_TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_TodoApp.swift; sourceTree = "<group>"; };
 		B23F96172A4DC80400394187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B23F961A2A4DC80400394187 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -142,6 +144,8 @@
 		B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskController.swift; sourceTree = "<group>"; };
 		B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllDoneButton.swift; sourceTree = "<group>"; };
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentView.swift; sourceTree = "<group>"; };
+		B2B824512A58B6110096F943 /* AccountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,7 @@
 		B20A6D782A4E135700DCC582 /* TaskViews */ = {
 			isa = PBXGroup;
 			children = (
+				B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */,
 				B23F96442A4DD2AE00394187 /* NewTaskView.swift */,
 				B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */,
 				B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */,
@@ -244,7 +249,7 @@
 		B23F960F2A4DC80300394187 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B23F960E2A4DC80300394187 /* Simple Todo.app */,
+				B23F960E2A4DC80300394187 /* Simple Todo Bar.app */,
 				B23F96222A4DC80400394187 /* Simple TodoTests.xctest */,
 				B23F962C2A4DC80400394187 /* Simple TodoUITests.xctest */,
 				B236226D2A544C1C005ECEC7 /* BgTask.appex */,
@@ -333,6 +338,7 @@
 				58C19EA62A506868004C36FE /* JiraCardDetail.swift */,
 				B222F4432A50A58200EFDB87 /* JiraTransition.swift */,
 				B23622672A5441CB005ECEC7 /* TaskComment.swift */,
+				B2B824512A58B6110096F943 /* AccountDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,7 +382,7 @@
 				B222F4412A509DA100EFDB87 /* MarkdownUI */,
 			);
 			productName = "Simple Todo";
-			productReference = B23F960E2A4DC80300394187 /* Simple Todo.app */;
+			productReference = B23F960E2A4DC80300394187 /* Simple Todo Bar.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B23F96212A4DC80400394187 /* Simple TodoTests */ = {
@@ -514,6 +520,7 @@
 				B23F964C2A4DE8B400394187 /* TaskList.swift in Sources */,
 				B23F96452A4DD2AE00394187 /* NewTaskView.swift in Sources */,
 				58C19EA72A506868004C36FE /* JiraCardDetail.swift in Sources */,
+				B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */,
 				B20A6D732A4DF5EA00DCC582 /* UserDefaultsController.swift in Sources */,
 				B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */,
 				B23B3B4F2A51E72900CEF418 /* Constants.swift in Sources */,
@@ -534,6 +541,7 @@
 				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
 				58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */,
 				B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */,
+				B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */,
 				58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */,
 				B23B3B532A51EA2200CEF418 /* Color+extension.swift in Sources */,
 				B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */,
@@ -780,7 +788,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Simple Todo Bar";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -811,7 +819,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Simple Todo Bar";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
