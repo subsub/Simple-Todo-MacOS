@@ -11,6 +11,7 @@ private let issueDetailPath = "/rest/api/2/issue/"
 private let getTransitionsPath = "/rest/api/2/issue/{issue-id}/transitions"
 private let updateStatusPath = "/rest/api/2/issue/{issue-id}/transitions"
 private let getCommentsPath = "/rest/api/2/issue/{issue-id}/comment?orderBy=-created"
+private let postCommentPath = "/rest/api/3/issue/{issue-id}/comment"
 private let getUserByAccountId = "/rest/api/2/user?accountId={account-id}"
 private let listAssignedTaskPath = "/rest/api/2/search?jql=assignee=currentuser() and status != done ORDER BY created DESC"
 
@@ -18,6 +19,8 @@ class JiraController: ObservableObject {
     static let instance = JiraController()
     
     private let preferenceController = PreferenceController.instance
+    
+    @Published var newComment: Int = 0
     
     func loadTransition(by taskId: String, _ completion: @escaping ([JiraTransition]?) -> Void) {
         let path = getTransitionsPath.replacing("{issue-id}", with: taskId)
@@ -102,6 +105,26 @@ class JiraController: ObservableObject {
         }
     }
     
+    func postComment(for taskId: String, data commentData: NewCommentData, _ completion: @escaping(Bool) -> Void) {
+        let path = postCommentPath.replacing("{issue-id}", with: taskId)
+        guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {
+            completion(false)
+            return
+        }
+        
+        guard let str = encode(data: commentData), let data = str.data(using: .utf8) else {
+            completion(false)
+            return
+        }
+        
+        doRequest(url: url, method: "POST", body: data) { success, data in
+            completion(success)
+            if success {
+                self.newComment += 1
+            }
+        }
+    }
+    
     func extractCommentsBody(_ comments: [TaskComment]) async -> (Bool, [TaskComment]) {
         guard let host = preferenceController.preference.jiraServerUrl else {
             return (false, comments)
@@ -152,30 +175,47 @@ class JiraController: ObservableObject {
         if body != nil {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
+        print(">> ======================================")
+        print(">> == URL: \(String(describing: request.url))")
+        print(">> == METHOD: \(String(describing: request.httpMethod))")
+        print(">> == HEADERS: \(String(describing: request.allHTTPHeaderFields))")
+        print(">> == BODY: \(String(describing: (request.httpBody != nil) ? String(data: request.httpBody!, encoding: .utf8) : nil))")
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print(">> erroring \(error)")
+                print(">> == RESPONSE: Failed ❌")
+                print(">> == ⚠️ error \(error)")
+                print(">> ======================================")
                 completion(false, nil)
                 return
             }
             
             guard let response = response as? HTTPURLResponse else {
+                print(">> == RESPONSE: Failed ❌")
+                print(">> == ⚠️ No response")
+                print(">> ======================================")
                 completion(false, nil)
                 return
             }
             if response.statusCode >= 200 && response.statusCode < 300 {
                 guard let data = data else {
-                    print(">> no data")
+                    print(">> == RESPONSE: Success ✅")
+                    print(">> == ⚠️ No Data")
+                    print(">> ======================================")
                     completion(true, nil)
                     return
                 }
                 DispatchQueue.main.async {
-                    print(">> but true")
+                    print(">> == RESPONSE: Success ✅")
+                    print(">> == \(String(data: data, encoding: .utf8))")
+                    print(">> ======================================")
                     completion(true, data)
                     return
                 }
             } else {
+                print(">> == RESPONSE: Failed ❌")
+                print(">> == \(response)")
+                print(">> ======================================")
                 completion(false, nil)
             }
         }

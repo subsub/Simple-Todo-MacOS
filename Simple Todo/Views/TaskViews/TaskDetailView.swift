@@ -23,6 +23,7 @@ struct TaskDetailView: View {
     @State var isUpdateSuccess: Bool = true
     @State var updateResponse: String = ""
     @State var shouldShowToast: Bool = false
+    @State var isCommentAdded: Bool = false
     
     var body: some View {
         ScrollView {
@@ -155,8 +156,28 @@ struct TaskDetailView: View {
                     // MARK: comments
                     if let jiraCard = task.jiraCard {
                         DisclosureGroup("Comments:") {
-                            ScrollView {
-                                IssueCommentView(jiraKey: jiraCard)
+                            VStack {
+                                CommentEditorView(
+                                    taskId: jiraCard,
+                                    commentAdded: $isCommentAdded
+                                )
+                                .onChange(of: isCommentAdded, perform: { success in
+                                    withAnimation {
+                                        shouldShowToast = true
+                                        isUpdateSuccess = success
+                                        if success {
+                                            updateResponse = "Comment added"
+                                        } else {
+                                            updateResponse = "Failed to save comment"
+                                        }
+                                    }
+                                })
+                                .cornerRadius(8)
+                                    .frame(minHeight: 40)
+                                ScrollView {
+                                    IssueCommentView(jiraKey: jiraCard)
+                                }
+                                .cornerRadius(8)
                             }
                             .cornerRadius(8)
                                 .frame(maxWidth: .infinity, maxHeight: 300, alignment: .topLeading)

@@ -72,16 +72,25 @@ struct IssueCommentView: View {
             
             extractCommentBody(comments)
         }
+        .onChange(of: jiraController.newComment, perform: { newComment in
+            isLoading = true
+            loadComments()
+        })
         .onAppear {
-            jiraController.loadIssueComments(by: jiraKey) { comments in
-                guard let comments = comments else {
-                    return
-                }
-                if comments.isEmpty {
-                    self.isLoading = false
-                } else {
-                    self.comments = comments
-                }
+            isLoading = true
+            loadComments()
+        }
+    }
+    
+    func loadComments() {
+        jiraController.loadIssueComments(by: jiraKey) { comments in
+            guard let comments = comments else {
+                return
+            }
+            if comments.isEmpty {
+                self.isLoading = false
+            } else {
+                self.comments = comments
             }
         }
     }

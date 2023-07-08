@@ -48,6 +48,8 @@
 		B24FBD942A534C5D00D4D4E5 /* IssueTrackerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */; };
 		B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */; };
 		B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */; };
+		B29724052A595BEC00401655 /* CommentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29724042A595BEC00401655 /* CommentEditorView.swift */; };
+		B29724072A59664600401655 /* CommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29724062A59664600401655 /* CommentBody.swift */; };
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
 		B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */; };
 		B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B824512A58B6110096F943 /* AccountDetail.swift */; };
@@ -132,6 +134,8 @@
 		B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerListView.swift; sourceTree = "<group>"; };
 		B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskController.swift; sourceTree = "<group>"; };
 		B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllDoneButton.swift; sourceTree = "<group>"; };
+		B29724042A595BEC00401655 /* CommentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEditorView.swift; sourceTree = "<group>"; };
+		B29724062A59664600401655 /* CommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBody.swift; sourceTree = "<group>"; };
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentView.swift; sourceTree = "<group>"; };
 		B2B824512A58B6110096F943 /* AccountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				B23F96442A4DD2AE00394187 /* NewTaskView.swift */,
 				B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */,
 				B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */,
+				B29724042A595BEC00401655 /* CommentEditorView.swift */,
 			);
 			path = TaskViews;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				B222F4432A50A58200EFDB87 /* JiraTransition.swift */,
 				B23622672A5441CB005ECEC7 /* TaskComment.swift */,
 				B2B824512A58B6110096F943 /* AccountDetail.swift */,
+				B29724062A59664600401655 /* CommentBody.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				B222F4442A50A58200EFDB87 /* JiraTransition.swift in Sources */,
 				B20A6D772A4E12E400DCC582 /* TaskDetailView.swift in Sources */,
 				B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */,
+				B29724052A595BEC00401655 /* CommentEditorView.swift in Sources */,
 				58E25C372A501BC900CAA3C4 /* PreferenceButton.swift in Sources */,
 				58E25C402A50484100CAA3C4 /* CodableUtil.swift in Sources */,
 				B22B4A1A2A4E1CDC002F205D /* ClearButton.swift in Sources */,
@@ -481,6 +488,7 @@
 				58E25C442A5056AE00CAA3C4 /* String+extension.swift in Sources */,
 				58E25C422A504E3C00CAA3C4 /* JiraAuthenticationView.swift in Sources */,
 				B22B4A1F2A4EB60E002F205D /* MyNavigationBar.swift in Sources */,
+				B29724072A59664600401655 /* CommentBody.swift in Sources */,
 				B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */,
 				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
 				58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */,
