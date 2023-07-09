@@ -20,50 +20,51 @@ struct IssueCommentView: View {
                 if isLoading {
                     EmptyView()
                 } else if comments.isEmpty {
-                    Text("No Comment")
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    EmptyView()
                 } else {
-                    ScrollView {
-                        ForEach(comments) { comment in
-                            VStack {
-                                HStack {
-                                    AsyncImage(url: URL(string: comment.author?.avatarUrls?["16x16"] ?? ""))
-                                        .frame(width: 16, height: 16)
-                                        .clipShape(Circle())
-                                    Text(comment.author?.displayName ?? "")
-                                        .frame(maxWidth: .infinity, alignment: .leading)
+                    VStack {
+                        ScrollView {
+                            ForEach(comments) { comment in
+                                VStack {
+                                    HStack {
+                                        AsyncImage(url: URL(string: comment.author?.avatarUrls?["16x16"] ?? ""))
+                                            .frame(width: 16, height: 16)
+                                            .clipShape(Circle())
+                                        Text(comment.author?.displayName ?? "")
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
+                                    HStack {
+                                        Markdown(comment.body ?? "")
+                                            .markdownBlockStyle(\.blockquote) { configuration in
+                                                configuration
+                                                    .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
+                                                    .overlay(alignment: .leading) {
+                                                        Rectangle()
+                                                            .fill(ColorTheme.instance.textDefault.opacity(0.1))
+                                                            .frame(width: 4)
+                                                    }
+                                                    .background(ColorTheme.instance.textInactive.opacity(0.3))
+                                                    .foregroundColor(ColorTheme.instance.textDefault.opacity(0.6))
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                            }
+                                            .markdownTextStyle(\.code, textStyle: {
+                                                ForegroundColor(ColorTheme.instance.textDefault)
+                                                FontFamilyVariant(.monospaced)
+                                                BackgroundColor(ColorTheme.instance.textDefault.opacity(0.2))
+                                            })
+                                            .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 0))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
                                 }
-                                HStack {
-                                    Markdown(comment.body ?? "")
-                                        .markdownBlockStyle(\.blockquote) { configuration in
-                                            configuration
-                                                .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
-                                                .overlay(alignment: .leading) {
-                                                    Rectangle()
-                                                        .fill(ColorTheme.instance.textDefault.opacity(0.1))
-                                                        .frame(width: 4)
-                                                }
-                                                .background(ColorTheme.instance.textInactive.opacity(0.3))
-                                                .foregroundColor(ColorTheme.instance.textDefault.opacity(0.6))
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                        }
-                                        .markdownTextStyle(\.code, textStyle: {
-                                            ForegroundColor(ColorTheme.instance.textDefault)
-                                            FontFamilyVariant(.monospaced)
-                                            BackgroundColor(ColorTheme.instance.textDefault.opacity(0.2))
-                                        })
-                                        .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 0))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
+                                .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
                             }
-                            .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
                         }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    .padding(8)
+                    .background(ColorTheme.instance.textInactive.opacity(0.1))
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .padding(8)
-            .background(ColorTheme.instance.textInactive.opacity(0.1))
         }
         .onChange(of: comments) { comments in
             if (!isLoading || comments.isEmpty) {

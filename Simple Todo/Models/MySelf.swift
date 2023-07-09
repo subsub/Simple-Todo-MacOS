@@ -1,19 +1,17 @@
 //
-//  AccountDetail.swift
+//  MySelf.swift
 //  Simple Todo
 //
-//  Created by Subkhan Sarif on 07/07/23.
+//  Created by Subkhan Sarif on 09/07/23.
 //
 
 import Foundation
 
-class AccountDetail: Codable {
+class MySelf: Codable, Identifiable {
     var accountId: String?
-    var accountType: String?
     var emailAddress: String?
     var avatarUrls: [String: String]?
     var displayName: String?
-    var active: Bool?
     
     convenience init(from data: Data) {
         self.init()
@@ -23,10 +21,8 @@ class AccountDetail: Codable {
         }
         
         self.accountId = result.accountId
-        self.accountType = result.accountType
         self.emailAddress = result.emailAddress
         self.avatarUrls = result.avatarUrls
         self.displayName = result.displayName
-        self.active = result.active
     }
 }

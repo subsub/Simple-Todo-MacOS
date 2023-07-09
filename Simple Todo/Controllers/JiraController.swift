@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+private let checkMyselfPath = "/rest/api/2/myself"
 private let issueDetailPath = "/rest/api/2/issue/"
 private let getTransitionsPath = "/rest/api/2/issue/{issue-id}/transitions"
 private let updateStatusPath = "/rest/api/2/issue/{issue-id}/transitions"
@@ -21,6 +22,23 @@ class JiraController: ObservableObject {
     private let preferenceController = PreferenceController.instance
     
     @Published var newComment: Int = 0
+    
+    func checkMyself(username: String, apiKey: String, host: String, _ completion: @escaping (Bool, MySelf?) -> Void) {
+        guard let url = URL(string: "\(host)\(checkMyselfPath)") else {
+            completion(false, nil)
+            return
+        }
+        
+        doRequest(url: url, apiKey: apiKey) { success, data in
+            guard let data = data, success else {
+                completion(false, nil)
+                return
+            }
+            
+            let myself = MySelf(from: data)
+            completion(success, myself)
+        }
+    }
     
     func loadTransition(by taskId: String, _ completion: @escaping ([JiraTransition]?) -> Void) {
         let path = getTransitionsPath.replacing("{issue-id}", with: taskId)
@@ -162,8 +180,8 @@ class JiraController: ObservableObject {
         return AccountDetail(from: data)
     }
     
-    private func doRequest(url: URL, method: String = "GET", body: Data? = nil, _ completion: @escaping(Bool, Data?) -> Void) {
-        guard let auth = preferenceController.preference.jiraAuthenticationKey else {
+    private func doRequest(url: URL, method: String = "GET", body: Data? = nil, apiKey: String? = nil, _ completion: @escaping(Bool, Data?) -> Void) {
+        guard let auth = preferenceController.preference.jiraAuthenticationKey ?? apiKey else {
             completion(false, nil)
             return
         }

@@ -21,11 +21,17 @@ class PreferenceController: ObservableObject {
         preference.jiraAuthenticationKey != nil && !preference.jiraAuthenticationKey!.isEmpty
     }
     
-    func saveJiraAuth(username: String, apiKey: String, host: String) {
+    func getPreference(username: String, apiKey: String, host: String) -> UserPreference {
         let base64 = "\(username):\(apiKey)".toBase64()
+        var preference = UserPreference()
         preference.jiraAuthenticationKey = base64
-        preference.jiraServerUrl = host
+        preference.jiraServerUrl = "https://\(host).atlassian.net"
         preference.jiraEmail = username
+        return preference
+    }
+    
+    func saveJiraAuth(from preference: UserPreference) {
+        self.preference = preference
         save()
     }
     

@@ -44,7 +44,6 @@ extension String {
             guard let userEmail = await action(accountid) else {
                 continue
             }
-            print(">> userEmail: \(userEmail)")
             finalResult = finalResult.replacing("[~accountid:\(accountid)]", with: "[@\(userEmail)](\(host)/jira/people/\(accountid))")
         }
         
@@ -72,7 +71,6 @@ extension String {
         
         var finalResult = self
         for quote in groups {
-            print(">> quote: \(quote)")
             finalResult = finalResult.replacing("{quote}\(quote){quote}", with: "> \(quote)")
         }
         
@@ -95,8 +93,6 @@ extension String {
             }
             
             if groups.count >= 2 {
-                print(">> old link: [\(groups[0])|\(groups[1])]")
-                print(">> new link: [\(groups[0])](\(groups[1]))")
                 finalResult = finalResult.replacing("[\(groups[0])|\(groups[1])]", with: "[\(groups[0])](\(groups[1]))")
             }
         }

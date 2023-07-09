@@ -12,6 +12,8 @@ class TaskDelegate: ObservableObject {
     static let instance = TaskDelegate()
     
     @AppStorage("tasks") var rawTasks: String = ""
+    @AppStorage("myself") var rawMyself: String = ""
+    @Published var myself: MySelf? = nil
     @Published var taskModel: [TaskModel] = []
     
     init() {
@@ -94,11 +96,25 @@ class TaskDelegate: ObservableObject {
         save()
     }
     
+    func saveMyself(_ myself: MySelf) {
+        self.myself = myself
+        save()
+    }
+    
+    func loadMyself() {
+        self.myself = decode(self.myself, from: rawMyself) ?? self.myself
+    }
+    
     private func save() {
         guard let taskJson = encode(data: taskModel) else {
             return
         }
         
+        guard let myselfJson = encode(data: myself) else {
+            return
+        }
+        
         rawTasks = taskJson
+        rawMyself = myselfJson
     }
 }

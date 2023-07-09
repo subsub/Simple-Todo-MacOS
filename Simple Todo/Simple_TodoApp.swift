@@ -25,6 +25,7 @@ struct Simple_TodoApp: App {
         return MenuBarExtra(content: {
             MainMenuView()
                 .onAppear{
+                    taskDelegate.loadTasks()
                     notificationController.checkNotificationPermission()
                 }
                 .environmentObject(taskDelegate)

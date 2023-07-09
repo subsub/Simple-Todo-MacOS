@@ -53,6 +53,7 @@
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
 		B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */; };
 		B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B824512A58B6110096F943 /* AccountDetail.swift */; };
+		B2C389782A5A8AD50096C79F /* MySelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C389772A5A8AD50096C79F /* MySelf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentView.swift; sourceTree = "<group>"; };
 		B2B824512A58B6110096F943 /* AccountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
+		B2C389772A5A8AD50096C79F /* MySelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelf.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 				B23622672A5441CB005ECEC7 /* TaskComment.swift */,
 				B2B824512A58B6110096F943 /* AccountDetail.swift */,
 				B29724062A59664600401655 /* CommentBody.swift */,
+				B2C389772A5A8AD50096C79F /* MySelf.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */,
 				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
 				58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */,
+				B2C389782A5A8AD50096C79F /* MySelf.swift in Sources */,
 				B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */,
 				B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */,
 				58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */,

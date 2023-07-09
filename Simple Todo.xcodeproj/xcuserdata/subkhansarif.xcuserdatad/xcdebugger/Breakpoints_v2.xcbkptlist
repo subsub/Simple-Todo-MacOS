@@ -78,8 +78,8 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "postComment(for:data:_:)"
             landmarkType = "7">
             <Locations>
@@ -171,8 +171,8 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "postComment(for:data:_:)"
             landmarkType = "7">
             <Locations>
@@ -279,8 +279,8 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "postComment(for:data:_:)"
             landmarkType = "7">
             <Locations>
@@ -357,10 +357,10 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "doRequest(url:method:body:_:)"
-            landmarkType = "9">
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "doRequest(url:method:body:apiKey:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -373,10 +373,10 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "doRequest(url:method:body:_:)"
-            landmarkType = "9">
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "doRequest(url:method:body:apiKey:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -389,10 +389,10 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "doRequest(url:method:body:_:)"
-            landmarkType = "9">
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "doRequest(url:method:body:apiKey:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -405,10 +405,10 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "doRequest(url:method:body:_:)"
-            landmarkType = "9">
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "doRequest(url:method:body:apiKey:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -421,10 +421,10 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "doRequest(url:method:body:_:)"
-            landmarkType = "9">
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "doRequest(url:method:body:apiKey:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -437,10 +437,10 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "doRequest(url:method:body:_:)"
-            landmarkType = "9">
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "doRequest(url:method:body:apiKey:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -501,8 +501,8 @@
             filePath = "Simple Todo/Controllers/JiraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "postComment(for:data:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -599,6 +599,100 @@
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8064F306-3C36-4E73-B2D8-9633520E1273"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Controllers/JiraController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "checkMyself(username:apiKey:host:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8064F306-3C36-4E73-B2D8-9633520E1273 - cffb85514a16de9f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple_Todo_Bar.JiraController.serverInfo(username: Swift.String, apiKey: Swift.String, host: Swift.String, _: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/Simple%20Todo/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "912">
+               </Location>
+               <Location
+                  uuid = "8064F306-3C36-4E73-B2D8-9633520E1273 - 909084fba0841dfa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Foundation.Data&gt;) -&gt; () in Simple_Todo_Bar.JiraController.serverInfo(username: Swift.String, apiKey: Swift.String, host: Swift.String, _: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/Simple%20Todo/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "8064F306-3C36-4E73-B2D8-9633520E1273 - f1d78d672141ec7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Simple_Todo_Bar.JiraController.checkMyself(username: Swift.String, apiKey: Swift.String, host: Swift.String, _: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/Simple%20Todo/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "912">
+               </Location>
+               <Location
+                  uuid = "8064F306-3C36-4E73-B2D8-9633520E1273 - baafb448d8837b8c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Foundation.Data&gt;) -&gt; () in Simple_Todo_Bar.JiraController.checkMyself(username: Swift.String, apiKey: Swift.String, host: Swift.String, _: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/Simple%20Todo/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65D6B539-D307-484A-AC5F-EB67C8A7BD4F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Controllers/JiraController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "doRequest(url:method:body:apiKey:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
