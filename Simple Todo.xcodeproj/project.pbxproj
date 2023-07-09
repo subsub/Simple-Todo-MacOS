@@ -108,9 +108,6 @@
 		B22B4A242A4F16AE002F205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22B4A262A4F2858002F205D /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
 		B23622672A5441CB005ECEC7 /* TaskComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComment.swift; sourceTree = "<group>"; };
-		B236226F2A544C1C005ECEC7 /* BackgroundDownloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDownloadHandler.swift; sourceTree = "<group>"; };
-		B23622712A544C1C005ECEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B23622722A544C1C005ECEC7 /* BgTask.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BgTask.entitlements; sourceTree = "<group>"; };
 		B23B3B4E2A51E72900CEF418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B23B3B502A51E7A500CEF418 /* MyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToast.swift; sourceTree = "<group>"; };
 		B23B3B522A51EA2200CEF418 /* Color+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extension.swift"; sourceTree = "<group>"; };
@@ -214,23 +211,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		B236226E2A544C1C005ECEC7 /* BgTask */ = {
-			isa = PBXGroup;
-			children = (
-				B236226F2A544C1C005ECEC7 /* BackgroundDownloadHandler.swift */,
-				B23622712A544C1C005ECEC7 /* Info.plist */,
-				B23622722A544C1C005ECEC7 /* BgTask.entitlements */,
-			);
-			path = BgTask;
-			sourceTree = "<group>";
-		};
 		B23F96052A4DC80300394187 = {
 			isa = PBXGroup;
 			children = (
 				B23F96102A4DC80300394187 /* Simple Todo */,
 				B23F96252A4DC80400394187 /* Simple TodoTests */,
 				B23F962F2A4DC80400394187 /* Simple TodoUITests */,
-				B236226E2A544C1C005ECEC7 /* BgTask */,
 				B23F960F2A4DC80300394187 /* Products */,
 			);
 			sourceTree = "<group>";
