@@ -39,6 +39,17 @@ struct PreferenceView: View {
                 }
                 
                 
+                Divider()
+                
+                MyNavigationLink(id: "about") {
+                    Text("About")
+                } destination: {
+                    AboutView()
+                }
+
+
+                
+                
             }.padding(defaultPadding)
         }
         .onAppear {

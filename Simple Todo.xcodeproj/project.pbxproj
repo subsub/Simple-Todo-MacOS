@@ -53,6 +53,8 @@
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
 		B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */; };
 		B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B824512A58B6110096F943 /* AccountDetail.swift */; };
+		B2BD6E022A62F2C40082CE73 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD6E012A62F2C40082CE73 /* AboutView.swift */; };
+		B2BD6E042A62F4E90082CE73 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD6E032A62F4E90082CE73 /* Bundle+extension.swift */; };
 		B2C389782A5A8AD50096C79F /* MySelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C389772A5A8AD50096C79F /* MySelf.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +139,8 @@
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
 		B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentView.swift; sourceTree = "<group>"; };
 		B2B824512A58B6110096F943 /* AccountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
+		B2BD6E012A62F2C40082CE73 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		B2BD6E032A62F4E90082CE73 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
 		B2C389772A5A8AD50096C79F /* MySelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelf.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +176,7 @@
 				58E25C3F2A50484100CAA3C4 /* CodableUtil.swift */,
 				58E25C432A5056AE00CAA3C4 /* String+extension.swift */,
 				B23B3B522A51EA2200CEF418 /* Color+extension.swift */,
+				B2BD6E032A62F4E90082CE73 /* Bundle+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				B23F96422A4DCEAB00394187 /* StatusMenuView.swift */,
 				58E25C382A501BFD00CAA3C4 /* PreferenceView.swift */,
 				58E25C412A504E3C00CAA3C4 /* JiraAuthenticationView.swift */,
+				B2BD6E012A62F2C40082CE73 /* AboutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */,
 				B29724052A595BEC00401655 /* CommentEditorView.swift in Sources */,
 				58E25C372A501BC900CAA3C4 /* PreferenceButton.swift in Sources */,
+				B2BD6E042A62F4E90082CE73 /* Bundle+extension.swift in Sources */,
 				58E25C402A50484100CAA3C4 /* CodableUtil.swift in Sources */,
 				B22B4A1A2A4E1CDC002F205D /* ClearButton.swift in Sources */,
 				58C19EA52A506751004C36FE /* JiraController.swift in Sources */,
@@ -478,6 +485,7 @@
 				58E25C422A504E3C00CAA3C4 /* JiraAuthenticationView.swift in Sources */,
 				B22B4A1F2A4EB60E002F205D /* MyNavigationBar.swift in Sources */,
 				B29724072A59664600401655 /* CommentBody.swift in Sources */,
+				B2BD6E022A62F2C40082CE73 /* AboutView.swift in Sources */,
 				B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */,
 				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
 				58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */,

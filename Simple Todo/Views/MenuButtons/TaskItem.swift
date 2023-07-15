@@ -92,9 +92,6 @@ struct TaskItem: View {
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    Spacer()
-                    Image(systemName: "chevron.forward")
-                        .contrast(0.1)
                 }
                 .padding(smallPadding)
                 .contentShape(Rectangle())
