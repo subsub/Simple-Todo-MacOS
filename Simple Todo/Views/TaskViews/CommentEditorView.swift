@@ -86,7 +86,7 @@ struct CommentEditorView: View {
 struct CommentEditorView_Previews: PreviewProvider {
     static var previews: some View {
         CommentEditorView(
-            taskId: "PFM-2119",
+            taskId: "ST-1",
             commentAdded: .constant(false)
         )
             .environmentObject(JiraController.instance)

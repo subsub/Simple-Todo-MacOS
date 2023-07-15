@@ -695,5 +695,84 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11D8C148-2593-4D08-AD3B-F109E87AD297"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Controllers/JiraController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "extractCommentsBody(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "11D8C148-2593-4D08-AD3B-F109E87AD297 - 795e8558306f2401"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) async -&gt; Swift.Optional&lt;Swift.String&gt; in Simple_Todo_Bar.JiraController.extractCommentsBody(Swift.Array&lt;Simple_Todo_Bar.TaskComment&gt;) async -&gt; (Swift.Bool, Swift.Array&lt;Simple_Todo_Bar.TaskComment&gt;)"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "11D8C148-2593-4D08-AD3B-F109E87AD297 - 6ce8f83ef3e6198e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 (Swift.String) async -&gt; Swift.Optional&lt;Swift.String&gt; in Simple_Todo_Bar.JiraController.extractCommentsBody(Swift.Array&lt;Simple_Todo_Bar.TaskComment&gt;) async -&gt; (Swift.Bool, Swift.Array&lt;Simple_Todo_Bar.TaskComment&gt;)"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "11D8C148-2593-4D08-AD3B-F109E87AD297 - e7c454ca6351d267"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for closure #1 (Swift.String) async -&gt; Swift.Optional&lt;Swift.String&gt; in Simple_Todo_Bar.JiraController.extractCommentsBody(Swift.Array&lt;Simple_Todo_Bar.TaskComment&gt;) async -&gt; (Swift.Bool, Swift.Array&lt;Simple_Todo_Bar.TaskComment&gt;)"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Controllers/JiraController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "005803E3-3C63-4743-845E-4D425E7BFC91"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Utils/String+extension.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "findAccountIdAndReplace(host:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

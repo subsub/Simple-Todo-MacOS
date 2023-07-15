@@ -109,7 +109,7 @@ struct IssueCommentView: View {
 
 struct IssueCommentView_Previews: PreviewProvider {
     static var previews: some View {
-        IssueCommentView(jiraKey: "PFM-2119")
+        IssueCommentView(jiraKey: "ST-1")
             .environmentObject(JiraController.instance)
     }
 }

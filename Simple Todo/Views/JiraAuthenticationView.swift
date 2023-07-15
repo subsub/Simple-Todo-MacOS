@@ -36,7 +36,7 @@ struct JiraAuthenticationView: View {
                             VStack(alignment: .leading) {
                                 Text("Username:")
                                     .frame(maxHeight: 40)
-                                Text("API Key:")
+                                Text("API Token:")
                                     .frame(maxHeight: 40)
                                 Text("Host:")
                                     .frame(maxHeight: 40)
@@ -44,7 +44,7 @@ struct JiraAuthenticationView: View {
                             VStack {
                                 TextField("email@host.com", text: $username)
                                     .frame(maxHeight: 40)
-                                TextField("API Key", text: $apiKey)
+                                TextField("API Token", text: $apiKey)
                                     .frame(maxHeight: 40)
                                 HStack {
                                     TextField("host", text: $jiraHost)
@@ -55,7 +55,7 @@ struct JiraAuthenticationView: View {
                         }
                         .padding(defaultPadding)
                         
-                        Text("To use Jira App, you need an API key. Read on how to create Jira API key here: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/")
+                        Text("To use Jira App, you need an API Token. Read on how to create Jira API Token here: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(defaultPadding)
                             .background(.gray.opacity(0.1))

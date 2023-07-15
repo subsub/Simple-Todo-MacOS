@@ -21,7 +21,7 @@ extension String {
     }
     
     func findAccountIdAndReplace(host: String, _ action: @escaping (String) async -> String?) async -> String {
-        let pattern = #"\[~accountid:([a-zA-Z0-9]*)\]"#
+        let pattern = #"\[~accountid:([^]]*)\]\s"#
         let regex = try! NSRegularExpression(pattern: pattern, options: .anchorsMatchLines)
         let stringRange = NSRange(location: 0, length: self.utf16.count)
         let matches = regex.matches(in: self, range: stringRange)
