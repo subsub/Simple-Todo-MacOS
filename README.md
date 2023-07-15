@@ -32,3 +32,7 @@ A Todo-List for Mac made simple. Creating and managing todo-list from menu bar. 
 brew tap subsub/subsub https://github.com/subsub/simple-todo
 brew install --cask simple-todo
 ```
+
+## Privacy Policy
+
+[Privacy Policy](https://www.subkhansarif.id/privacy-policy)
