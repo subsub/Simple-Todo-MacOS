@@ -1,9 +1,9 @@
 # Simple TODO Bar
 
 A Todo-List for Mac made simple. Creating and managing todo-list from menu bar. It also comes with Jira integration to easily track issues you are working on.
+![simple-todo-demo](https://github.com/subsub/Simple-Todo-MacOS/assets/9811910/3edc0684-8953-4707-8ea4-5274f75f1e56)
 
-<video src="https://github.com/subsub/Simple-Todo-MacOS/blob/ebf9c7881d91caaee0d02deeaf1deb81c795db12/simple-todo-bar-demo.mov" controls="controls" style="max-width: 730px;">
-</video>
+
 
 ## Version
 
