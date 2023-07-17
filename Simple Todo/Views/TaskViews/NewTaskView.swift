@@ -30,7 +30,7 @@ struct NewTaskView: View {
                 if isLoading {
                     return
                 }
-                navigationState.popTo(id: nil)
+                navigationState.pop()
             } onConfirmButton: {
                 
                 let task = TaskModel(
@@ -120,7 +120,7 @@ struct NewTaskView: View {
         }
         
         taskDelegate.saveTask(task)
-        navigationState.popTo(id: nil)
+        navigationState.pop()
     }
     
     var reminderView: some View {

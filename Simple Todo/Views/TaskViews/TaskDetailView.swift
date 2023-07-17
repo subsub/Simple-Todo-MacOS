@@ -29,7 +29,7 @@ struct TaskDetailView: View {
         ScrollView {
             VStack {
                 MyNavigationBar(title: "Detail", confirmText: "Edit") {
-                    navigationState.popTo(id: nil)
+                    navigationState.pop()
                 } onConfirmButton: {
                     navigationState.push(id: "new-task", data: ["id": task.id])
                 }
@@ -50,7 +50,7 @@ struct TaskDetailView: View {
                 HStack {
                     Button {
                         taskDelegate.delete(task: task)
-                        navigationState.popTo(id: nil)
+                        navigationState.pop()
                     } label: {
                         Text("Delete")
                     }

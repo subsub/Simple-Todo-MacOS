@@ -51,6 +51,9 @@
 		B29724052A595BEC00401655 /* CommentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29724042A595BEC00401655 /* CommentEditorView.swift */; };
 		B29724072A59664600401655 /* CommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29724062A59664600401655 /* CommentBody.swift */; };
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
+		B2A067C12A6594EA0094C84F /* MyJiraTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A067C02A6594EA0094C84F /* MyJiraTaskItem.swift */; };
+		B2A067C32A6596AB0094C84F /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A067C22A6596AB0094C84F /* ProjectDetail.swift */; };
+		B2A067C62A6597AC0094C84F /* JiraCardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A067C52A6597AC0094C84F /* JiraCardStatus.swift */; };
 		B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */; };
 		B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B824512A58B6110096F943 /* AccountDetail.swift */; };
 		B2BD6E022A62F2C40082CE73 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD6E012A62F2C40082CE73 /* AboutView.swift */; };
@@ -137,6 +140,9 @@
 		B29724042A595BEC00401655 /* CommentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEditorView.swift; sourceTree = "<group>"; };
 		B29724062A59664600401655 /* CommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBody.swift; sourceTree = "<group>"; };
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		B2A067C02A6594EA0094C84F /* MyJiraTaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJiraTaskItem.swift; sourceTree = "<group>"; };
+		B2A067C22A6596AB0094C84F /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
+		B2A067C52A6597AC0094C84F /* JiraCardStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraCardStatus.swift; sourceTree = "<group>"; };
 		B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentView.swift; sourceTree = "<group>"; };
 		B2B824512A58B6110096F943 /* AccountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
 		B2BD6E012A62F2C40082CE73 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -313,16 +319,27 @@
 		B23F964D2A4DE98200394187 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B2A067C42A6597770094C84F /* jira */,
 				B23F964E2A4DE99100394187 /* TaskModel.swift */,
 				58E25C3C2A50478100CAA3C4 /* UserPreference.swift */,
-				58C19EA62A506868004C36FE /* JiraCardDetail.swift */,
-				B222F4432A50A58200EFDB87 /* JiraTransition.swift */,
-				B23622672A5441CB005ECEC7 /* TaskComment.swift */,
-				B2B824512A58B6110096F943 /* AccountDetail.swift */,
-				B29724062A59664600401655 /* CommentBody.swift */,
-				B2C389772A5A8AD50096C79F /* MySelf.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B2A067C42A6597770094C84F /* jira */ = {
+			isa = PBXGroup;
+			children = (
+				B2A067C22A6596AB0094C84F /* ProjectDetail.swift */,
+				B2A067C02A6594EA0094C84F /* MyJiraTaskItem.swift */,
+				B2C389772A5A8AD50096C79F /* MySelf.swift */,
+				B29724062A59664600401655 /* CommentBody.swift */,
+				B2B824512A58B6110096F943 /* AccountDetail.swift */,
+				B23622672A5441CB005ECEC7 /* TaskComment.swift */,
+				B222F4432A50A58200EFDB87 /* JiraTransition.swift */,
+				58C19EA62A506868004C36FE /* JiraCardDetail.swift */,
+				B2A067C52A6597AC0094C84F /* JiraCardStatus.swift */,
+			);
+			path = jira;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +496,7 @@
 				B2BD6E042A62F4E90082CE73 /* Bundle+extension.swift in Sources */,
 				58E25C402A50484100CAA3C4 /* CodableUtil.swift in Sources */,
 				B22B4A1A2A4E1CDC002F205D /* ClearButton.swift in Sources */,
+				B2A067C12A6594EA0094C84F /* MyJiraTaskItem.swift in Sources */,
 				58C19EA52A506751004C36FE /* JiraController.swift in Sources */,
 				B23F96402A4DCA0300394187 /* MainMenuView.swift in Sources */,
 				58E25C442A5056AE00CAA3C4 /* String+extension.swift in Sources */,
@@ -490,8 +508,10 @@
 				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
 				58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */,
 				B2C389782A5A8AD50096C79F /* MySelf.swift in Sources */,
+				B2A067C32A6596AB0094C84F /* ProjectDetail.swift in Sources */,
 				B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */,
 				B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */,
+				B2A067C62A6597AC0094C84F /* JiraCardStatus.swift in Sources */,
 				58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */,
 				B23B3B532A51EA2200CEF418 /* Color+extension.swift in Sources */,
 				B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */,

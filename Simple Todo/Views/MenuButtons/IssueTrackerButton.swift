@@ -10,7 +10,7 @@ import SwiftUI
 struct IssueTrackerButton: View {
     var body: some View {
         MyNavigationLink(id: "jira-tasks") {
-            Text("Issue Tracker (Jira)")
+            Text("Jira Tasks")
                 .foregroundColor(ColorTheme.instance.textDefault)
         } destination: {
             IssueTrackerListView()

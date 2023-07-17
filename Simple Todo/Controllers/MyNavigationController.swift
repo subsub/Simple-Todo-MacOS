@@ -14,21 +14,60 @@ class MyNavigationState: ObservableObject {
     @Published var views: [String] = []
     @Published var currentView: String? = nil
     @Published var data: [String: Any] = [:]
+    @Published fileprivate var currentStack: [String] = []
     
-    func popTo(id: String?) {
+    func popTo(id: String?, clearStackAbove: Bool = true) {
         withAnimation(.easeInOut(duration: 0.2)) {
+            if clearStackAbove {
+                popUntil(id)
+            }
             currentView = id
         }
         data.removeAll()
     }
     
+    func pop() {
+        withAnimation(.easeInOut(duration: 0.2)) {
+            if popFromStack() {
+                currentView = currentStack.last
+            }
+        }
+    }
+    
     func push(id: String?, data: [String: Any]? = nil) {
         withAnimation(.easeInOut(duration: 0.2)) {
+            pushToStack(id)
             currentView = id
         }
         if let data = data {
             self.data = data
         }
+    }
+    
+    fileprivate func pushToStack(_ id: String?) {
+        guard let id = id else {
+            return
+        }
+        currentStack.append(id)
+    }
+    
+    fileprivate func popFromStack() -> Bool {
+        guard let _ = currentStack.popLast() else {
+            return false
+        }
+        return true
+    }
+    
+    fileprivate func popUntil(_ id: String?) {
+        guard let id = id else {
+            currentStack.removeAll()
+            return
+        }
+        guard let index = currentStack.firstIndex(of: id) else {
+            return
+        }
+        let swap = Array(currentStack[0..<index])
+        currentStack = swap
     }
 }
 
@@ -66,6 +105,7 @@ struct MyNavigationLink: View {
             if autoRedirect {
                 withAnimation(.easeInOut(duration: 0.2)) {
                     navigationState.currentView = id
+                    navigationState.pushToStack(id)
                 }
             }
         } label: {
@@ -78,7 +118,7 @@ struct MyNavigationLink: View {
         }
         .buttonStyle(.plain)
         .background(
-                isHovered ? focusColor : .clear
+            isHovered ? focusColor : .clear
         )
         .cornerRadius(4)
         .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))

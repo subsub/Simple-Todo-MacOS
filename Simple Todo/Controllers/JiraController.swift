@@ -14,7 +14,7 @@ private let updateStatusPath = "/rest/api/2/issue/{issue-id}/transitions"
 private let getCommentsPath = "/rest/api/2/issue/{issue-id}/comment?orderBy=-created"
 private let postCommentPath = "/rest/api/3/issue/{issue-id}/comment"
 private let getUserByAccountId = "/rest/api/2/user?accountId={account-id}"
-private let listAssignedTaskPath = "/rest/api/2/search?jql=assignee=currentuser() and status != done ORDER BY created DESC"
+private let listAssignedTaskPath = "/rest/api/2/search?jql=assignee%3Dcurrentuser%28%29%20and%20status%20%21%3D%20done%20ORDER%20BY%20created%20DESC"
 
 class JiraController: ObservableObject {
     static let instance = JiraController()
@@ -178,6 +178,23 @@ class JiraController: ObservableObject {
         }
         
         return AccountDetail(from: data)
+    }
+    
+    func getMyTaskList(_ completion: @escaping([MyJiraTaskItem]?)->Void) {
+        guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(listAssignedTaskPath)") else {
+            completion(nil)
+            return
+        }
+        
+        doRequest(url: url) { success, data in
+            guard let data = data, success else {
+                completion(nil)
+                return
+            }
+            
+            let result = MyJiraTaskItem.from(data)
+            completion(result)
+        }
     }
     
     private func doRequest(url: URL, method: String = "GET", body: Data? = nil, apiKey: String? = nil, _ completion: @escaping(Bool, Data?) -> Void) {

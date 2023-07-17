@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MyNavigationBar: View {
     var title: String
+    var titleView: AnyView?
     var onBackButton: () -> Void
     var confirmText: String?
     var onConfirmButton: (() -> Void)?
@@ -21,6 +22,20 @@ struct MyNavigationBar: View {
         _ onBackButton: @escaping () -> Void,
         onConfirmButton: (() -> Void)? = nil) {
             self.title = title ?? ""
+            self.onBackButton = onBackButton
+            self.onConfirmButton = onConfirmButton
+            self.confirmText = confirmText
+            self.isConfirmButtonEnabled = confirmButtonEnabled
+        }
+    
+    init(
+        @ViewBuilder title titleView: @escaping () -> some View,
+        confirmText: String? = nil,
+        confirmButtonEnabled: Bool = true,
+        onBackButton: @escaping () -> Void,
+        onConfirmButton: (() -> Void)? = nil) {
+            self.title = ""
+            self.titleView = AnyView(titleView())
             self.onBackButton = onBackButton
             self.onConfirmButton = onConfirmButton
             self.confirmText = confirmText
@@ -41,7 +56,11 @@ struct MyNavigationBar: View {
                 
                 Spacer()
                 
-                Text(title)
+                if titleView != nil {
+                    titleView
+                } else {
+                    Text(title)
+                }
                 
                 Spacer()
                 

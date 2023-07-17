@@ -20,6 +20,13 @@ class TaskDelegate: ObservableObject {
         self.loadTasks()
     }
     
+    func hasTask(jiraId: String) -> (Bool, TaskModel?) {
+        let taskWithJira = taskModel.first(where: { task in
+            return task.jiraCard == jiraId
+        })
+        return (taskWithJira != nil, taskWithJira)
+    }
+    
     func uncompletedTask() -> [TaskModel] {
         taskModel.filter { task in
             task.status == .created
@@ -69,7 +76,7 @@ class TaskDelegate: ObservableObject {
             taskModel.append(data)
         }
         
-       save()
+        save()
     }
     
     func clearTask() {

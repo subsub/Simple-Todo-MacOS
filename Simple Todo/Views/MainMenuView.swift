@@ -22,7 +22,7 @@ struct MainMenuView: View {
                     Divider()
                     
                     // disable for now
-                    if preferenceController.hasJiraAuthKey() && false {
+                    if preferenceController.hasJiraAuthKey() {
                         IssueTrackerButton()
                         
                         Divider()
