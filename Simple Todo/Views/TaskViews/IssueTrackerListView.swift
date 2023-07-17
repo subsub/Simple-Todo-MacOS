@@ -26,25 +26,27 @@ struct IssueTrackerListView: View {
                 HStack{
                     Text("Issue Tracker")
                         .frame(maxWidth: .infinity)
-                    Button {
-                        withAnimation {
-                            isSearching.toggle()
+                    if false {
+                        Button {
+                            withAnimation {
+                                isSearching.toggle()
+                            }
+                        } label: {
+                            if isSearching {
+                                Image(systemName: "xmark")
+                            } else {
+                                Image(systemName: "magnifyingglass")
+                            }
                         }
-                    } label: {
+                        .buttonStyle(.plain)
                         if isSearching {
-                            Image(systemName: "xmark")
-                        } else {
-                            Image(systemName: "magnifyingglass")
+                            TextField("Search Key", text: $searchKey)
+                                .textFieldStyle(.plain)
+                                .padding(defaultPadding)
+                                .background(ColorTheme.instance.textInactive.opacity(0.5))
+                                .cornerRadius(4)
+                                .transition(.move(edge: .trailing).combined(with: .opacity))
                         }
-                    }
-                    .buttonStyle(.plain)
-                    if isSearching {
-                        TextField("Search Key", text: $searchKey)
-                            .textFieldStyle(.plain)
-                            .padding(defaultPadding)
-                            .background(ColorTheme.instance.textInactive.opacity(0.5))
-                            .cornerRadius(4)
-                            .transition(.move(edge: .trailing).combined(with: .opacity))
                     }
                 }
             } onBackButton: {
@@ -58,7 +60,7 @@ struct IssueTrackerListView: View {
                 issueItem
             }
         }
-        .frame(minWidth: 600)
+        .frame(minWidth: 500)
         .onAppear {
             isLoading = true
             jiraController.getMyTaskList { myTasks in
@@ -83,16 +85,16 @@ struct IssueTrackerListView: View {
             HStack {
                 Text("Status")
             }
-            .frame(maxWidth: 100, alignment: .leading)
+            .frame(maxWidth: 110, alignment: .leading)
             
             
             HStack {
                 Text("Action")
             }
-            .frame(maxWidth: 110, alignment: .leading)
+            .frame(maxWidth: 100, alignment: .leading)
             
         }
-        .padding(defaultPadding)
+        .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
     }
     
     var issueItem: some View {
@@ -103,38 +105,41 @@ struct IssueTrackerListView: View {
             
             ForEach(taskList, id: \.id) { task in
                 if let taskKey = task.key {
-                    HStack {
+                    VStack {
                         HStack {
-                            Text(taskKey)
-                        }
-                        .frame(maxWidth: 60, alignment: .leading)
-                        
-                        HStack {
-                            Text(task.summary ?? "")
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        HStack {
-                            if let status = task.status?.name {
-                                Text(status.uppercased())
-                                    .font(.system(size: 10))
-                                    .foregroundColor(ColorTheme.instance.textDefault)
-                                    .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
-                                    .background(ColorTheme.instance.textButtonInactive.opacity(0.5))
-                                    .cornerRadius(4)
+                            HStack {
+                                Text(taskKey)
                             }
+                            .frame(maxWidth: 60, alignment: .leading)
+                            
+                            HStack {
+                                Text(task.summary ?? "")
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            HStack {
+                                if let status = task.status?.name {
+                                    Text(status.uppercased())
+                                        .font(.system(size: 10))
+                                        .foregroundColor(ColorTheme.instance.textDefault)
+                                        .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
+                                        .background(ColorTheme.instance.textButtonInactive.opacity(0.5))
+                                        .cornerRadius(4)
+                                }
+                            }
+                            .frame(maxWidth: 100, alignment: .leading)
+                            
+                            actionLink(jiraTask: task)
+                                .frame(maxWidth: 110, alignment: .leading)
+                            
                         }
-                        .frame(maxWidth: 100, alignment: .leading)
-                        
-                        actionLink(jiraTask: task)
-                            .frame(maxWidth: 120, alignment: .leading)
-                        
                     }
+                    Divider()
                 }
             }
         }
         .padding(defaultPadding)
-        .background(ColorTheme.instance.textInactive.opacity(0.2))
+        .background(.gray.opacity(0.1))
         .cornerRadius(8)
         .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 8))
         
