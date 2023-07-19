@@ -32,6 +32,7 @@ class MyNavigationState: ObservableObject {
                 currentView = currentStack.last
             }
         }
+        data.removeAll()
     }
     
     func push(id: String?, data: [String: Any]? = nil) {
@@ -172,8 +173,8 @@ struct MyNavigationView: View {
                 print("Is Visible: \(NSApplication.shared.keyWindow != nil)")
                 if (NSApplication.shared.keyWindow == nil) {
                     withAnimation(.easeInOut(duration: 0.2)) {
-                        
                         navigationState.currentView = nil
+                        navigationState.popTo(id: nil, clearStackAbove: true)
                     }
                 }
             }
