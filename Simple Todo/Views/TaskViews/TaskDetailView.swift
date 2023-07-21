@@ -142,6 +142,7 @@ struct TaskDetailView: View {
                                 ForegroundColor(ColorTheme.instance.textDefault)
                                 FontFamilyVariant(.monospaced)
                                 BackgroundColor(ColorTheme.instance.textDefault.opacity(0.2))
+                                FontSize(12)
                             })
                                 .padding(8)
                                 .background(ColorTheme.instance.textInactive.opacity(0.1))
@@ -334,9 +335,11 @@ struct TaskDetailView: View {
     }
     
     func loadTransition() {
-        guard let detail = jiraCardDetail else {
+        defer {
             isLoading = false
             isStatusLoading = false
+        }
+        guard let detail = jiraCardDetail else {
             return
         }
         
@@ -350,8 +353,6 @@ struct TaskDetailView: View {
                 self.transitions.insert(JiraTransition(id: jiraCardDetail?.statusId! ?? "", name: jiraCardDetail?.status ?? "", hasScreen: false, isGlobal: false, isInitial: true, isConditional: true, isLooped: false, to: TransitionTo.empty), at: 0)
             }
             currentStatus = self.jiraCardDetail?.transitionId ?? jiraCardDetail?.statusId ?? ""
-            isLoading = false
-            isStatusLoading = false
         }
     }
     
@@ -370,9 +371,11 @@ struct TaskDetailView_Previews: PreviewProvider {
         let task = TaskModel(title: "Some teng", timestamp: "")
         let date = Date.now
         task.timestamp = date.ISO8601Format()
-        task.jiraCard = "PBI-534"
+        task.jiraCard = "ST-1"
         return TaskDetailView(id: task.id, task: task)
             .environmentObject(PreferenceController.instance)
             .environmentObject(JiraController.instance)
+            .environmentObject(MyNavigationState())
+            .environmentObject(PreferenceController.instance)
     }
 }

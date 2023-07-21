@@ -23,6 +23,8 @@ struct NewTaskView: View {
     @State var isLoading: Bool = false
     @State var message: String = ""
     @State var shouldShowToast: Bool = false
+    @State var isEditing: Bool = false
+    @State var isEditingJiraField: Bool = false
     
     var body: some View {
         VStack {
@@ -42,6 +44,14 @@ struct NewTaskView: View {
                 }
                 
                 if !jiraId.isEmpty {
+                    let (taskExists, _) = taskDelegate.hasTask(jiraId: jiraId)
+                    if taskExists {
+                        message = "Task with Jira-Card \"\(jiraId)\" already existed"
+                        withAnimation {
+                            shouldShowToast = true
+                        }
+                        return
+                    }
                     isLoading = true
                     jiraController.loadIssueDetail(by: jiraId) { jiraDetail in
                         isLoading = false
@@ -64,8 +74,18 @@ struct NewTaskView: View {
             
             ZStack {
                 VStack {
-                    TextField("Task", text: $taskTitle)
+                    TextField("New Task", text: $taskTitle)
+                        .onChange(of: taskTitle, perform: { title in
+                            withAnimation(.easeInOut(duration: 0.1)) {
+                                isEditing = !title.isEmpty
+                            }
+                        })
+                        .textFieldStyle(.plain)
                         .padding(defaultPadding)
+                        .background(ColorTheme.instance.textInactive.opacity(isEditing ? 0.4 : 0.2))
+                        .cornerRadius(4)
+                        .padding(defaultPadding)
+                        .frame(maxWidth: .infinity)
                     
                     Divider()
                     
@@ -105,6 +125,8 @@ struct NewTaskView: View {
                 displayDate = task.asDate() ?? .now
                 jiraId = task.jiraCard ?? ""
                 self.taskId = task.id
+            } else if let taskTitle = navigationState.data["title"] as? String {
+                self.taskTitle = taskTitle
             }
             
         }
@@ -139,6 +161,17 @@ struct NewTaskView: View {
             HStack {
                 Text("Jira Card")
                 TextField("Jira Card", text: $jiraId)
+                    .onChange(of: jiraId, perform: { title in
+                        withAnimation(.easeInOut(duration: 0.1)) {
+                            isEditingJiraField = !title.isEmpty
+                        }
+                    })
+                    .textFieldStyle(.plain)
+                    .padding(defaultPadding)
+                    .background(ColorTheme.instance.textInactive.opacity(isEditingJiraField ? 0.4 : 0.2))
+                    .cornerRadius(4)
+                    .padding(defaultPadding)
+                    .frame(maxWidth: .infinity)
             }
         }
         .padding(defaultPadding)

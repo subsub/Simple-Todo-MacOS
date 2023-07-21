@@ -127,10 +127,10 @@ struct IssueTrackerListView: View {
                                         .cornerRadius(4)
                                 }
                             }
-                            .frame(maxWidth: 100, alignment: .leading)
+                            .frame(maxWidth: 80, alignment: .leading)
                             
                             actionLink(jiraTask: task)
-                                .frame(maxWidth: 110, alignment: .leading)
+                                .frame(maxWidth: 130, alignment: .leading)
                             
                         }
                     }
@@ -159,8 +159,11 @@ struct IssueTrackerListView: View {
                         TaskDetailView(id: task!.id, task: task!)
                     }
                 } else {
-                    MyMenuButton {
-                        Text("New Task →")
+                    MyMenuButton { isHovered in
+                        AnyView(
+                            Text("As New Task →")
+                                .foregroundColor(isHovered ? ColorTheme.instance.textDefault : ColorTheme.instance.textButtonDefault)
+                        )
                     } callback: {
                         createNewTask(jiraTask: jiraTask)
                     }

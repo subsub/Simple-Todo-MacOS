@@ -11,8 +11,10 @@ struct QuitButton: View {
     @State var isHovered: Bool = false
     
     var body: some View {
-        MyMenuButton {
-            Text("Quit")
+        MyMenuButton { _ in
+            AnyView(
+                Text("Quit")
+            )
         } callback: {
             NSApplication.shared.terminate(nil)
         }

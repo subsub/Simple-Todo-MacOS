@@ -12,8 +12,10 @@ struct ClearButton: View {
     @State var isHovered: Bool = false
     
     var body: some View {
-        MyMenuButton {
-            Text("Delete All")
+        MyMenuButton { _ in
+            AnyView(
+                Text("Delete All")
+            )
         } callback: {
             taskDelegate.clearTask()
         }

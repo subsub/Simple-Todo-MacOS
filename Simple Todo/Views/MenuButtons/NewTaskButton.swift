@@ -9,20 +9,72 @@ import SwiftUI
 
 struct NewTaskButton: View {
     @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var taskDelegate: TaskDelegate
+    @State var taskTitle: String = ""
+    @State var isEditing: Bool = false
     
     var body: some View {
-        MyNavigationLink(id: "new-task") {
-            Text("New Task")
-                .foregroundColor(ColorTheme.instance.textDefault)
-        } destination: {
-            NewTaskView()
+        HStack {
+            TextField("New Task", text: $taskTitle)
+                .onSubmit {
+                    save()
+                }
+                .onChange(of: taskTitle, perform: { title in
+                    withAnimation(.easeInOut(duration: 0.1)) {
+                        isEditing = !title.isEmpty
+                    }
+                })
+                .textFieldStyle(.plain)
+                .padding(defaultPadding)
+                .background(ColorTheme.instance.textInactive.opacity(isEditing ? 0.4 : 0.2))
+                .cornerRadius(4)
+                .padding(defaultPadding)
+                .frame(maxWidth: .infinity)
+            if isEditing {
+                MyMenuButton(expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) { isHovered in
+                    AnyView(
+                        Text("⏎")
+                            .foregroundColor(isHovered ? ColorTheme.instance.textDefault : ColorTheme.instance.textButtonDefault)
+                    )
+                } callback: {
+                    save()
+                }
+                .transition(.move(edge: .top).combined(with: .opacity))
+                
+                MyMenuButton(expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) { _ in
+                    AnyView(
+                        Text("→")
+                    )
+                } callback: {
+                    navigationState.push(id: "new-task", data: ["title" : taskTitle])
+                }
+                .transition(.move(edge: .top).combined(with: .opacity))
+                
+
+                MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
+                    Text("→")
+                        .foregroundColor(ColorTheme.instance.textDefault)
+                } destination: {
+                    NewTaskView()
+                }
+                .frame(maxWidth: 0.0)
+            }
         }
+    }
+    
+    func save() {
+        let task = TaskModel(
+            title: taskTitle,
+            timestamp: "")
+        taskDelegate.saveTask(task)
+        taskTitle = ""
     }
 }
 
 struct NewTaskButton_Previews: PreviewProvider {
     static var previews: some View {
         NewTaskButton()
+            .environmentObject(TaskDelegate.instance)
             .environmentObject(MyNavigationState())
     }
 }

@@ -9,16 +9,19 @@ import SwiftUI
 
 struct MyMenuButton: View {
     @State var isHovered: Bool = false
-    @ViewBuilder var label: AnyView
+    @ViewBuilder var label: (_ isHovered: Bool) -> AnyView
     var callback: () -> Void
     var expanded: Bool = true
+    var padding: EdgeInsets?
     
     init(expanded: Bool = true,
-         label: ()->  some View,
+         padding: EdgeInsets? = EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4),
+         label: @escaping (_ isHovered: Bool) -> AnyView,
          callback: @escaping () -> Void) {
-        self.label = AnyView(label())
+        self.label = label
         self.callback = callback
         self.expanded = expanded
+        self.padding = padding
     }
     
     
@@ -29,7 +32,7 @@ struct MyMenuButton: View {
         label: {
             HStack{
                 HStack {
-                    label
+                    label(isHovered)
                         .foregroundColor(ColorTheme.instance.textDefault)
                     if expanded {
                         Spacer()
@@ -42,7 +45,7 @@ struct MyMenuButton: View {
             isHovered ? .blue : .clear
         )
         .cornerRadius(4)
-        .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+        .padding(padding ?? EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
         .buttonStyle(.plain)
         .onHover { hovered in
             isHovered = hovered
@@ -52,8 +55,10 @@ struct MyMenuButton: View {
 
 struct MyMenuButton_Previews: PreviewProvider {
     static var previews: some View {
-        MyMenuButton {
-            Text("This is button")
+        MyMenuButton { _ in
+            AnyView(
+                Text("This is button")
+            )
         } callback: {
             
         }

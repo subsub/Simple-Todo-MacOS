@@ -80,25 +80,36 @@ struct MyNavigationLink: View {
     let id: String
     var focusColor: Color? = .blue
     var autoRedirect: Bool = true
+    var expanded: Bool = true
+    var padding: EdgeInsets? = nil
     
     init(focusColor: Color? = nil,
+         expanded: Bool = true,
+         padding: EdgeInsets? = nil,
          @ViewBuilder content: @escaping () -> some View,
          @ViewBuilder destination: @escaping () -> some View) {
         self.content = AnyView(content())
         self.destination = AnyView(destination())
         self.id = UUID().uuidString
         self.focusColor = focusColor ?? .blue
+        self.expanded = expanded
+        self.padding = padding
     }
     
     init(id: String,
          focusColor: Color? = nil,
          autoRedirect: Bool = true,
-         @ViewBuilder content: @escaping () -> some View, @ViewBuilder destination: @escaping () -> some View) {
+         expanded: Bool = true,
+         padding: EdgeInsets? = nil,
+         @ViewBuilder content: @escaping () -> some View,
+         @ViewBuilder destination: @escaping () -> some View) {
         self.id = id
         self.content = AnyView(content())
         self.destination = AnyView(destination())
         self.focusColor = focusColor ?? .blue
         self.autoRedirect = autoRedirect
+        self.expanded = expanded
+        self.padding = padding
     }
     
     var body: some View {
@@ -113,7 +124,9 @@ struct MyNavigationLink: View {
             HStack {
                 content
                     .foregroundColor(ColorTheme.instance.textDefault)
-                Spacer()
+                if expanded {
+                    Spacer()
+                }
             }.padding(defaultPadding)
                 .contentShape(Rectangle())
         }
@@ -122,7 +135,7 @@ struct MyNavigationLink: View {
             isHovered ? focusColor : .clear
         )
         .cornerRadius(4)
-        .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+        .padding(padding ?? EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
         .onHover { hovered in
             isHovered = hovered
         }
