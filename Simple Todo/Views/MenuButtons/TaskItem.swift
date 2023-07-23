@@ -72,6 +72,7 @@ struct TaskItem: View {
                         VStack {
                             Text(task.title)
                                 .foregroundColor(ColorTheme.instance.textDefault)
+                                .lineLimit(1)
                                 .strikethrough(task.status == .completed)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             if !task.timestamp.isEmpty {
@@ -107,7 +108,7 @@ struct TaskItem: View {
 
 struct TaskItem_Previews: PreviewProvider {
     static var previews: some View {
-        let task = TaskModel(title: "Some title", timestamp: "")
+        let task = TaskModel(title: "Some title long title some title long title some title long title some title long title some title long title", timestamp: "")
         task.status = .created
         let date = Date.now
         task.timestamp = date.ISO8601Format()

@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct NewTaskButton: View {
+    enum Field : Hashable {
+        case title
+    }
     @EnvironmentObject var navigationState: MyNavigationState
     @EnvironmentObject var taskDelegate: TaskDelegate
     @State var taskTitle: String = ""
     @State var isEditing: Bool = false
+    @State var keyObserver: NSKeyValueObservation?
+    @FocusState var focusedState: Field?
     
     var body: some View {
         HStack {
@@ -19,6 +24,7 @@ struct NewTaskButton: View {
                 .onSubmit {
                     save()
                 }
+                .focused($focusedState, equals: .title)
                 .onChange(of: taskTitle, perform: { title in
                     withAnimation(.easeInOut(duration: 0.1)) {
                         isEditing = !title.isEmpty
@@ -50,7 +56,7 @@ struct NewTaskButton: View {
                 }
                 .transition(.move(edge: .top).combined(with: .opacity))
                 
-
+                
                 MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
                     Text("→")
                         .foregroundColor(ColorTheme.instance.textDefault)
@@ -58,6 +64,14 @@ struct NewTaskButton: View {
                     NewTaskView()
                 }
                 .frame(maxWidth: 0.0)
+            }
+        }
+        .onAppear {
+            focusedState = .title
+            keyObserver = NSApplication.shared.observe(\.keyWindow) { x, y in
+                if (NSApplication.shared.keyWindow == nil) {
+                    taskTitle = ""
+                }
             }
         }
     }

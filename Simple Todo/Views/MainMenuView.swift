@@ -21,7 +21,6 @@ struct MainMenuView: View {
                     
                     Divider()
                     
-                    // disable for now
                     if preferenceController.hasJiraAuthKey() {
                         IssueTrackerButton()
                         
@@ -53,7 +52,6 @@ struct MainMenuView: View {
                 }
             }
         }
-//        .frame(maxHeight: .infinity, alignment: .topLeading)
         .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
         .onAppear {
             keyObserver = NSApplication.shared.observe(\.keyWindow) { x, y in
