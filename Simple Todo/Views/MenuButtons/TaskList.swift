@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct TaskList: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
@@ -52,7 +53,7 @@ struct TaskList: View {
 struct TaskList_Previews: PreviewProvider {
     static var previews: some View {
         TaskList()
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
             .environmentObject(TaskDelegate.instance)
     }
 }

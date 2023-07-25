@@ -6,20 +6,21 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct PreferenceView: View {
-    @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var navigationState: SimpleNavigationState
     @EnvironmentObject var preferenceController: PreferenceController
     
     @State var isJiraEnabled: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
-            MyNavigationBar(title: "Preference") {
+            SimpleNavigation.bar(title: "Preference") {
                 navigationState.popTo(id: nil)
             }
             VStack {
-                MyNavigationLink(id: "jira-authentication-view", focusColor: .clear, autoRedirect: false) {
+                SimpleNavigation.link(id: "jira-authentication-view", focusColor: .clear, autoRedirect: false) {
                     HStack {
                         Text("Jira Integration")
                         Spacer()
@@ -41,7 +42,7 @@ struct PreferenceView: View {
                 
                 Divider()
                 
-                MyNavigationLink(id: "about") {
+                SimpleNavigation.link(id: "about") {
                     Text("About")
                 } destination: {
                     AboutView()
@@ -61,7 +62,7 @@ struct PreferenceView: View {
 struct PreferenceView_Previews: PreviewProvider {
     static var previews: some View {
         PreferenceView()
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
             .environmentObject(PreferenceController.instance)
     }
 }

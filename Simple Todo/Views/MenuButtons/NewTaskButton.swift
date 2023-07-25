@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct NewTaskButton: View {
     enum Field : Hashable {
         case title
     }
-    @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var navigationState: SimpleNavigationState
     @EnvironmentObject var taskDelegate: TaskDelegate
     @State var taskTitle: String = ""
     @State var isEditing: Bool = false
@@ -57,7 +58,7 @@ struct NewTaskButton: View {
                 .transition(.move(edge: .top).combined(with: .opacity))
                 
                 
-                MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
+                SimpleNavigation.link(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
                     Text("→")
                         .foregroundColor(ColorTheme.instance.textDefault)
                 } destination: {
@@ -89,6 +90,6 @@ struct NewTaskButton_Previews: PreviewProvider {
     static var previews: some View {
         NewTaskButton()
             .environmentObject(TaskDelegate.instance)
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
     }
 }

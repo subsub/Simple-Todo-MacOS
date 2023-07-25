@@ -20,6 +20,16 @@
 		B20A6D732A4DF5EA00DCC582 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */; };
 		B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */; };
 		B20A6D772A4E12E400DCC582 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */; };
+		B215A2FD2A6D08AB008A78CA /* Simple_Todo_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215A2FC2A6D08AB008A78CA /* Simple_Todo_iOSApp.swift */; };
+		B215A2FF2A6D08AB008A78CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215A2FE2A6D08AB008A78CA /* ContentView.swift */; };
+		B215A3012A6D08AB008A78CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B215A3002A6D08AB008A78CA /* Assets.xcassets */; };
+		B215A3042A6D08AB008A78CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B215A3032A6D08AB008A78CA /* Preview Assets.xcassets */; };
+		B215A30E2A6D08AC008A78CA /* Simple_Todo_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215A30D2A6D08AC008A78CA /* Simple_Todo_iOSTests.swift */; };
+		B215A3182A6D08AC008A78CA /* Simple_Todo_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215A3172A6D08AC008A78CA /* Simple_Todo_iOSUITests.swift */; };
+		B215A31A2A6D08AC008A78CA /* Simple_Todo_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215A3192A6D08AC008A78CA /* Simple_Todo_iOSUITestsLaunchTests.swift */; };
+		B215A3292A6D0941008A78CA /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = B215A3282A6D0941008A78CA /* MarkdownUI */; };
+		B215A32D2A6D0E16008A78CA /* simple-navigation in Frameworks */ = {isa = PBXBuildFile; productRef = B215A32C2A6D0E16008A78CA /* simple-navigation */; };
+		B215A32F2A6D0E20008A78CA /* simple-navigation in Frameworks */ = {isa = PBXBuildFile; productRef = B215A32E2A6D0E20008A78CA /* simple-navigation */; };
 		B222F4422A509DA100EFDB87 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = B222F4412A509DA100EFDB87 /* MarkdownUI */; };
 		B222F4442A50A58200EFDB87 /* JiraTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F4432A50A58200EFDB87 /* JiraTransition.swift */; };
 		B22B4A1A2A4E1CDC002F205D /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A192A4E1CDC002F205D /* ClearButton.swift */; };
@@ -62,6 +72,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B215A30A2A6D08AC008A78CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B23F96062A4DC80300394187 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B215A2F92A6D08AB008A78CA;
+			remoteInfo = "Simple Todo iOS";
+		};
+		B215A3142A6D08AC008A78CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B23F96062A4DC80300394187 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B215A2F92A6D08AB008A78CA;
+			remoteInfo = "Simple Todo iOS";
+		};
 		B23F96232A4DC80400394187 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B23F96062A4DC80300394187 /* Project object */;
@@ -105,6 +129,17 @@
 		B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		B215A2FA2A6D08AB008A78CA /* Simple Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Todo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B215A2FC2A6D08AB008A78CA /* Simple_Todo_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_Todo_iOSApp.swift; sourceTree = "<group>"; };
+		B215A2FE2A6D08AB008A78CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B215A3002A6D08AB008A78CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B215A3032A6D08AB008A78CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B215A3092A6D08AB008A78CA /* Simple Todo iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple Todo iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B215A30D2A6D08AC008A78CA /* Simple_Todo_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_Todo_iOSTests.swift; sourceTree = "<group>"; };
+		B215A3132A6D08AC008A78CA /* Simple Todo iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple Todo iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B215A3172A6D08AC008A78CA /* Simple_Todo_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_Todo_iOSUITests.swift; sourceTree = "<group>"; };
+		B215A3192A6D08AC008A78CA /* Simple_Todo_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_Todo_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B215A3242A6D091C008A78CA /* simple-navigation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "simple-navigation"; path = "../simple-navigation"; sourceTree = "<group>"; };
 		B222F4432A50A58200EFDB87 /* JiraTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraTransition.swift; sourceTree = "<group>"; };
 		B22B4A192A4E1CDC002F205D /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		B22B4A1B2A4E9269002F205D /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
@@ -151,10 +186,34 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B215A2F72A6D08AB008A78CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B215A32F2A6D0E20008A78CA /* simple-navigation in Frameworks */,
+				B215A3292A6D0941008A78CA /* MarkdownUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B215A3062A6D08AB008A78CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B215A3102A6D08AC008A78CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23F960B2A4DC80300394187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B215A32D2A6D0E16008A78CA /* simple-navigation in Frameworks */,
 				B222F4422A509DA100EFDB87 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +271,49 @@
 			path = TaskViews;
 			sourceTree = "<group>";
 		};
+		B215A2FB2A6D08AB008A78CA /* Simple Todo iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B215A2FC2A6D08AB008A78CA /* Simple_Todo_iOSApp.swift */,
+				B215A2FE2A6D08AB008A78CA /* ContentView.swift */,
+				B215A3002A6D08AB008A78CA /* Assets.xcassets */,
+				B215A3022A6D08AB008A78CA /* Preview Content */,
+			);
+			path = "Simple Todo iOS";
+			sourceTree = "<group>";
+		};
+		B215A3022A6D08AB008A78CA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B215A3032A6D08AB008A78CA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B215A30C2A6D08AC008A78CA /* Simple Todo iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				B215A30D2A6D08AC008A78CA /* Simple_Todo_iOSTests.swift */,
+			);
+			path = "Simple Todo iOSTests";
+			sourceTree = "<group>";
+		};
+		B215A3162A6D08AC008A78CA /* Simple Todo iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B215A3172A6D08AC008A78CA /* Simple_Todo_iOSUITests.swift */,
+				B215A3192A6D08AC008A78CA /* Simple_Todo_iOSUITestsLaunchTests.swift */,
+			);
+			path = "Simple Todo iOSUITests";
+			sourceTree = "<group>";
+		};
+		B215A3252A6D0937008A78CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B22B4A1D2A4EB5FC002F205D /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,10 +327,15 @@
 		B23F96052A4DC80300394187 = {
 			isa = PBXGroup;
 			children = (
+				B215A3242A6D091C008A78CA /* simple-navigation */,
 				B23F96102A4DC80300394187 /* Simple Todo */,
 				B23F96252A4DC80400394187 /* Simple TodoTests */,
 				B23F962F2A4DC80400394187 /* Simple TodoUITests */,
+				B215A2FB2A6D08AB008A78CA /* Simple Todo iOS */,
+				B215A30C2A6D08AC008A78CA /* Simple Todo iOSTests */,
+				B215A3162A6D08AC008A78CA /* Simple Todo iOSUITests */,
 				B23F960F2A4DC80300394187 /* Products */,
+				B215A3252A6D0937008A78CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,6 +345,9 @@
 				B23F960E2A4DC80300394187 /* Simple Todo Bar.app */,
 				B23F96222A4DC80400394187 /* Simple TodoTests.xctest */,
 				B23F962C2A4DC80400394187 /* Simple TodoUITests.xctest */,
+				B215A2FA2A6D08AB008A78CA /* Simple Todo.app */,
+				B215A3092A6D08AB008A78CA /* Simple Todo iOSTests.xctest */,
+				B215A3132A6D08AC008A78CA /* Simple Todo iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,6 +455,63 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B215A2F92A6D08AB008A78CA /* Simple Todo iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B215A3212A6D08AC008A78CA /* Build configuration list for PBXNativeTarget "Simple Todo iOS" */;
+			buildPhases = (
+				B215A2F62A6D08AB008A78CA /* Sources */,
+				B215A2F72A6D08AB008A78CA /* Frameworks */,
+				B215A2F82A6D08AB008A78CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simple Todo iOS";
+			packageProductDependencies = (
+				B215A3282A6D0941008A78CA /* MarkdownUI */,
+				B215A32E2A6D0E20008A78CA /* simple-navigation */,
+			);
+			productName = "Simple Todo iOS";
+			productReference = B215A2FA2A6D08AB008A78CA /* Simple Todo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B215A3082A6D08AB008A78CA /* Simple Todo iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B215A3222A6D08AC008A78CA /* Build configuration list for PBXNativeTarget "Simple Todo iOSTests" */;
+			buildPhases = (
+				B215A3052A6D08AB008A78CA /* Sources */,
+				B215A3062A6D08AB008A78CA /* Frameworks */,
+				B215A3072A6D08AB008A78CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B215A30B2A6D08AC008A78CA /* PBXTargetDependency */,
+			);
+			name = "Simple Todo iOSTests";
+			productName = "Simple Todo iOSTests";
+			productReference = B215A3092A6D08AB008A78CA /* Simple Todo iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B215A3122A6D08AC008A78CA /* Simple Todo iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B215A3232A6D08AC008A78CA /* Build configuration list for PBXNativeTarget "Simple Todo iOSUITests" */;
+			buildPhases = (
+				B215A30F2A6D08AC008A78CA /* Sources */,
+				B215A3102A6D08AC008A78CA /* Frameworks */,
+				B215A3112A6D08AC008A78CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B215A3152A6D08AC008A78CA /* PBXTargetDependency */,
+			);
+			name = "Simple Todo iOSUITests";
+			productName = "Simple Todo iOSUITests";
+			productReference = B215A3132A6D08AC008A78CA /* Simple Todo iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B23F960D2A4DC80300394187 /* Simple Todo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B23F96362A4DC80400394187 /* Build configuration list for PBXNativeTarget "Simple Todo" */;
@@ -361,6 +528,7 @@
 			name = "Simple Todo";
 			packageProductDependencies = (
 				B222F4412A509DA100EFDB87 /* MarkdownUI */,
+				B215A32C2A6D0E16008A78CA /* simple-navigation */,
 			);
 			productName = "Simple Todo";
 			productReference = B23F960E2A4DC80300394187 /* Simple Todo Bar.app */;
@@ -412,6 +580,17 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					B215A2F92A6D08AB008A78CA = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					B215A3082A6D08AB008A78CA = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = B215A2F92A6D08AB008A78CA;
+					};
+					B215A3122A6D08AC008A78CA = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = B215A2F92A6D08AB008A78CA;
+					};
 					B23F960D2A4DC80300394187 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -444,11 +623,37 @@
 				B23F960D2A4DC80300394187 /* Simple Todo */,
 				B23F96212A4DC80400394187 /* Simple TodoTests */,
 				B23F962B2A4DC80400394187 /* Simple TodoUITests */,
+				B215A2F92A6D08AB008A78CA /* Simple Todo iOS */,
+				B215A3082A6D08AB008A78CA /* Simple Todo iOSTests */,
+				B215A3122A6D08AC008A78CA /* Simple Todo iOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B215A2F82A6D08AB008A78CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B215A3042A6D08AB008A78CA /* Preview Assets.xcassets in Resources */,
+				B215A3012A6D08AB008A78CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B215A3072A6D08AB008A78CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B215A3112A6D08AC008A78CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23F960C2A4DC80300394187 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,6 +680,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B215A2F62A6D08AB008A78CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B215A2FF2A6D08AB008A78CA /* ContentView.swift in Sources */,
+				B215A2FD2A6D08AB008A78CA /* Simple_Todo_iOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B215A3052A6D08AB008A78CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B215A30E2A6D08AC008A78CA /* Simple_Todo_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B215A30F2A6D08AC008A78CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B215A31A2A6D08AC008A78CA /* Simple_Todo_iOSUITestsLaunchTests.swift in Sources */,
+				B215A3182A6D08AC008A78CA /* Simple_Todo_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23F960A2A4DC80300394187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,6 +779,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B215A30B2A6D08AC008A78CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B215A2F92A6D08AB008A78CA /* Simple Todo iOS */;
+			targetProxy = B215A30A2A6D08AC008A78CA /* PBXContainerItemProxy */;
+		};
+		B215A3152A6D08AC008A78CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B215A2F92A6D08AB008A78CA /* Simple Todo iOS */;
+			targetProxy = B215A3142A6D08AC008A78CA /* PBXContainerItemProxy */;
+		};
 		B23F96242A4DC80400394187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B23F960D2A4DC80300394187 /* Simple Todo */;
@@ -561,6 +802,153 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B215A31B2A6D08AC008A78CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Simple Todo iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo-iOS";
+				PRODUCT_NAME = "Simple Todo";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B215A31C2A6D08AC008A78CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Simple Todo iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo-iOS";
+				PRODUCT_NAME = "Simple Todo";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B215A31D2A6D08AC008A78CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Todo iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Simple Todo iOS";
+			};
+			name = Debug;
+		};
+		B215A31E2A6D08AC008A78CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Todo iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Simple Todo iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B215A31F2A6D08AC008A78CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Simple Todo iOS";
+			};
+			name = Debug;
+		};
+		B215A3202A6D08AC008A78CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Simple Todo iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		B23F96342A4DC80400394187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -811,6 +1199,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B215A3212A6D08AC008A78CA /* Build configuration list for PBXNativeTarget "Simple Todo iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B215A31B2A6D08AC008A78CA /* Debug */,
+				B215A31C2A6D08AC008A78CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B215A3222A6D08AC008A78CA /* Build configuration list for PBXNativeTarget "Simple Todo iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B215A31D2A6D08AC008A78CA /* Debug */,
+				B215A31E2A6D08AC008A78CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B215A3232A6D08AC008A78CA /* Build configuration list for PBXNativeTarget "Simple Todo iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B215A31F2A6D08AC008A78CA /* Debug */,
+				B215A3202A6D08AC008A78CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B23F96092A4DC80300394187 /* Build configuration list for PBXProject "Simple Todo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -861,6 +1276,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B215A3282A6D0941008A78CA /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B222F4402A509DA100EFDB87 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+		B215A32C2A6D0E16008A78CA /* simple-navigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "simple-navigation";
+		};
+		B215A32E2A6D0E20008A78CA /* simple-navigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "simple-navigation";
+		};
 		B222F4412A509DA100EFDB87 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B222F4402A509DA100EFDB87 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;

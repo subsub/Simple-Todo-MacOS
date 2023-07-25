@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct MainMenuView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
@@ -14,7 +15,7 @@ struct MainMenuView: View {
     @State var keyObserver: NSKeyValueObservation?
     
     var body: some View {
-        MyNavigationController {
+        SimpleNavigation.controller {
             VStack {
                 VStack {
                     NewTaskButton()

@@ -7,9 +7,10 @@
 
 import SwiftUI
 import MarkdownUI
+import simple_navigation
 
 struct TaskDetailView: View {
-    @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var navigationState: SimpleNavigationState
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var preferenceController: PreferenceController
     @EnvironmentObject var jiraController: JiraController
@@ -28,7 +29,7 @@ struct TaskDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                MyNavigationBar(title: "Detail", confirmText: "Edit") {
+                SimpleNavigation.bar(title: "Detail", confirmText: "Edit") {
                     navigationState.pop()
                 } onConfirmButton: {
                     navigationState.push(id: "new-task", data: ["id": task.id])
@@ -375,7 +376,7 @@ struct TaskDetailView_Previews: PreviewProvider {
         return TaskDetailView(id: task.id, task: task)
             .environmentObject(PreferenceController.instance)
             .environmentObject(JiraController.instance)
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
             .environmentObject(PreferenceController.instance)
     }
 }

@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct NewTaskView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
-    @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var navigationState: SimpleNavigationState
     @EnvironmentObject var notificationController: NotificationController
     @EnvironmentObject var preferenceController: PreferenceController
     @EnvironmentObject var jiraController: JiraController
@@ -28,7 +29,7 @@ struct NewTaskView: View {
     
     var body: some View {
         VStack {
-            MyNavigationBar(title: navbarTitle, confirmText: "Save", confirmButtonEnabled: !taskTitle.isEmpty) {
+            SimpleNavigation.bar(title: navbarTitle, confirmText: "Save", confirmButtonEnabled: !taskTitle.isEmpty) {
                 if isLoading {
                     return
                 }
@@ -182,7 +183,7 @@ struct NewTaskView_Previews: PreviewProvider {
     static var previews: some View {
         NewTaskView()
             .environmentObject(TaskDelegate.instance)
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
             .environmentObject(NotificationController.instance)
             .environmentObject(PreferenceController.instance)
     }

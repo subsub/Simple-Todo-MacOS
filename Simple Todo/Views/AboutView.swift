@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct AboutView: View {
-    @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var navigationState: SimpleNavigationState
     
     var body: some View {
         VStack {
-            MyNavigationBar(title: "About") {
+            SimpleNavigation.bar(title: "About") {
                 navigationState.popTo(id: "preference")
             }
             
@@ -40,6 +41,6 @@ struct AboutView: View {
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
         AboutView()
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
     }
 }

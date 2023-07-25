@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct PreferenceButton: View {
     var body: some View {
-        MyNavigationLink(id: "preference") {
+        SimpleNavigation.link(id: "preference") {
             Text("Preference")
         } destination: {
             PreferenceView()
@@ -20,6 +21,6 @@ struct PreferenceButton: View {
 struct PreferenceButton_Previews: PreviewProvider {
     static var previews: some View {
         PreferenceButton()
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct TaskItem: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
@@ -50,7 +51,7 @@ struct TaskItem: View {
                 isCheckmarkHovered = hovered
             }
             
-            MyNavigationLink(id: task.id) {
+            SimpleNavigation.link(id: task.id) {
                 HStack {
                     VStack {
                         if task.jiraCard?.isEmpty == false {
@@ -117,7 +118,7 @@ struct TaskItem_Previews: PreviewProvider {
         return TaskItem(
             task: task,
             isCompleted: task.status == .completed)
-        .environmentObject(MyNavigationState())
+        .environmentObject(SimpleNavigation.state())
         .environmentObject(TaskDelegate.instance)
         .environmentObject(JiraController.instance)
     }

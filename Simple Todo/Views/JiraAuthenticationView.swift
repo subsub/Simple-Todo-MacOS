@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct JiraAuthenticationView: View {
-    @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var navigationState: SimpleNavigationState
     @EnvironmentObject var preferenceController: PreferenceController
     @EnvironmentObject var jiraController: JiraController
     @EnvironmentObject var taskDelegate: TaskDelegate
@@ -23,7 +24,7 @@ struct JiraAuthenticationView: View {
     var body: some View {
         ZStack {
             VStack {
-                MyNavigationBar(title: "Jira Integration", confirmText: "Save", confirmButtonEnabled: !username.isEmpty && !apiKey.isEmpty && !jiraHost.isEmpty && !isLoading) {
+                SimpleNavigation.bar(title: "Jira Integration", confirmText: "Save", confirmButtonEnabled: !username.isEmpty && !apiKey.isEmpty && !jiraHost.isEmpty && !isLoading) {
                     navigationState.popTo(id: "preference")
                 } onConfirmButton: {
                     isLoading = true
@@ -104,7 +105,7 @@ struct JiraAuthenticationView: View {
 struct JiraAuthenticationView_Previews: PreviewProvider {
     static var previews: some View {
         JiraAuthenticationView()
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
             .environmentObject(JiraController.instance)
             .environmentObject(TaskDelegate.instance)
     }

@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import simple_navigation
 
 struct IssueTrackerListView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
-    @EnvironmentObject var navigationState: MyNavigationState
+    @EnvironmentObject var navigationState: SimpleNavigationState
     @EnvironmentObject var jiraController: JiraController
     @State var isLoading: Bool = false
     @State var taskList: [MyJiraTaskItem] = []
@@ -22,7 +23,7 @@ struct IssueTrackerListView: View {
     
     var body: some View {
         VStack {
-            MyNavigationBar {
+            SimpleNavigation.bar {
                 HStack{
                     Text("Issue Tracker")
                         .frame(maxWidth: .infinity)
@@ -151,7 +152,7 @@ struct IssueTrackerListView: View {
         return AnyView(
             HStack {
                 if taskExists && task != nil {
-                    MyNavigationLink(id: task!.id) {
+                    SimpleNavigation.link(id: task!.id) {
                         HStack {
                             Text("Detail →")
                         }
@@ -169,7 +170,7 @@ struct IssueTrackerListView: View {
                     }
                     .buttonStyle(.plain)
                     if createdTask != nil {
-                        MyNavigationLink(id: createdTask!.id) {
+                        SimpleNavigation.link(id: createdTask!.id) {
                             EmptyView()
                         } destination: {
                             TaskDetailView(id: createdTask!.id, task: createdTask!)
@@ -217,7 +218,7 @@ struct IssueTrackerListView: View {
 struct IssueTrackerListView_Previews: PreviewProvider {
     static var previews: some View {
         IssueTrackerListView()
-            .environmentObject(MyNavigationState())
+            .environmentObject(SimpleNavigation.state())
             .environmentObject(JiraController.instance)
             .environmentObject(TaskDelegate.instance)
     }
