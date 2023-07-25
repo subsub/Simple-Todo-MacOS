@@ -31,10 +31,15 @@ Creating and managing todo-list from menu bar. It also comes with Jira integrati
 
 ## Latest Version
 
-0.0.2-beta
+0.0.3-beta
 
 ## Installation
 
+#### App Store
+Downloda from the [App Store](https://apps.apple.com/us/app/simple-todo-bar/id6451055888)
+
+#### Homebrew
+Install using Homebrew:
 ```
 brew tap subsub/subsub https://github.com/subsub/simple-todo
 brew install --cask simple-todo
