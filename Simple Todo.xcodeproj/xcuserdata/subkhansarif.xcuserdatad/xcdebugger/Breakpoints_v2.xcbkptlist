@@ -7,47 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7EFC4907-9A0C-4B90-AB51-65C86E91F571"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Simple Todo/Models/jira/MyJiraTaskItem.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "from(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4E81B84F-E10E-4598-A0EE-B2C1A7F66BE1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Simple Todo/Models/jira/MyJiraTaskItem.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "from(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FF79C5A5-9946-4FFE-BD10-0C9F2291FCB6"
+            uuid = "5C4B5A38-DAE8-4ED8-A2FE-542E2E5C9E7F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Simple Todo/Views/TaskViews/NewTaskView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -55,47 +23,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2788E775-9BD7-4EB2-82F8-AA819DD79283"
+            uuid = "974195FA-202E-42CB-8458-43BECB4B24DB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Simple Todo/Controllers/MyNavigationController.swift"
+            filePath = "Simple Todo/Views/TaskViews/TaskDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "pop()"
+            startingLineNumber = "329"
+            endingLineNumber = "329"
+            landmarkName = "loadIssueDetail()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2788E775-9BD7-4EB2-82F8-AA819DD79283 - 6ecc42658ed851fb"
+                  uuid = "974195FA-202E-42CB-8458-43BECB4B24DB - d399933bfec075cc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Simple_Todo_Bar.MyNavigationState.pop() -&gt; ()"
+                  symbolName = "Simple_Todo_Bar.TaskDetailView.loadIssueDetail() -&gt; ()"
                   moduleName = "Simple Todo Bar"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Controllers/MyNavigationController.swift"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Views/TaskViews/TaskDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "236">
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "68">
                </Location>
                <Location
-                  uuid = "2788E775-9BD7-4EB2-82F8-AA819DD79283 - 5b2869f422324b9e"
+                  uuid = "974195FA-202E-42CB-8458-43BECB4B24DB - 5570caeaa089f825"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Simple_Todo_Bar.MyNavigationState.pop() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Simple_Todo_Bar.JiraCardDetail&gt;) -&gt; () in Simple_Todo_Bar.TaskDetailView.loadIssueDetail() -&gt; ()"
                   moduleName = "Simple Todo Bar"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Controllers/MyNavigationController.swift"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Views/TaskViews/TaskDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "330"
+                  endingLineNumber = "330"
+                  offsetFromSymbolStart = "84">
                </Location>
             </Locations>
          </BreakpointContent>

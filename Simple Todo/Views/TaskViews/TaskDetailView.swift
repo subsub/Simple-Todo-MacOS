@@ -14,7 +14,7 @@ struct TaskDetailView: View {
     @EnvironmentObject var preferenceController: PreferenceController
     @EnvironmentObject var jiraController: JiraController
     var id: String
-    var task: TaskModel
+    @State var task: TaskModel
     @State var jiraCardDetail: JiraCardDetail? = nil
     @State var isLoading: Bool = false
     @State var isStatusLoading: Bool = false
@@ -83,6 +83,11 @@ struct TaskDetailView: View {
             }
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 8, trailing: 0))
             .frame(maxWidth: .infinity)
+        }
+        .onAppear{
+            if let task = taskDelegate.getTask(by: id) {
+                self.task = task
+            }
         }
         .padding(defaultPadding)
         .background(.gray.opacity(0.1))

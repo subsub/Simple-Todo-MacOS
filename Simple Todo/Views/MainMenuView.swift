@@ -17,7 +17,17 @@ struct MainMenuView: View {
         MyNavigationController {
             VStack {
                 VStack {
-                    NewTaskButton()
+                    ZStack {
+                        // hidden navigation link for new-task
+                        MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) {
+                            EmptyView()
+                        } destination: {
+                            NewTaskView()
+                        }
+                        .frame(width:0, height: 0)
+                        
+                        NewTaskButton()
+                    }
                     
                     Divider()
                     
