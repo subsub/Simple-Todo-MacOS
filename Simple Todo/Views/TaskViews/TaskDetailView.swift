@@ -84,11 +84,6 @@ struct TaskDetailView: View {
             .padding(EdgeInsets(top: 2, leading: 0, bottom: 8, trailing: 0))
             .frame(maxWidth: .infinity)
         }
-        .onAppear{
-            if let task = taskDelegate.getTask(by: id) {
-                self.task = task
-            }
-        }
         .padding(defaultPadding)
         .background(.gray.opacity(0.1))
         .cornerRadius(8)
@@ -326,6 +321,9 @@ struct TaskDetailView: View {
     }
     
     func loadIssueDetail() {
+        if let task = taskDelegate.getTask(by: id) {
+            self.task = task
+        }
         jiraController.loadIssueDetail(by: task.jiraCard!) { detail in
             self.jiraCardDetail = detail
             self.task.jiraStatus = detail?.status

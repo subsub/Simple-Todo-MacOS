@@ -44,13 +44,15 @@ struct NewTaskView: View {
                 }
                 
                 if !jiraId.isEmpty {
-                    let (taskExists, _) = taskDelegate.hasTask(jiraId: jiraId)
+                    let (taskExists, currentTask) = taskDelegate.hasTask(jiraId: jiraId)
                     if taskExists {
-                        message = "Task with Jira-Card \"\(jiraId)\" already existed"
-                        withAnimation {
-                            shouldShowToast = true
+                        if taskId == nil || task.id != currentTask?.id {
+                            message = "Task with Jira-Card \"\(jiraId)\" already existed"
+                            withAnimation {
+                                shouldShowToast = true
+                            }
+                            return
                         }
-                        return
                     }
                     isLoading = true
                     jiraController.loadIssueDetail(by: jiraId) { jiraDetail in
