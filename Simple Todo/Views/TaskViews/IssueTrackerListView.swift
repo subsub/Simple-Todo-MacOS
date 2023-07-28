@@ -92,6 +92,7 @@ struct IssueTrackerListView: View {
                 
                 if isSearching {
                     searchItem
+                        .background(.ultraThinMaterial.shadow(.drop(color: ColorTheme.instance.defaultShadow, radius: 10)))
                 }
             }
         }
@@ -201,8 +202,6 @@ struct IssueTrackerListView: View {
                     .scaleEffect(0.5)
                     .frame(maxWidth: 250)
                     .padding(defaultPadding)
-                    .background(.ultraThinMaterial)
-                    .shadow(color: ColorTheme.instance.defaultShadow, radius: 10)
             } else if !searchResult.isEmpty {
                 ScrollView {
                     searchTableHeader
@@ -242,15 +241,11 @@ struct IssueTrackerListView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .frame(maxWidth: 250, maxHeight: 200)
-                .background(.ultraThinMaterial)
-                .shadow(color: ColorTheme.instance.defaultShadow, radius: 10)
             } else if !searchError.isEmpty {
                 Text(searchError)
                 .frame(maxWidth: 250)
                 .padding(defaultPadding)
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                .background(.ultraThinMaterial)
-                .shadow(color: ColorTheme.instance.defaultShadow, radius: 10)
             }
         }
     }
