@@ -324,7 +324,10 @@ struct TaskDetailView: View {
         if let task = taskDelegate.getTask(by: id) {
             self.task = task
         }
-        jiraController.loadIssueDetail(by: task.jiraCard!) { detail in
+        guard let jiraCard = task.jiraCard else {
+            return
+        }
+        jiraController.loadIssueDetail(by: jiraCard) { detail in
             self.jiraCardDetail = detail
             self.task.jiraStatus = detail?.status
             self.taskDelegate.saveTask(task)
