@@ -15,6 +15,7 @@ private let getCommentsPath = "/rest/api/2/issue/{issue-id}/comment?orderBy=-cre
 private let postCommentPath = "/rest/api/3/issue/{issue-id}/comment"
 private let getUserByAccountId = "/rest/api/2/user?accountId={account-id}"
 private let listAssignedTaskPath = "/rest/api/2/search?jql=assignee%3Dcurrentuser%28%29%20and%20status%20%21%3D%20done%20ORDER%20BY%20created%20DESC"
+private let searchIssuePath = "/rest/api/3/issue/picker?currentJQL=issueKey%20%3D%20{query}%20OR%20issueKey%20%3D%20{query}%20OR%20text%20~%20%22{query}%2A%22"
 
 class JiraController: ObservableObject {
     static let instance = JiraController()
@@ -194,6 +195,24 @@ class JiraController: ObservableObject {
             
             let result = MyJiraTaskItem.from(data)
             completion(result)
+        }
+    }
+    
+    func searchIssue(by query: String, _ completion: @escaping ([JiraCardDetail]) -> Void) {
+        let path = searchIssuePath.replacing("{query}", with: query)
+        guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {
+            completion([])
+            return
+        }
+        
+        doRequest(url: url) { success, data in
+            guard let data = data, success else {
+                completion([])
+                return
+            }
+            
+            let cardDetail = JiraCardDetail.listFrom(data)
+            completion(cardDetail)
         }
     }
     

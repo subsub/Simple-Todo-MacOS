@@ -14,11 +14,13 @@ struct MyNavigationBar: View {
     var confirmText: String?
     var onConfirmButton: (() -> Void)?
     var isConfirmButtonEnabled: Bool = true
+    var bottomPadding: EdgeInsets?
     
     init(
         title: String? = nil,
         confirmText: String? = nil,
         confirmButtonEnabled: Bool = true,
+        bottomPadding: EdgeInsets? = nil,
         _ onBackButton: @escaping () -> Void,
         onConfirmButton: (() -> Void)? = nil) {
             self.title = title ?? ""
@@ -26,12 +28,14 @@ struct MyNavigationBar: View {
             self.onConfirmButton = onConfirmButton
             self.confirmText = confirmText
             self.isConfirmButtonEnabled = confirmButtonEnabled
+            self.bottomPadding = bottomPadding
         }
     
     init(
         @ViewBuilder title titleView: @escaping () -> some View,
         confirmText: String? = nil,
         confirmButtonEnabled: Bool = true,
+        bottomPadding: EdgeInsets? = nil,
         onBackButton: @escaping () -> Void,
         onConfirmButton: (() -> Void)? = nil) {
             self.title = ""
@@ -40,44 +44,45 @@ struct MyNavigationBar: View {
             self.onConfirmButton = onConfirmButton
             self.confirmText = confirmText
             self.isConfirmButtonEnabled = confirmButtonEnabled
+            self.bottomPadding = bottomPadding
         }
     
     var body: some View {
-        VStack {
-            HStack {
+        HStack {
+            Button {
+                
+                onBackButton()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .foregroundColor(.blue)
+            }
+            .buttonStyle(.plain)
+            
+            Spacer()
+            
+            if titleView != nil {
+                titleView
+                    .frame(maxHeight: 24, alignment: .topLeading)
+            } else {
+                Text(title)
+                    .frame(maxHeight: 24, alignment: .topLeading)
+            }
+            
+            Spacer()
+            
+            if confirmText != nil {
                 Button {
-                    
-                    onBackButton()
+                    onConfirmButton?()
                 } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.blue)
+                    Text(confirmText!)
+                        .foregroundColor(isConfirmButtonEnabled ? .blue : .gray)
                 }
                 .buttonStyle(.plain)
-                
-                Spacer()
-                
-                if titleView != nil {
-                    titleView
-                } else {
-                    Text(title)
-                }
-                
-                Spacer()
-                
-                if confirmText != nil {
-                    Button {
-                        onConfirmButton?()
-                    } label: {
-                        Text(confirmText!)
-                            .foregroundColor(isConfirmButtonEnabled ? .blue : .gray)
-                    }
-                    .buttonStyle(.plain)
-                    .disabled(!isConfirmButtonEnabled)
-                }
+                .disabled(!isConfirmButtonEnabled)
             }
-            .padding(EdgeInsets(top: 4, leading: 8, bottom: 0, trailing: 8))
-            Divider()
         }
+        .frame(height: 24, alignment: .topLeading)
+        .padding(bottomPadding ?? EdgeInsets(top: 4, leading: 8, bottom: 0, trailing: 8))
     }
 }
 

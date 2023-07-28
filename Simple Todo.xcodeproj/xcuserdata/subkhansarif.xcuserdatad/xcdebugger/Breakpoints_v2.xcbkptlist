@@ -68,5 +68,255 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97358E0C-B025-434A-A569-86A9FF72510E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Controllers/JiraController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "searchIssue(by:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Models/jira/JiraCardDetail.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "listFrom(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "1464">
+               </Location>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "1728">
+               </Location>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "2044">
+               </Location>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "2364">
+               </Location>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "1468">
+               </Location>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "1716">
+               </Location>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "2016">
+               </Location>
+               <Location
+                  uuid = "40A306B8-40A1-4EA7-869D-E0A0EE77548B - 8ef106dd39fc76c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "2332">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "628B25E1-47FE-4F5B-90B4-2A7198DC125D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Models/jira/JiraCardDetail.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "listFrom(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "628B25E1-47FE-4F5B-90B4-2A7198DC125D - 8ef106dd39fc7923"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "2412">
+               </Location>
+               <Location
+                  uuid = "628B25E1-47FE-4F5B-90B4-2A7198DC125D - 8ef106dd39fc7923"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "2380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8D1F3EA-F12B-485D-9358-04E1660C8AD9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Simple Todo/Models/jira/JiraCardDetail.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "listFrom(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D8D1F3EA-F12B-485D-9358-04E1660C8AD9 - 8ef106dd39fc76e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "2728">
+               </Location>
+               <Location
+                  uuid = "D8D1F3EA-F12B-485D-9358-04E1660C8AD9 - 8ef106dd39fc76e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Simple_Todo_Bar.JiraCardDetail.listFrom(Foundation.Data) -&gt; Swift.Array&lt;Simple_Todo_Bar.JiraCardDetail&gt;"
+                  moduleName = "Simple Todo Bar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/subkhansarif/Workspace/programs/simple-todo-github/Simple%20Todo/Models/jira/JiraCardDetail.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "2868">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

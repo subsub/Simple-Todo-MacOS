@@ -8,6 +8,7 @@
 import SwiftUI
 
 class JiraCardDetail: Codable {
+    var id: String?
     var key: String?
     var summary: String?
     var description: String?
@@ -39,6 +40,8 @@ class JiraCardDetail: Codable {
         guard let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let fields = dict["fields"] as? [String: Any] else {
             return
         }
+        
+        self.id = dict["id"] as? String
         
         self.key = dict["key"] as? String
         
@@ -76,5 +79,31 @@ class JiraCardDetail: Codable {
                 assigneeAvatar = avatarUrls["16x16"]
             }
         }
+    }
+    
+    static func listFrom(_ data: Data) -> [JiraCardDetail] {
+        var result: [JiraCardDetail] = []
+        
+        guard let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let sections = dict["sections"] as? [[String: Any]] else {
+            return result
+        }
+        
+        for section in sections {
+            guard let issues = section["issues"] as? [[String: Any]] else {
+                continue
+            }
+            
+            for issue in issues {
+                var jiraDetail = JiraCardDetail()
+                guard let id = issue["id"] as? Int, let key = issue["key"] as? String, let summary = issue["summary"] as? String else {
+                    continue
+                }
+                jiraDetail.id = "\(id)"
+                jiraDetail.key = key
+                jiraDetail.summary = summary
+                result.append(jiraDetail)
+            }
+        }
+        return result
     }
 }

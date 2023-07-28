@@ -130,7 +130,12 @@ struct NewTaskView: View {
             } else if let taskTitle = navigationState.data["title"] as? String {
                 self.taskTitle = taskTitle
             }
-            
+            if let taskJiraCard = navigationState.data["jiraCard"] as? String {
+                self.jiraId = taskJiraCard
+            }
+            if let taskJiraSummary = navigationState.data["jiraSummary"] as? String {
+                self.taskTitle = taskJiraSummary
+            }
         }
     }
     

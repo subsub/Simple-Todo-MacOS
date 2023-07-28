@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct IssueTrackerListView: View {
+    enum Field : Hashable {
+        case search
+        case none
+    }
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var navigationState: MyNavigationState
     @EnvironmentObject var jiraController: JiraController
@@ -19,6 +23,9 @@ struct IssueTrackerListView: View {
     
     @State var isSearching: Bool = false
     @State var searchKey: String = ""
+    @State var searchResult: [JiraCardDetail] = []
+    @State var searchError: String = ""
+    @FocusState var focusedState: Field?
     
     var body: some View {
         VStack {
@@ -26,38 +33,66 @@ struct IssueTrackerListView: View {
                 HStack{
                     Text("Issue Tracker")
                         .frame(maxWidth: .infinity)
-                    if false {
-                        Button {
-                            withAnimation {
-                                isSearching.toggle()
+                    
+                    
+                    if isSearching {
+                        TextField("Search Key", text: $searchKey)
+                            .onChange(of: searchKey, perform: { newValue in
+                                if newValue.isEmpty {
+                                    searchResult.removeAll()
+                                    searchError = ""
+                                }
+                            })
+                            .focused($focusedState, equals: .search)
+                            .onSubmit {
+                                search()
                             }
-                        } label: {
-                            if isSearching {
-                                Image(systemName: "xmark")
+                            .textFieldStyle(.plain)
+                            .frame(maxHeight: .infinity)
+                            .padding(smallPadding)
+                            .background(ColorTheme.instance.textInactive.opacity(0.5))
+                            .cornerRadius(4)
+                            .transition(.move(edge: .trailing).combined(with: .opacity))
+                        
+                    }
+                    Button {
+                        withAnimation {
+                            isSearching.toggle()
+                            if !isSearching {
+                                searchKey = ""
+                                searchResult.removeAll()
+                                focusedState = Field.none
+                                searchError = ""
                             } else {
-                                Image(systemName: "magnifyingglass")
+                                focusedState = Field.search
                             }
                         }
-                        .buttonStyle(.plain)
+                    } label: {
                         if isSearching {
-                            TextField("Search Key", text: $searchKey)
-                                .textFieldStyle(.plain)
-                                .padding(defaultPadding)
-                                .background(ColorTheme.instance.textInactive.opacity(0.5))
-                                .cornerRadius(4)
-                                .transition(.move(edge: .trailing).combined(with: .opacity))
+                            Image(systemName: "xmark")
+                        } else {
+                            Image(systemName: "magnifyingglass")
                         }
                     }
+                    .buttonStyle(.plain)
                 }
+                .frame(maxHeight: 24)
             } onBackButton: {
                 navigationState.pop()
             }
             
-            if isLoading {
-                ProgressView()
-                    .scaleEffect(0.5)
-            } else {
-                issueItem
+            ZStack(alignment: .topTrailing) {
+                if isLoading && !isSearching {
+                    ProgressView()
+                        .scaleEffect(0.5)
+                } else {
+                    issueItem
+                }
+                
+                
+                if isSearching {
+                    searchItem
+                }
             }
         }
         .frame(minWidth: 500)
@@ -95,6 +130,20 @@ struct IssueTrackerListView: View {
             
         }
         .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+    }
+    
+    var searchTableHeader: some View {
+        HStack {
+            HStack {
+                Text("Key")
+            }
+            .frame(maxWidth: 60, alignment: .leading)
+            
+            HStack {
+                Text("Summary")
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
     }
     
     var issueItem: some View {
@@ -143,6 +192,67 @@ struct IssueTrackerListView: View {
         .cornerRadius(8)
         .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 8))
         
+    }
+    
+    var searchItem: some View {
+        VStack {
+            if isLoading {
+                ProgressView()
+                    .scaleEffect(0.5)
+                    .frame(maxWidth: 250)
+                    .padding(defaultPadding)
+                    .background(.ultraThinMaterial)
+                    .shadow(color: ColorTheme.instance.defaultShadow, radius: 10)
+            } else if !searchResult.isEmpty {
+                ScrollView {
+                    searchTableHeader
+                        .padding(EdgeInsets(top: 8, leading: 18, bottom: 0, trailing: 12))
+                    
+                    Divider()
+                    
+                    ForEach(searchResult, id: \.id) { result in
+                        MyMenuButton { _ in
+                            AnyView(
+                                HStack {
+                                    HStack {
+                                        Text(result.key ?? "")
+                                    }
+                                    .frame(maxWidth: 60, alignment: .leading)
+                                    
+                                    HStack {
+                                        Text(result.summary ?? "")
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    
+                                }
+                                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            )
+                        } callback: {
+                            var data: [String: Any] = [:]
+                            if let key = result.key {
+                                data["jiraCard"] = key
+                            }
+                            if let summary = result.summary {
+                                data["jiraSummary"] = summary
+                            }
+                            navigationState.push(id: "new-task", data: data)
+                        }
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 8, trailing: 8))
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .frame(maxWidth: 250, maxHeight: 200)
+                .background(.ultraThinMaterial)
+                .shadow(color: ColorTheme.instance.defaultShadow, radius: 10)
+            } else if !searchError.isEmpty {
+                Text(searchError)
+                .frame(maxWidth: 250)
+                .padding(defaultPadding)
+                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                .background(.ultraThinMaterial)
+                .shadow(color: ColorTheme.instance.defaultShadow, radius: 10)
+            }
+        }
     }
     
     func actionLink(jiraTask: MyJiraTaskItem) -> AnyView {
@@ -211,6 +321,19 @@ struct IssueTrackerListView: View {
         createdTask = task
         taskDelegate.saveTask(task)
         navigationState.push(id: task.id)
+    }
+    
+    func search() {
+        isLoading = true
+        jiraController.searchIssue(by: searchKey) { issueList in
+            isLoading = false
+            searchResult = issueList
+            if searchResult.isEmpty {
+                searchError = "No Issue Found"
+            } else {
+                searchError = ""
+            }
+        }
     }
 }
 

@@ -16,6 +16,8 @@ protocol ColorDelegate {
     var textButtonDefault: Color { get }
     var textButtonInactive: Color { get }
     var warning: Color { get }
+    var defaultBackground: Color { get }
+    var defaultShadow: Color { get }
 }
 
 struct ColorTheme: ColorDelegate {
@@ -39,5 +41,13 @@ struct ColorTheme: ColorDelegate {
     
     var warning: Color {
         get { .init(light: .init(hex: "#ffa82a00"), dark: .init(hex: "#ffff602b"))}
+    }
+    
+    var defaultBackground: Color {
+        get { .init(light: .init(hex: "#ffd9d9d9"), dark: .init(hex: "#ff383838")) }
+    }
+    
+    var defaultShadow: Color {
+        get { .init(light: .init(hex: "#ff919191"), dark: .init(hex: "#ff262626")) }
     }
 }
