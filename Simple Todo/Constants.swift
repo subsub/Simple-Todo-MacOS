@@ -18,6 +18,7 @@ protocol ColorDelegate {
     var warning: Color { get }
     var defaultBackground: Color { get }
     var defaultShadow: Color { get }
+    var staticWhite: Color { get }
 }
 
 struct ColorTheme: ColorDelegate {
@@ -49,5 +50,9 @@ struct ColorTheme: ColorDelegate {
     
     var defaultShadow: Color {
         get { .init(light: .init(hex: "#ff919191"), dark: .init(hex: "#ff262626")) }
+    }
+    
+    var staticWhite: Color {
+        get { .white }
     }
 }

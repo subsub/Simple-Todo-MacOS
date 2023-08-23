@@ -92,6 +92,7 @@ struct IssueTrackerListView: View {
                 
                 if isSearching {
                     searchItem
+                        .foregroundStyle(.secondary)
                         .background(.ultraThinMaterial.shadow(.drop(color: ColorTheme.instance.defaultShadow, radius: 10)))
                 }
             }
@@ -171,9 +172,10 @@ struct IssueTrackerListView: View {
                                 if let status = task.status?.name {
                                     Text(status.uppercased())
                                         .font(.system(size: 10))
+                                        .foregroundStyle(.secondary)
                                         .foregroundColor(ColorTheme.instance.textDefault)
                                         .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
-                                        .background(ColorTheme.instance.textButtonInactive.opacity(0.5))
+                                        .background(.ultraThinMaterial)
                                         .cornerRadius(4)
                                 }
                             }
@@ -267,7 +269,7 @@ struct IssueTrackerListView: View {
                     MyMenuButton { isHovered in
                         AnyView(
                             Text("As New Task →")
-                                .foregroundColor(isHovered ? ColorTheme.instance.textDefault : ColorTheme.instance.textButtonDefault)
+                                .foregroundColor(isHovered ? ColorTheme.instance.staticWhite : ColorTheme.instance.textButtonDefault)
                         )
                     } callback: {
                         createNewTask(jiraTask: jiraTask)

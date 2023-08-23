@@ -10,6 +10,7 @@ import SwiftUI
 struct TaskItem: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var jiraController: JiraController
+    @EnvironmentObject var navigationState: MyNavigationState
     
     var task: TaskModel
     @State var isCompleted: Bool
@@ -50,54 +51,65 @@ struct TaskItem: View {
                 isCheckmarkHovered = hovered
             }
             
-            MyNavigationLink(id: task.id) {
-                HStack {
-                    VStack {
-                        if task.jiraCard?.isEmpty == false {
-                            HStack {
-                                Text("[\(task.jiraCard!)]")
-                                    .foregroundColor(ColorTheme.instance.textDefault)
-                                    .font(.system(size: 11))
-                                if let jiraStatus = task.jiraStatus, !jiraStatus.isEmpty {
-                                    Text(jiraStatus.uppercased())
-                                        .font(.system(size: 10))
-                                        .foregroundColor(ColorTheme.instance.textDefault)
-                                        .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
-                                        .background(ColorTheme.instance.textButtonInactive.opacity(0.5))
-                                        .cornerRadius(4)
-                                }
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        }
+            MyMenuButton(expanded:true) { isHovered in
+                AnyView(
+                    HStack {
                         VStack {
-                            Text(task.title)
-                                .foregroundColor(ColorTheme.instance.textDefault)
-                                .lineLimit(1)
-                                .strikethrough(task.status == .completed)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            if !task.timestamp.isEmpty {
+                            
+                            MyNavigationLink(id: task.id, autoRedirect: false, expanded: false) {
+                                EmptyView()
+                            } destination: {
+                                TaskDetailView(id: task.id, task: task)
+                            }
+                            .frame(maxWidth: 0, maxHeight: 0)
+                            .opacity(0)
+                            
+                            if task.jiraCard?.isEmpty == false {
                                 HStack {
-                                    if task.isOverdue() && task.status != .completed {
-                                        Text("❗️")
-                                            .font(.system(size: 11))
-                                    } else {
-                                        Text("🔔")
-                                            .font(.system(size: 10))
-                                    }
-                                    Text(task.formattedDate())
+                                    Text("[\(task.jiraCard!)]")
                                         .font(.system(size: 11))
-                                        .foregroundColor(task.isOverdue() ? ColorTheme.instance.warning : nil)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    if let jiraStatus = task.jiraStatus, !jiraStatus.isEmpty {
+                                        Text(jiraStatus.uppercased())
+                                            .font(.system(size: 10))
+                                            .foregroundStyle(.secondary)
+                                            .foregroundColor(ColorTheme.instance.textDefault)
+                                            .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
+                                            .background(.ultraThinMaterial)
+                                            .cornerRadius(4)
+                                    }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            VStack {
+                                Text(task.title)
+                                    .lineLimit(1)
+                                    .strikethrough(task.status == .completed)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                if !task.timestamp.isEmpty {
+                                    HStack {
+                                        if task.isOverdue() && task.status != .completed {
+                                            Text("❗️")
+                                                .font(.system(size: 11))
+                                        } else {
+                                            Text("🔔")
+                                                .font(.system(size: 10))
+                                        }
+                                        Text(task.formattedDate())
+                                            .font(.system(size: 11))
+                                            .foregroundColor(task.isOverdue() ? ColorTheme.instance.warning :
+                                                                isHovered ? ColorTheme.instance.staticWhite : ColorTheme.instance.textDefault)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
                                 }
                             }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .padding(smallPadding)
-                .contentShape(Rectangle())
-            } destination: {
-                TaskDetailView(id: task.id, task: task)
+                        .padding(smallPadding)
+                        .contentShape(Rectangle())
+                )
+            } callback: {
+                navigationState.push(id: task.id)
             }
             
         }
@@ -120,5 +132,6 @@ struct TaskItem_Previews: PreviewProvider {
         .environmentObject(MyNavigationState())
         .environmentObject(TaskDelegate.instance)
         .environmentObject(JiraController.instance)
+        .environmentObject(MyNavigationState())
     }
 }

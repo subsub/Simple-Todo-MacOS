@@ -11,7 +11,6 @@ struct IssueTrackerButton: View {
     var body: some View {
         MyNavigationLink(id: "jira-tasks") {
             Text("Jira Tasks")
-                .foregroundColor(ColorTheme.instance.textDefault)
         } destination: {
             IssueTrackerListView()
         }

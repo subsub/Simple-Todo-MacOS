@@ -33,7 +33,7 @@ struct MyMenuButton: View {
             HStack{
                 HStack {
                     label(isHovered)
-                        .foregroundColor(ColorTheme.instance.textDefault)
+                        .foregroundColor(isHovered ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
                     if expanded {
                         Spacer()
                     }

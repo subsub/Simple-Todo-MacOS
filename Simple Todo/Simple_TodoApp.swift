@@ -25,7 +25,7 @@ struct Simple_TodoApp: App {
     var body: some Scene {
         return MenuBarExtra(content: {
             MainMenuView()
-                .frame(alignment: .topLeading)
+                .frame(width: 500, alignment: .topLeading)
                 .onAppear{
                     taskDelegate.loadTasks()
                     notificationController.checkNotificationPermission()
