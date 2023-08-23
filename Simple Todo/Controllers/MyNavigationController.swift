@@ -82,8 +82,10 @@ struct MyNavigationLink: View {
     var autoRedirect: Bool = true
     var expanded: Bool = true
     var padding: EdgeInsets? = nil
+    var focusable: Bool = true
     
     init(focusColor: Color? = nil,
+         focusable: Bool = true,
          expanded: Bool = true,
          padding: EdgeInsets? = nil,
          @ViewBuilder content: @escaping () -> some View,
@@ -94,10 +96,12 @@ struct MyNavigationLink: View {
         self.focusColor = focusColor ?? .blue
         self.expanded = expanded
         self.padding = padding
+        self.focusable = focusable
     }
     
     init(id: String,
          focusColor: Color? = nil,
+         focusable: Bool = true,
          autoRedirect: Bool = true,
          expanded: Bool = true,
          padding: EdgeInsets? = nil,
@@ -110,6 +114,7 @@ struct MyNavigationLink: View {
         self.autoRedirect = autoRedirect
         self.expanded = expanded
         self.padding = padding
+        self.focusable = focusable
     }
     
     var body: some View {
@@ -123,7 +128,7 @@ struct MyNavigationLink: View {
         } label: {
             HStack {
                 content
-                    .foregroundColor(isHovered ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
+                    .foregroundColor(isHovered && focusable ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
                 if expanded {
                     Spacer()
                 }
@@ -132,7 +137,7 @@ struct MyNavigationLink: View {
         }
         .buttonStyle(.plain)
         .background(
-            isHovered ? focusColor : .clear
+            isHovered && focusable ? focusColor : .clear
         )
         .cornerRadius(4)
         .padding(padding ?? EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))

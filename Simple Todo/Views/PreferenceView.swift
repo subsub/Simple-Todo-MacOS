@@ -19,7 +19,7 @@ struct PreferenceView: View {
                 navigationState.popTo(id: nil)
             }
             VStack {
-                MyNavigationLink(id: "jira-authentication-view", focusColor: .clear, autoRedirect: false) {
+                MyNavigationLink(id: "jira-authentication-view", focusable: false, autoRedirect: false) {
                     HStack {
                         Text("Jira Integration")
                         Spacer()

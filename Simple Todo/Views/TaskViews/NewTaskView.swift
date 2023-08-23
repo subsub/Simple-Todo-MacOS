@@ -84,8 +84,9 @@ struct NewTaskView: View {
                         })
                         .textFieldStyle(.plain)
                         .padding(defaultPadding)
-                        .background(ColorTheme.instance.textInactive.opacity(isEditing ? 0.4 : 0.2))
+                        .background(.ultraThinMaterial)
                         .cornerRadius(4)
+                        .overlay(RoundedRectangle(cornerRadius: 4).stroke(!isEditing ? ColorTheme.instance.textButtonDefault.opacity(0.2) : ColorTheme.instance.textButtonDefault, lineWidth: 0.5))
                         .padding(defaultPadding)
                         .frame(maxWidth: .infinity)
                     
@@ -175,8 +176,9 @@ struct NewTaskView: View {
                     })
                     .textFieldStyle(.plain)
                     .padding(defaultPadding)
-                    .background(ColorTheme.instance.textInactive.opacity(isEditingJiraField ? 0.4 : 0.2))
+                    .background(.ultraThinMaterial)
                     .cornerRadius(4)
+                    .overlay(RoundedRectangle(cornerRadius: 4).stroke(!isEditingJiraField ? ColorTheme.instance.textButtonDefault.opacity(0.2) : ColorTheme.instance.textButtonDefault, lineWidth: 0.5))
                     .padding(defaultPadding)
                     .frame(maxWidth: .infinity)
             }

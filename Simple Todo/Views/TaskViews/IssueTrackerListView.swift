@@ -50,10 +50,10 @@ struct IssueTrackerListView: View {
                             .textFieldStyle(.plain)
                             .frame(maxHeight: .infinity)
                             .padding(smallPadding)
-                            .background(ColorTheme.instance.textInactive.opacity(0.5))
+                            .background(.ultraThinMaterial)
                             .cornerRadius(4)
+                            .overlay(RoundedRectangle(cornerRadius: 4).stroke(!isSearching ? ColorTheme.instance.textButtonDefault.opacity(0.2) : ColorTheme.instance.textButtonDefault, lineWidth: 0.5))
                             .transition(.move(edge: .trailing).combined(with: .opacity))
-                        
                     }
                     Button {
                         withAnimation {

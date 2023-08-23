@@ -55,15 +55,6 @@ struct TaskItem: View {
                 AnyView(
                     HStack {
                         VStack {
-                            
-                            MyNavigationLink(id: task.id, autoRedirect: false, expanded: false) {
-                                EmptyView()
-                            } destination: {
-                                TaskDetailView(id: task.id, task: task)
-                            }
-                            .frame(maxWidth: 0, maxHeight: 0)
-                            .opacity(0)
-                            
                             if task.jiraCard?.isEmpty == false {
                                 HStack {
                                     Text("[\(task.jiraCard!)]")
@@ -104,6 +95,15 @@ struct TaskItem: View {
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        
+                        MyNavigationLink(id: task.id, autoRedirect: false, expanded: false) {
+                            EmptyView()
+                        } destination: {
+                            TaskDetailView(id: task.id, task: task)
+                        }
+                        .frame(maxWidth: 0, maxHeight: 0)
+                        .opacity(0)
                     }
                         .padding(smallPadding)
                         .contentShape(Rectangle())

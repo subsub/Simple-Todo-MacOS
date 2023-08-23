@@ -19,51 +19,61 @@ struct NewTaskButton: View {
     @FocusState var focusedState: Field?
     
     var body: some View {
-        HStack {
-            TextField("New Task", text: $taskTitle)
-                .onSubmit {
-                    save()
-                }
-                .focused($focusedState, equals: .title)
-                .onChange(of: taskTitle, perform: { title in
-                    withAnimation(.easeInOut(duration: 0.1)) {
-                        isEditing = !title.isEmpty
+        ZStack {
+            HStack {
+                TextField("", text: $taskTitle)
+                    .onSubmit {
+                        save()
                     }
-                })
-                .textFieldStyle(.plain)
-                .padding(defaultPadding)
-                .background(ColorTheme.instance.textInactive.opacity(isEditing ? 0.4 : 0.2))
-                .cornerRadius(4)
-                .padding(defaultPadding)
-                .frame(maxWidth: .infinity)
-            if isEditing {
-                MyMenuButton(expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) { isHovered in
-                    AnyView(
-                        Text("⏎")
-                            .foregroundColor(isHovered ? ColorTheme.instance.textDefault : ColorTheme.instance.textButtonDefault)
-                    )
-                } callback: {
-                    save()
-                }
-                .transition(.move(edge: .top).combined(with: .opacity))
-                
-                MyMenuButton(expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) { _ in
-                    AnyView(
+                    .focused($focusedState, equals: .title)
+                    .onChange(of: taskTitle, perform: { title in
+                        withAnimation(.easeInOut(duration: 0.1)) {
+                            isEditing = !title.isEmpty
+                        }
+                    })
+                    .textFieldStyle(.plain)
+                    .padding(defaultPadding)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(4)
+                    .overlay(RoundedRectangle(cornerRadius: 4).stroke(!isEditing ? ColorTheme.instance.textButtonDefault.opacity(0.2) : ColorTheme.instance.textButtonDefault, lineWidth: 0.5))
+                    .padding(defaultPadding)
+                    .frame(maxWidth: .infinity)
+                if isEditing {
+                    MyMenuButton(expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) { isHovered in
+                        AnyView(
+                            Text("⏎")
+                                .foregroundColor(isHovered ? ColorTheme.instance.textDefault : ColorTheme.instance.textButtonDefault)
+                        )
+                    } callback: {
+                        save()
+                    }
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    
+                    MyMenuButton(expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) { _ in
+                        AnyView(
+                            Text("→")
+                        )
+                    } callback: {
+                        navigationState.push(id: "new-task", data: ["title" : taskTitle])
+                    }
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    
+                    
+                    MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
                         Text("→")
-                    )
-                } callback: {
-                    navigationState.push(id: "new-task", data: ["title" : taskTitle])
+                            .foregroundColor(ColorTheme.instance.textDefault)
+                    } destination: {
+                        NewTaskView()
+                    }
+                    .frame(maxWidth: 0.0)
                 }
-                .transition(.move(edge: .top).combined(with: .opacity))
-                
-                
-                MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
-                    Text("→")
-                        .foregroundColor(ColorTheme.instance.textDefault)
-                } destination: {
-                    NewTaskView()
-                }
-                .frame(maxWidth: 0.0)
+            }
+            if !isEditing {
+                Text("New Task")
+                    .foregroundColor(ColorTheme.instance.textButtonDefault)
+                    .frame(maxWidth: .infinity, maxHeight: 10, alignment: .leading)
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    .transition(.move(edge: .top).combined(with: .opacity))
             }
         }
         .onAppear {
