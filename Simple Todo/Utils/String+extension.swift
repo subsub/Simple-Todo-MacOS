@@ -78,7 +78,7 @@ extension String {
     }
     
     func findAndReplaceLink() -> String {
-        let pattern = #"\[([a-zA-Z0-9\:\/\.\-\?\=\&\_\%]*[^\]])\|([a-zA-Z0-9\:\/\.\-\?\=\&\_\%\|]*[^\]])\]"#
+        let pattern = #"\[([a-zA-Z0-9\:\/\.\-\?\=\&\_\%\s]*[^\]])\|([a-zA-Z0-9\:\/\.\-\?\=\&\_\%\|]*[^\]])\]"#
         let regex = try! NSRegularExpression(pattern: pattern, options: .anchorsMatchLines)
         let stringRange = NSRange(location: 0, length: self.utf16.count)
         let matches = regex.matches(in: self, range: stringRange)
@@ -120,5 +120,54 @@ extension String {
             }
         }
         return finalResult
+    }
+    
+    func splitWithRegex(by regexStr: String) -> [String] {
+            guard let regex = try? NSRegularExpression(pattern: regexStr) else { return [] }
+            let range = NSRange(startIndex..., in: self)
+            var index = startIndex
+            var array = regex.matches(in: self, range: range)
+                .map { match -> String in
+                    let range = Range(match.range, in: self)!
+                    let result = self[index..<range.lowerBound]
+                    index = range.upperBound
+                    return String(result)
+                }
+            array.append(String(self[index...]))
+            return array
+        }
+    
+    func splitLinks() -> [String] {
+        let linkPattern = #"(http|ftp|https)(:\/\/)([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])"#
+        let regex = try! NSRegularExpression(pattern: linkPattern, options: .anchorsMatchLines)
+        let stringRange = NSRange(location: 0, length: self.utf16.count)
+        let matches = regex.matches(in: self, range: stringRange)
+        var links: [String] = []
+        for match in matches {
+            var groups: String = ""
+            for rangeIndex in 1 ..< match.numberOfRanges {
+                let nsRange = match.range(at: rangeIndex)
+                guard !NSEqualRanges(nsRange, NSMakeRange(NSNotFound, 0)) else { continue }
+                let string = (self as NSString).substring(with: nsRange)
+                groups.append(string)
+            }
+            links.append(groups)
+        }
+        var finalResult: [String] = []
+        let splitteds = self.splitWithRegex(by: linkPattern)
+        var i: Int = 0
+        for splitted in splitteds {
+            finalResult.append(String(splitted))
+            if i < links.count {
+                finalResult.append(links[i])
+                i += 1
+            }
+        }
+        return finalResult
+    }
+    
+    func isLink() -> Bool {
+        let linkPattern = /(http|ftp|https)(:\/\/)([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/
+        return self.wholeMatch(of: linkPattern)?.output.0 != nil
     }
 }

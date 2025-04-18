@@ -23,6 +23,7 @@ struct CommentEditorView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
                 TextEditor(text: $comment)
+                    .scrollContentBackground(.hidden)
                     .background(.white.opacity(0))
                     .padding(EdgeInsets(top: 8, leading: 4, bottom: 8, trailing: 4))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -60,22 +61,7 @@ struct CommentEditorView: View {
     }
     
     func composeAndPostComment() {
-        let commentData = NewCommentData(
-            body: CommentBody(
-                content: [
-                    CommentContent(
-                        content: [
-                            Content(
-                            text: comment,
-                            type: "text"
-                            )
-                        ],
-                        type: "paragraph")
-                ],
-                type: "doc",
-                version: 1
-            )
-        )
+        let commentData = NewCommentData(raw: comment)
         jiraController.postComment(for: taskId, data: commentData) { success in
             commentAdded = success
             comment = ""

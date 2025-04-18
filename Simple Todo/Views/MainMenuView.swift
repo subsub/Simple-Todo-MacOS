@@ -11,36 +11,52 @@ struct MainMenuView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var notificationController: NotificationController
     @EnvironmentObject var preferenceController: PreferenceController
+    @Environment(\.screenHeight) var screenHeight: CGFloat
     @State var keyObserver: NSKeyValueObservation?
     
     var body: some View {
         MyNavigationController {
             VStack {
-                VStack {
-                    ZStack {
-                        // hidden navigation link for new-task
-                        MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) {
-                            EmptyView()
-                        } destination: {
-                            NewTaskView()
+                ScrollView {
+                    
+                    VStack {
+                        VStack {
+                            ZStack {
+                                // hidden navigation link for new-task
+                                MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)) {
+                                    EmptyView()
+                                } destination: {
+                                    NewTaskView()
+                                }
+                                .frame(width:0, height: 0)
+                                
+                                NewTaskButton()
+                            }
+                            
+                            Divider()
+                            
+                            if preferenceController.hasJiraAuthKey() {
+                                IssueTrackerButton()
+                                
+                                Divider()
+                            }
                         }
-                        .frame(width:0, height: 0)
-                        
-                        NewTaskButton()
+
+                        TaskList()
                     }
-                    
-                    Divider()
-                    
-                    if preferenceController.hasJiraAuthKey() {
-                        IssueTrackerButton()
-                        
-                        Divider()
+                    .onAppear {
+                        keyObserver = NSApplication.shared.observe(\.keyWindow) { x, y in
+                            print("Is Visible: \(NSApplication.shared.keyWindow != nil)")
+                            if (NSApplication.shared.keyWindow != nil) {
+                                taskDelegate.loadTasks()
+                            }
+                        }
                     }
                 }
                 
+                
+                Spacer()
                 VStack {
-                    
-                    TaskList()
                     
                     Divider()
                     
@@ -49,10 +65,6 @@ struct MainMenuView: View {
                     ClearButton()
                     
                     Divider()
-                }
-                
-                VStack {
-                    
                     PreferenceButton()
                     
                     Divider()
@@ -63,14 +75,6 @@ struct MainMenuView: View {
             }
         }
         .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-        .onAppear {
-            keyObserver = NSApplication.shared.observe(\.keyWindow) { x, y in
-                print("Is Visible: \(NSApplication.shared.keyWindow != nil)")
-                if (NSApplication.shared.keyWindow != nil) {
-                    taskDelegate.loadTasks()
-                }
-            }
-        }
     }
 }
 

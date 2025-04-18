@@ -13,6 +13,7 @@ struct TaskDetailView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var preferenceController: PreferenceController
     @EnvironmentObject var jiraController: JiraController
+    @Environment(\.screenHeight) var screenHeight: CGFloat
     var id: String
     @State var task: TaskModel
     @State var jiraCardDetail: JiraCardDetail? = nil
@@ -26,42 +27,45 @@ struct TaskDetailView: View {
     @State var isCommentAdded: Bool = false
     
     var body: some View {
-        ScrollView {
-            VStack {
-                MyNavigationBar(title: "Detail", confirmText: "Edit") {
-                    navigationState.pop()
-                } onConfirmButton: {
-                    navigationState.push(id: "new-task", data: ["id": task.id])
-                }
-                
-                ZStack {
-                    VStack {
-                        taskDetail
-                        
-                        if preferenceController.hasJiraAuthKey() && task.jiraCard?.isEmpty == false {
-                            jiraDetail
-                        }
-                        
-                    }
-                    MyToast(isShowing: $shouldShowToast, title: updateResponse, type: isUpdateSuccess ? .Success : .Error)
-                    
-                }
-                
-                HStack {
-                    Button {
-                        taskDelegate.delete(task: task)
+        VStack {
+            ScrollView {
+                VStack {
+                    MyNavigationBar(title: "Detail", confirmText: "Edit") {
                         navigationState.pop()
-                    } label: {
-                        Text("Delete")
+                    } onConfirmButton: {
+                        navigationState.push(id: "new-task", data: ["id": task.id])
                     }
-                    .foregroundColor(.red)
-                    .buttonStyle(.plain)
+                    
+                    ZStack {
+                        VStack {
+                            taskDetail
+                            
+                            if preferenceController.hasJiraAuthKey() && task.jiraCard?.isEmpty == false {
+                                jiraDetail
+                            }
+                            
+                        }
+                        MyToast(isShowing: $shouldShowToast, title: updateResponse, type: isUpdateSuccess ? .Success : .Error)
+                        
+                    }
                 }
             }
-            .frame(minWidth: 500)
-            .padding(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+            Spacer()
+            
+            HStack {
+                Button {
+                    taskDelegate.delete(task: task)
+                    navigationState.pop()
+                } label: {
+                    Text("Delete")
+                }
+                .foregroundColor(.red)
+                .buttonStyle(.plain)
+            }
         }
-        .frame(maxHeight: 1000, alignment: .top)
+        
+        .frame(minWidth: 500)
+        .padding(EdgeInsets(top: 4, leading: 0, bottom: 8, trailing: 0))
     }
     
     var taskDetail: some View {
@@ -94,6 +98,8 @@ struct TaskDetailView: View {
         HStack {
             if isLoading {
                 loadingView
+            } else if jiraCardDetail == nil {
+                Text("⚠️ Failed to load Jira card")
             } else {
                 VStack {
                     // MARK: title
@@ -145,10 +151,11 @@ struct TaskDetailView: View {
                                 FontSize(12)
                             })
                                 .padding(8)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .background(ColorTheme.instance.textInactive.opacity(0.1))
                         }
                         .cornerRadius(8)
-                            .frame(maxWidth: .infinity, maxHeight: 300, alignment: .topLeading)
+                            .frame(maxWidth: .infinity, maxHeight: screenHeight, alignment: .topLeading)
                     }
                     // end description
                     
@@ -181,7 +188,7 @@ struct TaskDetailView: View {
                                 .cornerRadius(8)
                             }
                             .cornerRadius(8)
-                                .frame(maxWidth: .infinity, maxHeight: 300, alignment: .topLeading)
+                                .frame(maxWidth: .infinity, maxHeight: screenHeight, alignment: .topLeading)
                         }
                     }
                     
@@ -377,11 +384,12 @@ struct TaskDetailView_Previews: PreviewProvider {
         let task = TaskModel(title: "Some teng", timestamp: "")
         let date = Date.now
         task.timestamp = date.ISO8601Format()
-        task.jiraCard = "ST-1"
+        task.jiraCard = "TA-1"
         return TaskDetailView(id: task.id, task: task)
             .environmentObject(PreferenceController.instance)
             .environmentObject(JiraController.instance)
             .environmentObject(MyNavigationState())
             .environmentObject(PreferenceController.instance)
+            .environmentObject(TaskDelegate.instance)
     }
 }

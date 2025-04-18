@@ -18,26 +18,37 @@ private let listAssignedTaskPath = "/rest/api/2/search?jql=assignee%3Dcurrentuse
 private let searchIssuePath = "/rest/api/3/issue/picker?currentJQL=issueKey%20%3D%20{query}%20OR%20issueKey%20%3D%20{query}%20OR%20text%20~%20%22{query}%2A%22"
 
 class JiraController: ObservableObject {
-    static let instance = JiraController()
+    static let instance = JiraController(dispatch: DispatchQueue.main)
     
+    private var dispatch: DispatchQueue?
     private let preferenceController = PreferenceController.instance
     
     @Published var newComment: Int = 0
     
+    init(dispatch: DispatchQueue? = nil) {
+        self.dispatch = dispatch
+    }
+    
     func checkMyself(username: String, apiKey: String, host: String, _ completion: @escaping (Bool, MySelf?) -> Void) {
         guard let url = URL(string: "\(host)\(checkMyselfPath)") else {
-            completion(false, nil)
+            dispatch?.async {
+                completion(false, nil)
+            }
             return
         }
         
-        doRequest(url: url, apiKey: apiKey) { success, data in
+        doRequest(url: url, apiKey: apiKey) { [weak self] success, data in
             guard let data = data, success else {
-                completion(false, nil)
+                self?.dispatch?.async {
+                    completion(false, nil)
+                }
                 return
             }
             
             let myself = MySelf(from: data)
-            completion(success, myself)
+            self?.dispatch?.async {
+                completion(success, myself)
+            }
         }
     }
     
@@ -45,19 +56,25 @@ class JiraController: ObservableObject {
         let path = getTransitionsPath.replacing("{issue-id}", with: taskId)
         
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {
-            completion(nil)
+            dispatch?.async {
+                completion(nil)
+            }
             return
         }
         
         
-        doRequest(url: url) { success, data in
+        doRequest(url: url) { [weak self] success, data in
             guard let data = data, success else {
-                completion(nil)
+                self?.dispatch?.async {
+                    completion(nil)
+                }
                 return
             }
             
             let cardDetail = JiraTransition.from(data)
-            completion(cardDetail)
+            self?.dispatch?.async {
+                completion(cardDetail)
+            }
         }
     }
     
@@ -67,7 +84,9 @@ class JiraController: ObservableObject {
         
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {
             print(">> error no host/url")
-            completion(false)
+            dispatch?.async {
+                completion(false)
+            }
             return
         }
         
@@ -79,67 +98,89 @@ class JiraController: ObservableObject {
         
         guard let body = try? JSONSerialization.data(withJSONObject: dict) else {
             print(">> error parse data")
-            completion(false)
+            dispatch?.async {
+                completion(false)
+            }
             return
         }
                 
-        doRequest(url: url, method: "POST", body: body) { success, _ in
+        doRequest(url: url, method: "POST", body: body) { [weak self] success, _ in
             print(">> updateStatus doRequest completion: \(success)")
-            completion(success)
+            self?.dispatch?.async {
+                completion(success)
+            }
         }
     }
     
     func loadIssueDetail(by id: String, _ completion: @escaping (JiraCardDetail?) -> Void) {
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(issueDetailPath)\(id)") else {
-            completion(nil)
+            dispatch?.async {
+                completion(nil)
+            }
             return
         }
         
-        doRequest(url: url) { success, data in
+        doRequest(url: url) { [weak self] success, data in
             guard let data = data, success else {
-                completion(nil)
+                self?.dispatch?.async {
+                    completion(nil)
+                }
                 return
             }
             
             let cardDetail = JiraCardDetail(from: data)
-            completion(cardDetail)
+            self?.dispatch?.async {
+                completion(cardDetail)
+            }
         }
     }
     
     func loadIssueComments(by taskId: String, _ completion: @escaping ([TaskComment]?) -> Void) {
         let path = getCommentsPath.replacing("{issue-id}", with: taskId)
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {
-            completion(nil)
+            dispatch?.async {
+                completion(nil)
+            }
             return
         }
         
-        doRequest(url: url) { success, data in
+        doRequest(url: url) { [weak self] success, data in
             guard let data = data, success else {
-                completion(nil)
+                self?.dispatch?.async {
+                    completion(nil)
+                }
                 return
             }
             
             let comments = TaskComment.from(data)
-            completion(comments)
+            self?.dispatch?.async {
+                completion(comments)
+            }
         }
     }
     
     func postComment(for taskId: String, data commentData: NewCommentData, _ completion: @escaping(Bool) -> Void) {
         let path = postCommentPath.replacing("{issue-id}", with: taskId)
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {
-            completion(false)
+            dispatch?.async {
+                completion(false)
+            }
             return
         }
         
         guard let str = encode(data: commentData), let data = str.data(using: .utf8) else {
-            completion(false)
+            dispatch?.async {
+                completion(false)
+            }
             return
         }
         
-        doRequest(url: url, method: "POST", body: data) { success, data in
-            completion(success)
-            if success {
-                self.newComment += 1
+        doRequest(url: url, method: "POST", body: data) { [weak self] success, data in
+            self?.dispatch?.async {
+                completion(success)
+                if success {
+                    self?.newComment += 1
+                }
             }
         }
     }
@@ -183,42 +224,56 @@ class JiraController: ObservableObject {
     
     func getMyTaskList(_ completion: @escaping([MyJiraTaskItem]?)->Void) {
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(listAssignedTaskPath)") else {
-            completion(nil)
+            dispatch?.async {
+                completion(nil)
+            }
             return
         }
         
-        doRequest(url: url) { success, data in
+        doRequest(url: url) { [weak self] success, data in
             guard let data = data, success else {
-                completion(nil)
+                self?.dispatch?.async {
+                    completion(nil)
+                }
                 return
             }
             
             let result = MyJiraTaskItem.from(data)
-            completion(result)
+            self?.dispatch?.async {
+                completion(result)
+            }
         }
     }
     
     func searchIssue(by query: String, _ completion: @escaping ([JiraCardDetail]) -> Void) {
         let path = searchIssuePath.replacing("{query}", with: query)
         guard let host = preferenceController.preference.jiraServerUrl, let url = URL(string: "\(host)\(path)") else {
-            completion([])
+            dispatch?.async {
+                completion([])
+            }
             return
         }
         
-        doRequest(url: url) { success, data in
+        doRequest(url: url) { [weak self] success, data in
             guard let data = data, success else {
-                completion([])
+                self?.dispatch?.async {
+                    completion([])
+                }
                 return
             }
             
             let cardDetail = JiraCardDetail.listFrom(data)
-            completion(cardDetail)
+            self?.dispatch?.async {
+                completion(cardDetail)
+            }
         }
     }
     
     private func doRequest(url: URL, method: String = "GET", body: Data? = nil, apiKey: String? = nil, _ completion: @escaping(Bool, Data?) -> Void) {
         guard let auth = preferenceController.preference.jiraAuthenticationKey ?? apiKey else {
-            completion(false, nil)
+            dispatch?.async {
+                completion(false, nil)
+            }
             return
         }
         
@@ -235,12 +290,14 @@ class JiraController: ObservableObject {
         print(">> == HEADERS: \(String(describing: request.allHTTPHeaderFields))")
         print(">> == BODY: \(String(describing: (request.httpBody != nil) ? String(data: request.httpBody!, encoding: .utf8) : nil))")
         
-        let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
                 print(">> == RESPONSE: Failed ❌")
                 print(">> == ⚠️ error \(error)")
                 print(">> ======================================")
-                completion(false, nil)
+                self?.dispatch?.async {
+                    completion(false, nil)
+                }
                 return
             }
             
@@ -248,7 +305,9 @@ class JiraController: ObservableObject {
                 print(">> == RESPONSE: Failed ❌")
                 print(">> == ⚠️ No response")
                 print(">> ======================================")
-                completion(false, nil)
+                self?.dispatch?.async {
+                    completion(false, nil)
+                }
                 return
             }
             if response.statusCode >= 200 && response.statusCode < 300 {
@@ -256,21 +315,25 @@ class JiraController: ObservableObject {
                     print(">> == RESPONSE: Success ✅")
                     print(">> == ⚠️ No Data")
                     print(">> ======================================")
-                    completion(true, nil)
+                    self?.dispatch?.async {
+                        completion(true, nil)
+                    }
                     return
                 }
-                DispatchQueue.main.async {
-                    print(">> == RESPONSE: Success ✅")
-                    print(">> == \(String(data: data, encoding: .utf8))")
-                    print(">> ======================================")
+                print(">> == RESPONSE: Success ✅")
+                print(">> == \(String(data: data, encoding: .utf8))")
+                print(">> ======================================")
+                self?.dispatch?.async {
                     completion(true, data)
-                    return
                 }
+                return
             } else {
                 print(">> == RESPONSE: Failed ❌")
                 print(">> == \(response)")
                 print(">> ======================================")
-                completion(false, nil)
+                self?.dispatch?.async {
+                    completion(false, nil)
+                }
             }
         }
         dataTask.resume()

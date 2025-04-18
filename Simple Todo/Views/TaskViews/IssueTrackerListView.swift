@@ -15,6 +15,7 @@ struct IssueTrackerListView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var navigationState: MyNavigationState
     @EnvironmentObject var jiraController: JiraController
+    @Environment(\.screenHeight) var screenHeight: CGFloat
     @State var isLoading: Bool = false
     @State var taskList: [MyJiraTaskItem] = []
     @State var message: String = ""
@@ -28,7 +29,7 @@ struct IssueTrackerListView: View {
     @FocusState var focusedState: Field?
     
     var body: some View {
-        VStack {
+        ScrollView {
             MyNavigationBar {
                 HStack{
                     Text("Issue Tracker")
@@ -97,7 +98,6 @@ struct IssueTrackerListView: View {
                 }
             }
         }
-        .frame(minWidth: 500)
         .onAppear {
             isLoading = true
             jiraController.getMyTaskList { myTasks in
@@ -245,9 +245,9 @@ struct IssueTrackerListView: View {
                 .frame(maxWidth: 250, maxHeight: 200)
             } else if !searchError.isEmpty {
                 Text(searchError)
-                .frame(maxWidth: 250)
-                .padding(defaultPadding)
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                    .frame(maxWidth: 250)
+                    .padding(defaultPadding)
+                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
             }
         }
     }

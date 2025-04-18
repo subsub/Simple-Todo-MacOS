@@ -12,6 +12,10 @@ let smallPadding: EdgeInsets = EdgeInsets(top: 2, leading: 4, bottom: 2, trailin
 let symmetricPadding: EdgeInsets = EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
 let paddingZero: EdgeInsets = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
+extension EnvironmentValues {
+    @Entry var screenHeight: CGFloat = 0
+}
+
 @main
 struct Simple_TodoApp: App {
 //    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
@@ -23,6 +27,7 @@ struct Simple_TodoApp: App {
     
     
     var body: some Scene {
+        let screenHeight = NSScreen.screens.first?.frame.height ?? 0
         return MenuBarExtra(content: {
             MainMenuView()
                 .frame(width: 500, alignment: .topLeading)
@@ -34,6 +39,7 @@ struct Simple_TodoApp: App {
                 .environmentObject(notificationController)
                 .environmentObject(preferenceController)
                 .environmentObject(jiraController)
+                .environment(\.screenHeight, screenHeight)
         }, label: {
             StatusMenuView()
                 .onAppear {
@@ -46,5 +52,6 @@ struct Simple_TodoApp: App {
                 .environmentObject(backgroundTaskScheduler)
         })
         .menuBarExtraStyle(.window)
+        .defaultSize(width: 500, height: screenHeight - screenHeight/4)
     }
 }
