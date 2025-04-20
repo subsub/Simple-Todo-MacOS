@@ -32,6 +32,7 @@ struct Pasteboards: View {
                             ControlGroup {
                                 Button {
                                     preferenceController.removeFromPasteboards(value)
+                                    pasteboards = preferenceController.getPasteboards()
                                 } label: {
                                     HStack {
                                         Text("Delete")

@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+enum PreferenceEvent {
+    case newPasteboardData(String), deletePasteboardData(String), none
+}
+
 class PreferenceController: ObservableObject {
     static let instance = PreferenceController()
     
     @AppStorage("user-preference") var rawPreferences: String = ""
     @Published var preference: UserPreference = UserPreference()
+    @Published var preferenceEvent: PreferenceEvent = .none
     
     init() {
         self.load()
@@ -86,6 +91,7 @@ class PreferenceController: ObservableObject {
         }
         pasteboards.append(value)
         self.setPasteboards(pasteboards)
+        self.preferenceEvent = .newPasteboardData(value)
     }
     
     func removeFromPasteboards(_ value: String) {
@@ -94,5 +100,6 @@ class PreferenceController: ObservableObject {
             pasteboards.remove(at: index)
         }
         self.setPasteboards(pasteboards)
+        self.preferenceEvent = .deletePasteboardData(value)
     }
 }

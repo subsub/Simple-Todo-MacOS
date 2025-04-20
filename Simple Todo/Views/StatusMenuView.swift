@@ -16,6 +16,7 @@ struct StatusMenuView: View {
     @State var newPasteboardContent: String? = nil
     
     @State private var textoffset = 300.0
+    @State var timer: Timer? = nil
     
     var body: some View {
         HStack {
@@ -40,15 +41,24 @@ struct StatusMenuView: View {
             reloadCount += 1
             print(">> reloadCount: \(reloadCount)")
         }
-        .onReceive(prefController.$preference) { _ in
-            guard var newContent = prefController.getPasteboards().last else {
+        .onReceive(prefController.$preferenceEvent) { output in
+            switch output {
+            case .newPasteboardData(var newContent):
+                newContent = newContent.replacing(/\s+/, with: " ")
+                newPasteboardContent = newContent.count > 20 ? "\(String(newContent[..<newContent.index(newContent.startIndex, offsetBy: 20)]))..." : newContent
+                if timer?.isValid == true {
+                    timer?.invalidate()
+                }
+                timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
+                    newPasteboardContent = nil
+                    timer?.invalidate()
+                })
+                return
+            case .deletePasteboardData(let _):
+                return
+            case .none:
                 return
             }
-            newContent = newContent.replacing(/\s+/, with: " ")
-            newPasteboardContent = newContent.count > 20 ? "\(String(newContent[..<newContent.index(newContent.startIndex, offsetBy: 20)]))..." : newContent
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
-                newPasteboardContent = nil
-            })
         }
     }
     
