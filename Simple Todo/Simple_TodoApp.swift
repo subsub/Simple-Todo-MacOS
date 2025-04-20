@@ -18,7 +18,7 @@ extension EnvironmentValues {
 
 @main
 struct Simple_TodoApp: App {
-//    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
     private let taskDelegate = TaskDelegate.instance
     private let notificationController = NotificationController.instance
     private let preferenceController = PreferenceController.instance
@@ -39,6 +39,7 @@ struct Simple_TodoApp: App {
                 .environmentObject(notificationController)
                 .environmentObject(preferenceController)
                 .environmentObject(jiraController)
+                .environmentObject(appDelegate)
                 .environment(\.screenHeight, screenHeight)
         }, label: {
             StatusMenuView()
@@ -48,8 +49,15 @@ struct Simple_TodoApp: App {
                 .onReceive(notifCenterPublisher){ output in
                     taskDelegate.loadTasks()
                 }
+                .onReceive(pasteboardPublisher, perform: { output in
+                    guard let pb = output.object as? NSPasteboard else { return }
+                    guard let items = pb.pasteboardItems else { return }
+                    guard let item = items.first?.string(forType: .string) else { return } // you should handle multiple types
+                    preferenceController.addToPasteboards(item)
+                })
                 .environmentObject(taskDelegate)
                 .environmentObject(backgroundTaskScheduler)
+                .environmentObject(preferenceController)
         })
         .menuBarExtraStyle(.window)
         .defaultSize(width: 500, height: screenHeight - screenHeight/4)

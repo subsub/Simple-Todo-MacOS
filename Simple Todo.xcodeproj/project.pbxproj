@@ -28,6 +28,7 @@
 		B22B4A212A4EBD2B002F205D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A202A4EBD2B002F205D /* NotificationController.swift */; };
 		B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A242A4F16AE002F205D /* AppDelegate.swift */; };
 		B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A262A4F2858002F205D /* QuitButton.swift */; };
+		B235CED32DB29FB600603D13 /* Pasteboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235CED22DB29FB300603D13 /* Pasteboards.swift */; };
 		B23622682A5441CB005ECEC7 /* TaskComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23622672A5441CB005ECEC7 /* TaskComment.swift */; };
 		B23B3B4F2A51E72900CEF418 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B4E2A51E72900CEF418 /* Constants.swift */; };
 		B23B3B512A51E7A500CEF418 /* MyToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B502A51E7A500CEF418 /* MyToast.swift */; };
@@ -112,6 +113,7 @@
 		B22B4A202A4EBD2B002F205D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		B22B4A242A4F16AE002F205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22B4A262A4F2858002F205D /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
+		B235CED22DB29FB300603D13 /* Pasteboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasteboards.swift; sourceTree = "<group>"; };
 		B23622672A5441CB005ECEC7 /* TaskComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComment.swift; sourceTree = "<group>"; };
 		B23B3B4E2A51E72900CEF418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B23B3B502A51E7A500CEF418 /* MyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToast.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		B23F96482A4DE4E900394187 /* MenuButtons */ = {
 			isa = PBXGroup;
 			children = (
+				B235CED22DB29FB300603D13 /* Pasteboards.swift */,
 				B23F96492A4DE50000394187 /* NewTaskButton.swift */,
 				B23F964B2A4DE8B400394187 /* TaskList.swift */,
 				B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */,
@@ -522,6 +525,7 @@
 				B23622682A5441CB005ECEC7 /* TaskComment.swift in Sources */,
 				B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */,
 				B23F96432A4DCEAB00394187 /* StatusMenuView.swift in Sources */,
+				B235CED32DB29FB600603D13 /* Pasteboards.swift in Sources */,
 				B23B3B512A51E7A500CEF418 /* MyToast.swift in Sources */,
 				B23F964F2A4DE99100394187 /* TaskModel.swift in Sources */,
 				58E25C392A501BFD00CAA3C4 /* PreferenceView.swift in Sources */,

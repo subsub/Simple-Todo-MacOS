@@ -64,6 +64,11 @@ struct MainMenuView: View {
                     
                     ClearButton()
                     
+                    if preferenceController.isPasteboardsEnabled() {
+                        Divider()
+                        Pasteboards()
+                    }
+                    
                     Divider()
                     PreferenceButton()
                     

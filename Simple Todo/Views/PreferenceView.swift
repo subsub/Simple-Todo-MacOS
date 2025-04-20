@@ -12,6 +12,7 @@ struct PreferenceView: View {
     @EnvironmentObject var preferenceController: PreferenceController
     
     @State var isJiraEnabled: Bool = false
+    @State var isPasteboardsEnabled: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -39,6 +40,26 @@ struct PreferenceView: View {
                 }
                 
                 
+                MyNavigationLink(id: "pasteboards",
+                                 focusable: false,
+                                 autoRedirect: false) {
+                    HStack {
+                        Text("Pasteboards")
+                        Spacer()
+                        Toggle(isOn: $isPasteboardsEnabled) {
+                        }
+                        .onChange(of: isPasteboardsEnabled, perform: { isPasteboardsEnabled in
+                            preferenceController.setPasteboardsEnabled(isPasteboardsEnabled)
+                            if !isPasteboardsEnabled {
+                                preferenceController.setPasteboards([])
+                            }
+                        })
+                        .toggleStyle(.switch)
+                    }
+                } destination: {
+                    EmptyView()
+                }
+                
                 Divider()
                 
                 MyNavigationLink(id: "about") {
@@ -46,14 +67,15 @@ struct PreferenceView: View {
                 } destination: {
                     AboutView()
                 }
-
-
+                
+                
                 
                 
             }.padding(defaultPadding)
         }
         .onAppear {
             isJiraEnabled = preferenceController.hasJiraAuthKey()
+            isPasteboardsEnabled = preferenceController.isPasteboardsEnabled()
         }
     }
 }

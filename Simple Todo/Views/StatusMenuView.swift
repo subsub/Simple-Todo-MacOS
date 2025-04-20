@@ -10,21 +10,52 @@ import SwiftUI
 struct StatusMenuView: View {
     @EnvironmentObject var taskDelegate: TaskDelegate
     @EnvironmentObject var bgScheduler: BackgroundTaskController
+    @EnvironmentObject var prefController: PreferenceController
     
     @State var reloadCount: Double = 0
+    @State var newPasteboardContent: String? = nil
+    
+    @State private var textoffset = 300.0
     
     var body: some View {
         HStack {
             statusIcon
-            statusText
-        }.padding(4)
-            .onChange(of: bgScheduler.reloadCount) { newValue in
-                reloadCount += 1
-                print(">> reloadCount: \(reloadCount)")
+            Color.clear
+                .frame(width: 250)
+                .overlay {
+                    statusText
+                        .fixedSize()
+                        .offset(x: textoffset, y: 0)
+                }
+                .animation(
+                    .linear(duration: 10)
+                    .repeatForever(autoreverses: false), value: textoffset)
+                .clipped()
+        }
+        .padding(4)
+        .onAppear {
+            textoffset = -300.0
+        }
+        .onChange(of: bgScheduler.reloadCount) { newValue in
+            reloadCount += 1
+            print(">> reloadCount: \(reloadCount)")
+        }
+        .onReceive(prefController.$preference) { _ in
+            guard var newContent = prefController.getPasteboards().last else {
+                return
             }
+            newContent = newContent.replacing(/\s+/, with: " ")
+            newPasteboardContent = newContent.count > 20 ? "\(String(newContent[..<newContent.index(newContent.startIndex, offsetBy: 20)]))..." : newContent
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
+                newPasteboardContent = nil
+            })
+        }
     }
     
     var statusIcon: some View {
+        if let _ = newPasteboardContent {
+            return AnyView(Image(systemName: "list.clipboard.fill"))
+        }
         if taskDelegate.totalTask() == 0  || taskDelegate.totalCompletedTask() == taskDelegate.totalTask() {
             return AnyView(Image(systemName: "checkmark.circle.fill"))
         } else if taskDelegate.totalCompletedTask() == 0 {
@@ -35,6 +66,9 @@ struct StatusMenuView: View {
     }
     
     var statusText: some View {
+        if let pastboardContent = newPasteboardContent {
+            return Text("← \"\(pastboardContent)\"")
+        }
         if taskDelegate.totalOverdueTasks() > 0 {
             return Text("\(taskDelegate.totalTask() - taskDelegate.totalCompletedTask()) tasks❗️\(taskDelegate.totalOverdueTasks()) overdue")
         } else if taskDelegate.totalTask() == 0 || taskDelegate.totalCompletedTask() == taskDelegate.totalTask() {

@@ -51,4 +51,48 @@ class PreferenceController: ObservableObject {
     private func load() {
         preference = decode(preference, from: rawPreferences) ?? preference
     }
+    
+    func isPasteboardsEnabled() -> Bool {
+        guard let pref = preference.preferences[PrefKey.isPasteboardsEnabledKey], case PrefValue.bool(let value) = pref else {
+            return false
+        }
+        return value
+    }
+    
+    func setPasteboardsEnabled(_ enabled: Bool) {
+        preference.preferences[PrefKey.isPasteboardsEnabledKey] = PrefValue.bool(enabled)
+        save()
+    }
+    
+    func getPasteboards() -> [String] {
+        guard let pref = preference.preferences[PrefKey.pasteboardKey], case PrefValue.stringArray(let value) = pref else {
+            return []
+        }
+        return value
+    }
+    
+    func setPasteboards(_ pasteboards: [String]) {
+        guard isPasteboardsEnabled() else {
+            return
+        }
+        preference.preferences[PrefKey.pasteboardKey] = PrefValue.stringArray(pasteboards)
+        save()
+    }
+    
+    func addToPasteboards(_ value: String) {
+        var pasteboards = self.getPasteboards()
+        if let index = pasteboards.firstIndex(of: value) {
+            pasteboards.remove(at: index)
+        }
+        pasteboards.append(value)
+        self.setPasteboards(pasteboards)
+    }
+    
+    func removeFromPasteboards(_ value: String) {
+        var pasteboards = self.getPasteboards()
+        if let index = pasteboards.firstIndex(of: value) {
+            pasteboards.remove(at: index)
+        }
+        self.setPasteboards(pasteboards)
+    }
 }

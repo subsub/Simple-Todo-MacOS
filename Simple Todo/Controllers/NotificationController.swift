@@ -9,8 +9,14 @@ import UserNotifications
 import SwiftUI
 import Foundation
 
+extension NSNotification.Name {
+    public static let NSPasteboardDidChange: NSNotification.Name = .init(rawValue: "pasteboardDidChangeNotification")
+}
+
 let notifCenterName = "id.subkhansarif.Simple-Todo"
 let notifCenterPublisher = NotificationCenter.default.publisher(for: Notification.Name(notifCenterName))
+let pasteboardPublisher = NotificationCenter.default.publisher(for: .NSPasteboardDidChange)
+
 
 class NotificationController :NSObject, ObservableObject {
     static let instance = NotificationController()

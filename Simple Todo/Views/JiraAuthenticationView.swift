@@ -21,55 +21,57 @@ struct JiraAuthenticationView: View {
     @State var isValid: Bool = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                MyNavigationBar(title: "Jira Integration", confirmText: "Save", confirmButtonEnabled: !username.isEmpty && !apiKey.isEmpty && !jiraHost.isEmpty && !isLoading) {
-                    navigationState.popTo(id: "preference")
-                } onConfirmButton: {
-                    isLoading = true
-                    checkAndConfirm()
-                }
-                
-                ZStack {
-                    VStack {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Username:")
-                                    .frame(maxHeight: 40)
-                                Text("API Token:")
-                                    .frame(maxHeight: 40)
-                                Text("Host:")
-                                    .frame(maxHeight: 40)
-                            }
-                            VStack {
-                                TextField("email@host.com", text: $username)
-                                    .frame(maxHeight: 40)
-                                TextField("API Token", text: $apiKey)
-                                    .frame(maxHeight: 40)
-                                HStack {
-                                    TextField("host", text: $jiraHost)
+        ScrollView {
+            ZStack {
+                VStack {
+                    MyNavigationBar(title: "Jira Integration", confirmText: "Save", confirmButtonEnabled: !username.isEmpty && !apiKey.isEmpty && !jiraHost.isEmpty && !isLoading) {
+                        navigationState.popTo(id: "preference")
+                    } onConfirmButton: {
+                        isLoading = true
+                        checkAndConfirm()
+                    }
+                    
+                    ZStack {
+                        VStack {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("Username:")
                                         .frame(maxHeight: 40)
-                                    Text(".atlassian.net")
+                                    Text("API Token:")
+                                        .frame(maxHeight: 40)
+                                    Text("Host:")
+                                        .frame(maxHeight: 40)
+                                }
+                                VStack {
+                                    TextField("email@host.com", text: $username)
+                                        .frame(maxHeight: 40)
+                                    TextField("API Token", text: $apiKey)
+                                        .frame(maxHeight: 40)
+                                    HStack {
+                                        TextField("host", text: $jiraHost)
+                                            .frame(maxHeight: 40)
+                                        Text(".atlassian.net")
+                                    }
                                 }
                             }
+                            .padding(defaultPadding)
+                            
+                            Text("To use Jira App, you need an API Token. Read on how to create Jira API Token here: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(defaultPadding)
+                                .background(.gray.opacity(0.1))
+                                .padding(defaultPadding)
                         }
-                        .padding(defaultPadding)
-                        
-                        Text("To use Jira App, you need an API Token. Read on how to create Jira API Token here: https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(defaultPadding)
-                            .background(.gray.opacity(0.1))
-                            .padding(defaultPadding)
+                        MyToast(isShowing: $shouldShowToast, title: isValid ? "Verified" : "Cannot verify information", type: isValid ? .Success : .Error)
                     }
-                    MyToast(isShowing: $shouldShowToast, title: isValid ? "Verified" : "Cannot verify information", type: isValid ? .Success : .Error)
+                }
+                
+                if isLoading {
+                    ProgressView()
                 }
             }
-            
-            if isLoading {
-                ProgressView()
-            }
+            .frame(minWidth: 450)
         }
-        .frame(minWidth: 450)
     }
     
     func checkAndConfirm() {
