@@ -59,7 +59,7 @@ struct NewTaskButton: View {
                     .transition(.move(edge: .top).combined(with: .opacity))
                     
                     
-                    MyNavigationLink(id: "new-task", autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
+                    MyNavigationLink(id: "new-task", colorDelegate: ColorTheme.instance, autoRedirect: false, expanded: false, padding: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 4)) {
                         Text("→")
                             .foregroundColor(ColorTheme.instance.textDefault)
                     } destination: {

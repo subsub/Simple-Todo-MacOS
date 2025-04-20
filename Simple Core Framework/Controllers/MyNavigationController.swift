@@ -83,13 +83,16 @@ struct MyNavigationLink: View {
     var expanded: Bool = true
     var padding: EdgeInsets? = nil
     var focusable: Bool = true
+    var colorDelegate: ColorDelegate
     
-    init(focusColor: Color? = nil,
+    init(colorDelegate: ColorDelegate,
+         focusColor: Color? = nil,
          focusable: Bool = true,
          expanded: Bool = true,
          padding: EdgeInsets? = nil,
          @ViewBuilder content: @escaping () -> some View,
          @ViewBuilder destination: @escaping () -> some View) {
+        self.colorDelegate = colorDelegate
         self.content = AnyView(content())
         self.destination = AnyView(destination())
         self.id = UUID().uuidString
@@ -100,6 +103,7 @@ struct MyNavigationLink: View {
     }
     
     init(id: String,
+         colorDelegate: ColorDelegate,
          focusColor: Color? = nil,
          focusable: Bool = true,
          autoRedirect: Bool = true,
@@ -108,6 +112,7 @@ struct MyNavigationLink: View {
          @ViewBuilder content: @escaping () -> some View,
          @ViewBuilder destination: @escaping () -> some View) {
         self.id = id
+        self.colorDelegate = colorDelegate
         self.content = AnyView(content())
         self.destination = AnyView(destination())
         self.focusColor = focusColor ?? .blue
@@ -128,7 +133,7 @@ struct MyNavigationLink: View {
         } label: {
             HStack {
                 content
-                    .foregroundColor(isHovered && focusable ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
+                    .foregroundColor(isHovered && focusable ? colorDelegate.staticWhite: colorDelegate.textDefault)
                 if expanded {
                     Spacer()
                 }

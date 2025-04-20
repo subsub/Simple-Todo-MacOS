@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PreferenceButton: View {
     var body: some View {
-        MyNavigationLink(id: "preference") {
+        MyNavigationLink(id: "preference", colorDelegate: ColorTheme.instance) {
             Text("Preference")
         } destination: {
             PreferenceView()

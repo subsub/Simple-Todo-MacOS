@@ -20,7 +20,7 @@ struct PreferenceView: View {
                 navigationState.popTo(id: nil)
             }
             VStack {
-                MyNavigationLink(id: "jira-authentication-view", focusable: false, autoRedirect: false) {
+                MyNavigationLink(id: "jira-authentication-view", colorDelegate: ColorTheme.instance, focusable: false, autoRedirect: false) {
                     HStack {
                         Text("Jira Integration")
                         Spacer()
@@ -41,6 +41,7 @@ struct PreferenceView: View {
                 
                 
                 MyNavigationLink(id: "pasteboards",
+                                 colorDelegate: ColorTheme.instance,
                                  focusable: false,
                                  autoRedirect: false) {
                     HStack {
@@ -62,7 +63,7 @@ struct PreferenceView: View {
                 
                 Divider()
                 
-                MyNavigationLink(id: "about") {
+                MyNavigationLink(id: "about", colorDelegate: ColorTheme.instance) {
                     Text("About")
                 } destination: {
                     AboutView()

@@ -97,7 +97,7 @@ struct TaskItem: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
                         
-                        MyNavigationLink(id: task.id, autoRedirect: false, expanded: false) {
+                        MyNavigationLink(id: task.id, colorDelegate: ColorTheme.instance, autoRedirect: false, expanded: false) {
                             EmptyView()
                         } destination: {
                             TaskDetailView(id: task.id, task: task)

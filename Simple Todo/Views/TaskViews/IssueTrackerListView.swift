@@ -258,7 +258,7 @@ struct IssueTrackerListView: View {
         return AnyView(
             HStack {
                 if taskExists && task != nil {
-                    MyNavigationLink(id: task!.id) {
+                    MyNavigationLink(id: task!.id, colorDelegate: ColorTheme.instance) {
                         HStack {
                             Text("Detail →")
                         }
@@ -276,7 +276,7 @@ struct IssueTrackerListView: View {
                     }
                     .buttonStyle(.plain)
                     if createdTask != nil {
-                        MyNavigationLink(id: createdTask!.id) {
+                        MyNavigationLink(id: createdTask!.id, colorDelegate: ColorTheme.instance) {
                             EmptyView()
                         } destination: {
                             TaskDetailView(id: createdTask!.id, task: createdTask!)

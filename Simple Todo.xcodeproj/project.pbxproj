@@ -3,36 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58C19EA52A506751004C36FE /* JiraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C19EA42A506751004C36FE /* JiraController.swift */; };
-		58C19EA72A506868004C36FE /* JiraCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C19EA62A506868004C36FE /* JiraCardDetail.swift */; };
 		58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C342A50186C00CAA3C4 /* MyMenuButton.swift */; };
 		58E25C372A501BC900CAA3C4 /* PreferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C362A501BC900CAA3C4 /* PreferenceButton.swift */; };
 		58E25C392A501BFD00CAA3C4 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C382A501BFD00CAA3C4 /* PreferenceView.swift */; };
-		58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C3A2A50474C00CAA3C4 /* PreferenceController.swift */; };
-		58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C3C2A50478100CAA3C4 /* UserPreference.swift */; };
-		58E25C402A50484100CAA3C4 /* CodableUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C3F2A50484100CAA3C4 /* CodableUtil.swift */; };
 		58E25C422A504E3C00CAA3C4 /* JiraAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C412A504E3C00CAA3C4 /* JiraAuthenticationView.swift */; };
-		58E25C442A5056AE00CAA3C4 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E25C432A5056AE00CAA3C4 /* String+extension.swift */; };
-		B20A6D732A4DF5EA00DCC582 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */; };
 		B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */; };
 		B20A6D772A4E12E400DCC582 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */; };
 		B222F4422A509DA100EFDB87 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = B222F4412A509DA100EFDB87 /* MarkdownUI */; };
-		B222F4442A50A58200EFDB87 /* JiraTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F4432A50A58200EFDB87 /* JiraTransition.swift */; };
 		B22B4A1A2A4E1CDC002F205D /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A192A4E1CDC002F205D /* ClearButton.swift */; };
-		B22B4A1C2A4E9269002F205D /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A1B2A4E9269002F205D /* MyNavigationController.swift */; };
 		B22B4A1F2A4EB60E002F205D /* MyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A1E2A4EB60E002F205D /* MyNavigationBar.swift */; };
-		B22B4A212A4EBD2B002F205D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A202A4EBD2B002F205D /* NotificationController.swift */; };
 		B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A242A4F16AE002F205D /* AppDelegate.swift */; };
 		B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B4A262A4F2858002F205D /* QuitButton.swift */; };
 		B235CED32DB29FB600603D13 /* Pasteboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235CED22DB29FB300603D13 /* Pasteboards.swift */; };
-		B23622682A5441CB005ECEC7 /* TaskComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23622672A5441CB005ECEC7 /* TaskComment.swift */; };
-		B23B3B4F2A51E72900CEF418 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B4E2A51E72900CEF418 /* Constants.swift */; };
+		B235CEFC2DB4DEC400603D13 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B235CEFB2DB4DEC400603D13 /* WidgetKit.framework */; };
+		B235CEFE2DB4DEC400603D13 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B235CEFD2DB4DEC400603D13 /* SwiftUI.framework */; };
+		B235CF0A2DB4DEC600603D13 /* Simple Todo WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B235CEF92DB4DEC400603D13 /* Simple Todo WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B23B3B512A51E7A500CEF418 /* MyToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B502A51E7A500CEF418 /* MyToast.swift */; };
-		B23B3B532A51EA2200CEF418 /* Color+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B3B522A51EA2200CEF418 /* Color+extension.swift */; };
 		B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F96112A4DC80300394187 /* Simple_TodoApp.swift */; };
 		B23F96182A4DC80400394187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23F96172A4DC80400394187 /* Assets.xcassets */; };
 		B23F961B2A4DC80400394187 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23F961A2A4DC80400394187 /* Preview Assets.xcassets */; };
@@ -44,25 +34,26 @@
 		B23F96452A4DD2AE00394187 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F96442A4DD2AE00394187 /* NewTaskView.swift */; };
 		B23F964A2A4DE50000394187 /* NewTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F96492A4DE50000394187 /* NewTaskButton.swift */; };
 		B23F964C2A4DE8B400394187 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F964B2A4DE8B400394187 /* TaskList.swift */; };
-		B23F964F2A4DE99100394187 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23F964E2A4DE99100394187 /* TaskModel.swift */; };
 		B24FBD922A534A8400D4D4E5 /* IssueTrackerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FBD912A534A8400D4D4E5 /* IssueTrackerButton.swift */; };
 		B24FBD942A534C5D00D4D4E5 /* IssueTrackerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */; };
-		B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */; };
 		B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */; };
 		B29724052A595BEC00401655 /* CommentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29724042A595BEC00401655 /* CommentEditorView.swift */; };
-		B29724072A59664600401655 /* CommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29724062A59664600401655 /* CommentBody.swift */; };
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
-		B2A067C12A6594EA0094C84F /* MyJiraTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A067C02A6594EA0094C84F /* MyJiraTaskItem.swift */; };
-		B2A067C32A6596AB0094C84F /* ProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A067C22A6596AB0094C84F /* ProjectDetail.swift */; };
-		B2A067C62A6597AC0094C84F /* JiraCardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A067C52A6597AC0094C84F /* JiraCardStatus.swift */; };
+		B2B810BA2DB538FC0075324D /* Simple_Core_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */; };
+		B2B810BB2DB538FC0075324D /* Simple_Core_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B2B811242DB53D310075324D /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B811232DB53D2E0075324D /* ColorTheme.swift */; };
 		B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */; };
-		B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B824512A58B6110096F943 /* AccountDetail.swift */; };
 		B2BD6E022A62F2C40082CE73 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD6E012A62F2C40082CE73 /* AboutView.swift */; };
-		B2BD6E042A62F4E90082CE73 /* Bundle+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD6E032A62F4E90082CE73 /* Bundle+extension.swift */; };
-		B2C389782A5A8AD50096C79F /* MySelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C389772A5A8AD50096C79F /* MySelf.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B235CF082DB4DEC600603D13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B23F96062A4DC80300394187 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B235CEF82DB4DEC400603D13;
+			remoteInfo = "Simple Todo WidgetExtension";
+		};
 		B23F96232A4DC80400394187 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B23F96062A4DC80300394187 /* Project object */;
@@ -77,9 +68,27 @@
 			remoteGlobalIDString = B23F960D2A4DC80300394187;
 			remoteInfo = "Simple Todo";
 		};
+		B2B810B82DB538FC0075324D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B23F96062A4DC80300394187 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2B810B12DB538FC0075324D;
+			remoteInfo = "Simple Core Framework";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B235CF0B2DB4DEC600603D13 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B235CF0A2DB4DEC600603D13 /* Simple Todo WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23622792A544C1C005ECEC7 /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,34 +99,35 @@
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2B810BF2DB538FC0075324D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B2B810BB2DB538FC0075324D /* Simple_Core_Framework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		58C19EA42A506751004C36FE /* JiraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraController.swift; sourceTree = "<group>"; };
-		58C19EA62A506868004C36FE /* JiraCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraCardDetail.swift; sourceTree = "<group>"; };
 		58E25C342A50186C00CAA3C4 /* MyMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuButton.swift; sourceTree = "<group>"; };
 		58E25C362A501BC900CAA3C4 /* PreferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButton.swift; sourceTree = "<group>"; };
 		58E25C382A501BFD00CAA3C4 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
-		58E25C3A2A50474C00CAA3C4 /* PreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceController.swift; sourceTree = "<group>"; };
-		58E25C3C2A50478100CAA3C4 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
-		58E25C3F2A50484100CAA3C4 /* CodableUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableUtil.swift; sourceTree = "<group>"; };
 		58E25C412A504E3C00CAA3C4 /* JiraAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraAuthenticationView.swift; sourceTree = "<group>"; };
-		58E25C432A5056AE00CAA3C4 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
-		B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
 		B20A6D742A4E0F6D00DCC582 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		B20A6D762A4E12E400DCC582 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
-		B222F4432A50A58200EFDB87 /* JiraTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraTransition.swift; sourceTree = "<group>"; };
 		B22B4A192A4E1CDC002F205D /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
-		B22B4A1B2A4E9269002F205D /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		B22B4A1E2A4EB60E002F205D /* MyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationBar.swift; sourceTree = "<group>"; };
-		B22B4A202A4EBD2B002F205D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		B22B4A242A4F16AE002F205D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22B4A262A4F2858002F205D /* QuitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitButton.swift; sourceTree = "<group>"; };
 		B235CED22DB29FB300603D13 /* Pasteboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pasteboards.swift; sourceTree = "<group>"; };
-		B23622672A5441CB005ECEC7 /* TaskComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComment.swift; sourceTree = "<group>"; };
-		B23B3B4E2A51E72900CEF418 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B235CEF92DB4DEC400603D13 /* Simple Todo WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Simple Todo WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B235CEFB2DB4DEC400603D13 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B235CEFD2DB4DEC400603D13 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		B23B3B502A51E7A500CEF418 /* MyToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToast.swift; sourceTree = "<group>"; };
-		B23B3B522A51EA2200CEF418 /* Color+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extension.swift"; sourceTree = "<group>"; };
 		B23F960E2A4DC80300394187 /* Simple Todo Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Todo Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23F96112A4DC80300394187 /* Simple_TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_TodoApp.swift; sourceTree = "<group>"; };
 		B23F96172A4DC80400394187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,29 +144,105 @@
 		B23F96442A4DD2AE00394187 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
 		B23F96492A4DE50000394187 /* NewTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskButton.swift; sourceTree = "<group>"; };
 		B23F964B2A4DE8B400394187 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
-		B23F964E2A4DE99100394187 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B24FBD912A534A8400D4D4E5 /* IssueTrackerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerButton.swift; sourceTree = "<group>"; };
 		B24FBD932A534C5D00D4D4E5 /* IssueTrackerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTrackerListView.swift; sourceTree = "<group>"; };
-		B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskController.swift; sourceTree = "<group>"; };
 		B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllDoneButton.swift; sourceTree = "<group>"; };
 		B29724042A595BEC00401655 /* CommentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEditorView.swift; sourceTree = "<group>"; };
-		B29724062A59664600401655 /* CommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBody.swift; sourceTree = "<group>"; };
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
-		B2A067C02A6594EA0094C84F /* MyJiraTaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJiraTaskItem.swift; sourceTree = "<group>"; };
-		B2A067C22A6596AB0094C84F /* ProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetail.swift; sourceTree = "<group>"; };
-		B2A067C52A6597AC0094C84F /* JiraCardStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiraCardStatus.swift; sourceTree = "<group>"; };
+		B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Simple_Core_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2B811232DB53D2E0075324D /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentView.swift; sourceTree = "<group>"; };
-		B2B824512A58B6110096F943 /* AccountDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
 		B2BD6E012A62F2C40082CE73 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		B2BD6E032A62F4E90082CE73 /* Bundle+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+extension.swift"; sourceTree = "<group>"; };
-		B2C389772A5A8AD50096C79F /* MySelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySelf.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B235CF0E2DB4DEC600603D13 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B235CEF82DB4DEC400603D13 /* Simple Todo WidgetExtension */;
+		};
+		B2B810C22DB539460075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Controllers/BackgroundTaskController.swift,
+				Controllers/JiraController.swift,
+				Controllers/MyNavigationController.swift,
+				Controllers/NotificationController.swift,
+				Controllers/PreferenceController.swift,
+				Controllers/UserDefaultsController.swift,
+				Models/jira/AccountDetail.swift,
+				Models/jira/CommentBody.swift,
+				Models/jira/JiraCardDetail.swift,
+				Models/jira/JiraCardStatus.swift,
+				Models/jira/JiraTransition.swift,
+				Models/jira/MyJiraTaskItem.swift,
+				Models/jira/MySelf.swift,
+				Models/jira/ProjectDetail.swift,
+				Models/jira/TaskComment.swift,
+				Models/TaskModel.swift,
+				Models/UserPreference.swift,
+				"Utils/Bundle+extension.swift",
+				Utils/CodableUtil.swift,
+				"Utils/Color+extension.swift",
+				Utils/ColorDelegate.swift,
+				Utils/Constants.swift,
+				"Utils/String+extension.swift",
+			);
+			target = B23F960D2A4DC80300394187 /* Simple Todo */;
+		};
+		B2B810C32DB539460075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Controllers/BackgroundTaskController.swift,
+				Controllers/JiraController.swift,
+				Controllers/MyNavigationController.swift,
+				Controllers/NotificationController.swift,
+				Controllers/PreferenceController.swift,
+				Controllers/UserDefaultsController.swift,
+				Models/jira/AccountDetail.swift,
+				Models/jira/CommentBody.swift,
+				Models/jira/JiraCardDetail.swift,
+				Models/jira/JiraCardStatus.swift,
+				Models/jira/JiraTransition.swift,
+				Models/jira/MyJiraTaskItem.swift,
+				Models/jira/MySelf.swift,
+				Models/jira/ProjectDetail.swift,
+				Models/jira/TaskComment.swift,
+				Models/TaskModel.swift,
+				Models/UserPreference.swift,
+				"Utils/Bundle+extension.swift",
+				Utils/CodableUtil.swift,
+				"Utils/Color+extension.swift",
+				Utils/ColorDelegate.swift,
+				Utils/Constants.swift,
+				"Utils/String+extension.swift",
+			);
+			target = B235CEF82DB4DEC400603D13 /* Simple Todo WidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B235CEFF2DB4DEC400603D13 /* Simple Todo Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (B235CF0E2DB4DEC600603D13 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Simple Todo Widget"; sourceTree = "<group>"; };
+		B2B810B32DB538FC0075324D /* Simple Core Framework */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (B2B810C22DB539460075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, B2B810C32DB539460075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Simple Core Framework"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		B235CEF62DB4DEC400603D13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B235CEFE2DB4DEC400603D13 /* SwiftUI.framework in Frameworks */,
+				B235CEFC2DB4DEC400603D13 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23F960B2A4DC80300394187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B810BA2DB538FC0075324D /* Simple_Core_Framework.framework in Frameworks */,
 				B222F4422A509DA100EFDB87 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,33 +261,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2B810AF2DB538FC0075324D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		58E25C3E2A50482300CAA3C4 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				58E25C3F2A50484100CAA3C4 /* CodableUtil.swift */,
-				58E25C432A5056AE00CAA3C4 /* String+extension.swift */,
-				B23B3B522A51EA2200CEF418 /* Color+extension.swift */,
-				B2BD6E032A62F4E90082CE73 /* Bundle+extension.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		B20A6D712A4DF5D500DCC582 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				B20A6D722A4DF5EA00DCC582 /* UserDefaultsController.swift */,
-				B22B4A1B2A4E9269002F205D /* MyNavigationController.swift */,
-				B22B4A202A4EBD2B002F205D /* NotificationController.swift */,
-				B28E5C7D2A4FE6C600456FBC /* BackgroundTaskController.swift */,
-				58E25C3A2A50474C00CAA3C4 /* PreferenceController.swift */,
-				58C19EA42A506751004C36FE /* JiraController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		B20A6D782A4E135700DCC582 /* TaskViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,11 +286,21 @@
 		B22B4A1D2A4EB5FC002F205D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B2B811232DB53D2E0075324D /* ColorTheme.swift */,
 				B22B4A1E2A4EB60E002F205D /* MyNavigationBar.swift */,
 				58E25C342A50186C00CAA3C4 /* MyMenuButton.swift */,
 				B23B3B502A51E7A500CEF418 /* MyToast.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B235CEFA2DB4DEC400603D13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B235CEFB2DB4DEC400603D13 /* WidgetKit.framework */,
+				B235CEFD2DB4DEC400603D13 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B23F96052A4DC80300394187 = {
@@ -230,6 +309,9 @@
 				B23F96102A4DC80300394187 /* Simple Todo */,
 				B23F96252A4DC80400394187 /* Simple TodoTests */,
 				B23F962F2A4DC80400394187 /* Simple TodoUITests */,
+				B235CEFF2DB4DEC400603D13 /* Simple Todo Widget */,
+				B2B810B32DB538FC0075324D /* Simple Core Framework */,
+				B235CEFA2DB4DEC400603D13 /* Frameworks */,
 				B23F960F2A4DC80300394187 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -240,6 +322,8 @@
 				B23F960E2A4DC80300394187 /* Simple Todo Bar.app */,
 				B23F96222A4DC80400394187 /* Simple TodoTests.xctest */,
 				B23F962C2A4DC80400394187 /* Simple TodoUITests.xctest */,
+				B235CEF92DB4DEC400603D13 /* Simple Todo WidgetExtension.appex */,
+				B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,12 +331,8 @@
 		B23F96102A4DC80300394187 /* Simple Todo */ = {
 			isa = PBXGroup;
 			children = (
-				58E25C3E2A50482300CAA3C4 /* Utils */,
-				B20A6D712A4DF5D500DCC582 /* Controllers */,
-				B23F964D2A4DE98200394187 /* Models */,
 				B23F96412A4DCA0700394187 /* Views */,
 				B22B4A242A4F16AE002F205D /* AppDelegate.swift */,
-				B23B3B4E2A51E72900CEF418 /* Constants.swift */,
 				B23F96112A4DC80300394187 /* Simple_TodoApp.swift */,
 				B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */,
 				B23F96172A4DC80400394187 /* Assets.xcassets */,
@@ -319,35 +399,41 @@
 			path = MenuButtons;
 			sourceTree = "<group>";
 		};
-		B23F964D2A4DE98200394187 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B2A067C42A6597770094C84F /* jira */,
-				B23F964E2A4DE99100394187 /* TaskModel.swift */,
-				58E25C3C2A50478100CAA3C4 /* UserPreference.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		B2A067C42A6597770094C84F /* jira */ = {
-			isa = PBXGroup;
-			children = (
-				B2A067C22A6596AB0094C84F /* ProjectDetail.swift */,
-				B2A067C02A6594EA0094C84F /* MyJiraTaskItem.swift */,
-				B2C389772A5A8AD50096C79F /* MySelf.swift */,
-				B29724062A59664600401655 /* CommentBody.swift */,
-				B2B824512A58B6110096F943 /* AccountDetail.swift */,
-				B23622672A5441CB005ECEC7 /* TaskComment.swift */,
-				B222F4432A50A58200EFDB87 /* JiraTransition.swift */,
-				58C19EA62A506868004C36FE /* JiraCardDetail.swift */,
-				B2A067C52A6597AC0094C84F /* JiraCardStatus.swift */,
-			);
-			path = jira;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		B2B810AD2DB538FC0075324D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		B235CEF82DB4DEC400603D13 /* Simple Todo WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B235CF0F2DB4DEC600603D13 /* Build configuration list for PBXNativeTarget "Simple Todo WidgetExtension" */;
+			buildPhases = (
+				B235CEF52DB4DEC400603D13 /* Sources */,
+				B235CEF62DB4DEC400603D13 /* Frameworks */,
+				B235CEF72DB4DEC400603D13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B235CEFF2DB4DEC400603D13 /* Simple Todo Widget */,
+			);
+			name = "Simple Todo WidgetExtension";
+			packageProductDependencies = (
+			);
+			productName = "Simple Todo WidgetExtension";
+			productReference = B235CEF92DB4DEC400603D13 /* Simple Todo WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B23F960D2A4DC80300394187 /* Simple Todo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B23F96362A4DC80400394187 /* Build configuration list for PBXNativeTarget "Simple Todo" */;
@@ -356,10 +442,14 @@
 				B23F960B2A4DC80300394187 /* Frameworks */,
 				B23F960C2A4DC80300394187 /* Resources */,
 				B23622792A544C1C005ECEC7 /* Embed ExtensionKit Extensions */,
+				B235CF0B2DB4DEC600603D13 /* Embed Foundation Extensions */,
+				B2B810BF2DB538FC0075324D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B235CF092DB4DEC600603D13 /* PBXTargetDependency */,
+				B2B810B92DB538FC0075324D /* PBXTargetDependency */,
 			);
 			name = "Simple Todo";
 			packageProductDependencies = (
@@ -405,6 +495,29 @@
 			productReference = B23F962C2A4DC80400394187 /* Simple TodoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B2B810B12DB538FC0075324D /* Simple Core Framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2B810BC2DB538FC0075324D /* Build configuration list for PBXNativeTarget "Simple Core Framework" */;
+			buildPhases = (
+				B2B810AD2DB538FC0075324D /* Headers */,
+				B2B810AE2DB538FC0075324D /* Sources */,
+				B2B810AF2DB538FC0075324D /* Frameworks */,
+				B2B810B02DB538FC0075324D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B2B810B32DB538FC0075324D /* Simple Core Framework */,
+			);
+			name = "Simple Core Framework";
+			packageProductDependencies = (
+			);
+			productName = "Simple Core Framework";
+			productReference = B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -412,9 +525,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					B235CEF82DB4DEC400603D13 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					B23F960D2A4DC80300394187 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -425,6 +541,9 @@
 					B23F962B2A4DC80400394187 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = B23F960D2A4DC80300394187;
+					};
+					B2B810B12DB538FC0075324D = {
+						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
@@ -447,11 +566,20 @@
 				B23F960D2A4DC80300394187 /* Simple Todo */,
 				B23F96212A4DC80400394187 /* Simple TodoTests */,
 				B23F962B2A4DC80400394187 /* Simple TodoUITests */,
+				B235CEF82DB4DEC400603D13 /* Simple Todo WidgetExtension */,
+				B2B810B12DB538FC0075324D /* Simple Core Framework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B235CEF72DB4DEC400603D13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23F960C2A4DC80300394187 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,60 +603,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2B810B02DB538FC0075324D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B235CEF52DB4DEC400603D13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B23F960A2A4DC80300394187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B23F964C2A4DE8B400394187 /* TaskList.swift in Sources */,
 				B23F96452A4DD2AE00394187 /* NewTaskView.swift in Sources */,
-				58C19EA72A506868004C36FE /* JiraCardDetail.swift in Sources */,
 				B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */,
-				B20A6D732A4DF5EA00DCC582 /* UserDefaultsController.swift in Sources */,
 				B22B4A252A4F16AE002F205D /* AppDelegate.swift in Sources */,
-				B23B3B4F2A51E72900CEF418 /* Constants.swift in Sources */,
 				B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */,
 				B23F964A2A4DE50000394187 /* NewTaskButton.swift in Sources */,
-				B222F4442A50A58200EFDB87 /* JiraTransition.swift in Sources */,
 				B20A6D772A4E12E400DCC582 /* TaskDetailView.swift in Sources */,
 				B20A6D752A4E0F6D00DCC582 /* TaskItem.swift in Sources */,
 				B29724052A595BEC00401655 /* CommentEditorView.swift in Sources */,
 				58E25C372A501BC900CAA3C4 /* PreferenceButton.swift in Sources */,
-				B2BD6E042A62F4E90082CE73 /* Bundle+extension.swift in Sources */,
-				58E25C402A50484100CAA3C4 /* CodableUtil.swift in Sources */,
 				B22B4A1A2A4E1CDC002F205D /* ClearButton.swift in Sources */,
-				B2A067C12A6594EA0094C84F /* MyJiraTaskItem.swift in Sources */,
-				58C19EA52A506751004C36FE /* JiraController.swift in Sources */,
 				B23F96402A4DCA0300394187 /* MainMenuView.swift in Sources */,
-				58E25C442A5056AE00CAA3C4 /* String+extension.swift in Sources */,
 				58E25C422A504E3C00CAA3C4 /* JiraAuthenticationView.swift in Sources */,
 				B22B4A1F2A4EB60E002F205D /* MyNavigationBar.swift in Sources */,
-				B29724072A59664600401655 /* CommentBody.swift in Sources */,
 				B2BD6E022A62F2C40082CE73 /* AboutView.swift in Sources */,
 				B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */,
 				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
-				58E25C3B2A50474C00CAA3C4 /* PreferenceController.swift in Sources */,
-				B2C389782A5A8AD50096C79F /* MySelf.swift in Sources */,
-				B2A067C32A6596AB0094C84F /* ProjectDetail.swift in Sources */,
 				B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */,
-				B2B824522A58B6110096F943 /* AccountDetail.swift in Sources */,
-				B2A067C62A6597AC0094C84F /* JiraCardStatus.swift in Sources */,
-				58E25C3D2A50478100CAA3C4 /* UserPreference.swift in Sources */,
-				B23B3B532A51EA2200CEF418 /* Color+extension.swift in Sources */,
 				B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */,
 				B24FBD942A534C5D00D4D4E5 /* IssueTrackerListView.swift in Sources */,
 				B24FBD922A534A8400D4D4E5 /* IssueTrackerButton.swift in Sources */,
-				B22B4A212A4EBD2B002F205D /* NotificationController.swift in Sources */,
-				B22B4A1C2A4E9269002F205D /* MyNavigationController.swift in Sources */,
-				B23622682A5441CB005ECEC7 /* TaskComment.swift in Sources */,
-				B28E5C7E2A4FE6C600456FBC /* BackgroundTaskController.swift in Sources */,
 				B23F96432A4DCEAB00394187 /* StatusMenuView.swift in Sources */,
 				B235CED32DB29FB600603D13 /* Pasteboards.swift in Sources */,
 				B23B3B512A51E7A500CEF418 /* MyToast.swift in Sources */,
-				B23F964F2A4DE99100394187 /* TaskModel.swift in Sources */,
 				58E25C392A501BFD00CAA3C4 /* PreferenceView.swift in Sources */,
+				B2B811242DB53D310075324D /* ColorTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,9 +670,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B2B810AE2DB538FC0075324D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B235CF092DB4DEC600603D13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B235CEF82DB4DEC400603D13 /* Simple Todo WidgetExtension */;
+			targetProxy = B235CF082DB4DEC600603D13 /* PBXContainerItemProxy */;
+		};
 		B23F96242A4DC80400394187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B23F960D2A4DC80300394187 /* Simple Todo */;
@@ -562,9 +695,83 @@
 			target = B23F960D2A4DC80300394187 /* Simple Todo */;
 			targetProxy = B23F962D2A4DC80400394187 /* PBXContainerItemProxy */;
 		};
+		B2B810B92DB538FC0075324D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2B810B12DB538FC0075324D /* Simple Core Framework */;
+			targetProxy = B2B810B82DB538FC0075324D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		B235CF0C2DB4DEC600603D13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Simple Todo Widget/Simple_Todo_Widget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Simple Todo Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Simple Todo Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo.Simple-Todo-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B235CF0D2DB4DEC600603D13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Simple Todo Widget/Simple_Todo_Widget.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Simple Todo Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Simple Todo Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo.Simple-Todo-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		B23F96342A4DC80400394187 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -704,6 +911,7 @@
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
 				PRODUCT_NAME = "Simple Todo Bar";
+				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -735,6 +943,7 @@
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
 				PRODUCT_NAME = "Simple Todo Bar";
+				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -812,9 +1021,99 @@
 			};
 			name = Release;
 		};
+		B2B810BD2DB538FC0075324D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Core-Framework";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B2B810BE2DB538FC0075324D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K4S6P4RB2W;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Core-Framework";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B235CF0F2DB4DEC600603D13 /* Build configuration list for PBXNativeTarget "Simple Todo WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B235CF0C2DB4DEC600603D13 /* Debug */,
+				B235CF0D2DB4DEC600603D13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B23F96092A4DC80300394187 /* Build configuration list for PBXProject "Simple Todo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -847,6 +1146,15 @@
 			buildConfigurations = (
 				B23F963D2A4DC80400394187 /* Debug */,
 				B23F963E2A4DC80400394187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2B810BC2DB538FC0075324D /* Build configuration list for PBXNativeTarget "Simple Core Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2B810BD2DB538FC0075324D /* Debug */,
+				B2B810BE2DB538FC0075324D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

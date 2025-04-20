@@ -14,7 +14,7 @@ enum PreferenceEvent {
 class PreferenceController: ObservableObject {
     static let instance = PreferenceController()
     
-    @AppStorage("user-preference") var rawPreferences: String = ""
+    @AppStorage("user-preference", store: UserDefaults(suiteName: "group.com.subkhansarif.SimpleTodo")) var rawPreferences: String = ""
     @Published var preference: UserPreference = UserPreference()
     @Published var preferenceEvent: PreferenceEvent = .none
     
@@ -32,6 +32,7 @@ class PreferenceController: ObservableObject {
         preference.jiraAuthenticationKey = base64
         preference.jiraServerUrl = "https://\(host).atlassian.net"
         preference.jiraEmail = username
+        preference.preferences = self.preference.preferences
         return preference
     }
     
