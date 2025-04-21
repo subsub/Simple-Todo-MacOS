@@ -22,6 +22,9 @@ struct Pasteboards: View {
             ControlGroup {
                 Text("Select pasteboard to copy")
                 Divider()
+                if pasteboards.isEmpty {
+                    emptyClipboards
+                }
                 ForEach(pasteboards.reversed(), id: \.self) { value in
                     Button {
                         copy(value)
@@ -76,7 +79,7 @@ struct Pasteboards: View {
     }
     
     var emptyClipboards: some View {
-        Text("No clipboards found.")
+        Text("Copied items will appear here.")
     }
     
     func clearPasteboards() {

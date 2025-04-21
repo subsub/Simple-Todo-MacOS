@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 enum PreferenceEvent {
     case newPasteboardData(String), deletePasteboardData(String), none
 }
 
 class PreferenceController: ObservableObject {
+    private let key = "user-preference"
+    private let suiteName = "group.com.subkhansarif.SimpleTodo"
     static let instance = PreferenceController()
     
-    @AppStorage("user-preference", store: UserDefaults(suiteName: "group.com.subkhansarif.SimpleTodo")) var rawPreferences: String = ""
+    var rawPreferences: String = ""
     @Published var preference: UserPreference = UserPreference()
     @Published var preferenceEvent: PreferenceEvent = .none
     
@@ -52,9 +55,19 @@ class PreferenceController: ObservableObject {
         }
         
         self.rawPreferences = rawPreference
+        guard let userDefaults = UserDefaults(suiteName: suiteName) else {
+            return
+        }
+        userDefaults.set(rawPreference, forKey: key)
+        userDefaults.synchronize()
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     private func load() {
+        guard let userDefaults = UserDefaults(suiteName: suiteName) else {
+            return
+        }
+        rawPreferences = userDefaults.string(forKey: key) ?? ""
         preference = decode(preference, from: rawPreferences) ?? preference
     }
     
@@ -71,6 +84,10 @@ class PreferenceController: ObservableObject {
     }
     
     func getPasteboards() -> [String] {
+        let _pref = decode(preference, from: rawPreferences) ?? preference
+        if _pref.preferences[PrefKey.pasteboardKey] != preference.preferences[PrefKey.pasteboardKey] {
+            preference = _pref
+        }
         guard let pref = preference.preferences[PrefKey.pasteboardKey], case PrefValue.stringArray(let value) = pref else {
             return []
         }
@@ -102,5 +119,9 @@ class PreferenceController: ObservableObject {
         }
         self.setPasteboards(pasteboards)
         self.preferenceEvent = .deletePasteboardData(value)
+    }
+    
+    func reload() {
+        self.load()
     }
 }

@@ -221,10 +221,21 @@
 			);
 			target = B235CEF82DB4DEC400603D13 /* Simple Todo WidgetExtension */;
 		};
+		B2B811A12DB6588C0075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				src/intents/RemovePasteboardIntent.swift,
+				src/SimpleTodoTimelineProvider.swift,
+				src/SimpleTodoWidget.swift,
+				src/SimpleTodoWidgetEntry.swift,
+				src/SimpleTodoWidgetEntryView.swift,
+			);
+			target = B23F960D2A4DC80300394187 /* Simple Todo */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B235CEFF2DB4DEC400603D13 /* Simple Todo Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (B235CF0E2DB4DEC600603D13 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Simple Todo Widget"; sourceTree = "<group>"; };
+		B235CEFF2DB4DEC400603D13 /* Simple Todo Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (B2B811A12DB6588C0075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, B235CF0E2DB4DEC600603D13 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Simple Todo Widget"; sourceTree = "<group>"; };
 		B2B810B32DB538FC0075324D /* Simple Core Framework */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (B2B810C22DB539460075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, B2B810C32DB539460075324D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Simple Core Framework"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -726,7 +737,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo.Simple-Todo-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -761,7 +772,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo.Simple-Todo-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -908,6 +919,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
 				PRODUCT_NAME = "Simple Todo Bar";
@@ -940,6 +952,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
 				PRODUCT_NAME = "Simple Todo Bar";

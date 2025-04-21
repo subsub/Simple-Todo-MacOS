@@ -29,6 +29,7 @@ struct Simple_TodoApp: App {
                 .onAppear{
                     taskDelegate.loadTasks()
                     notificationController.checkNotificationPermission()
+                    preferenceController.reload()
                 }
                 .environmentObject(taskDelegate)
                 .environmentObject(notificationController)
@@ -49,6 +50,9 @@ struct Simple_TodoApp: App {
                     guard let items = pb.pasteboardItems else { return }
                     guard let item = items.first?.string(forType: .string) else { return } // you should handle multiple types
                     preferenceController.addToPasteboards(item)
+                })
+                .onReceive(pasteboardUpdatePublisher, perform: { output in
+                    preferenceController.reload()
                 })
                 .environmentObject(taskDelegate)
                 .environmentObject(backgroundTaskScheduler)

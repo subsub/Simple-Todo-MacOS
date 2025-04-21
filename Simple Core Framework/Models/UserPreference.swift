@@ -28,6 +28,6 @@ enum PrefKey: String, Codable {
     }
 }
 
-enum PrefValue: Codable {
+enum PrefValue: Codable, Equatable {
     case int(Int), string(String), bool(Bool), stringArray([String])
 }

@@ -11,6 +11,6 @@ import SwiftUI
 @main
 struct Simple_Todo_WidgetBundle: WidgetBundle {
     var body: some Widget {
-        Simple_Todo_Widget()
+        SimpleTodoWidget()
     }
 }
