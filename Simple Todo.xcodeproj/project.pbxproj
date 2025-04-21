@@ -42,6 +42,8 @@
 		B2B810BA2DB538FC0075324D /* Simple_Core_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */; };
 		B2B810BB2DB538FC0075324D /* Simple_Core_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2B811242DB53D310075324D /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B811232DB53D2E0075324D /* ColorTheme.swift */; };
+		B2B813172DB700BB0075324D /* MenuBarExtraAccess in Frameworks */ = {isa = PBXBuildFile; productRef = B2B813162DB700BB0075324D /* MenuBarExtraAccess */; };
+		B2B813192DB700E90075324D /* MenuBarExtraAccess in Frameworks */ = {isa = PBXBuildFile; productRef = B2B813182DB700E90075324D /* MenuBarExtraAccess */; };
 		B2B824502A58B5DF0096F943 /* IssueCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */; };
 		B2BD6E022A62F2C40082CE73 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2BD6E012A62F2C40082CE73 /* AboutView.swift */; };
 /* End PBXBuildFile section */
@@ -245,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B235CEFE2DB4DEC400603D13 /* SwiftUI.framework in Frameworks */,
+				B2B813192DB700E90075324D /* MenuBarExtraAccess in Frameworks */,
 				B235CEFC2DB4DEC400603D13 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2B810BA2DB538FC0075324D /* Simple_Core_Framework.framework in Frameworks */,
+				B2B813172DB700BB0075324D /* MenuBarExtraAccess in Frameworks */,
 				B222F4422A509DA100EFDB87 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +444,7 @@
 			);
 			name = "Simple Todo WidgetExtension";
 			packageProductDependencies = (
+				B2B813182DB700E90075324D /* MenuBarExtraAccess */,
 			);
 			productName = "Simple Todo WidgetExtension";
 			productReference = B235CEF92DB4DEC400603D13 /* Simple Todo WidgetExtension.appex */;
@@ -465,6 +470,7 @@
 			name = "Simple Todo";
 			packageProductDependencies = (
 				B222F4412A509DA100EFDB87 /* MarkdownUI */,
+				B2B813162DB700BB0075324D /* MenuBarExtraAccess */,
 			);
 			productName = "Simple Todo";
 			productReference = B23F960E2A4DC80300394187 /* Simple Todo Bar.app */;
@@ -569,6 +575,7 @@
 			mainGroup = B23F96052A4DC80300394187;
 			packageReferences = (
 				B222F4402A509DA100EFDB87 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				B2B813152DB700BB0075324D /* XCRemoteSwiftPackageReference "MenuBarExtraAccess" */,
 			);
 			productRefGroup = B23F960F2A4DC80300394187 /* Products */;
 			projectDirPath = "";
@@ -1183,6 +1190,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		B2B813152DB700BB0075324D /* XCRemoteSwiftPackageReference "MenuBarExtraAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/orchetect/MenuBarExtraAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1190,6 +1205,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B222F4402A509DA100EFDB87 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
 			productName = MarkdownUI;
+		};
+		B2B813162DB700BB0075324D /* MenuBarExtraAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2B813152DB700BB0075324D /* XCRemoteSwiftPackageReference "MenuBarExtraAccess" */;
+			productName = MenuBarExtraAccess;
+		};
+		B2B813182DB700E90075324D /* MenuBarExtraAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2B813152DB700BB0075324D /* XCRemoteSwiftPackageReference "MenuBarExtraAccess" */;
+			productName = MenuBarExtraAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

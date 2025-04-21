@@ -14,7 +14,7 @@ struct SimpleTodoWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(
             kind: kind,
-            intent: RemovePasteboardIntent.self,
+            intent: SimpleTodoWidgetIntent.self,
             provider: SimpleTodoTimelineProvider()) { entry in
                 SimpleTodoWidgetEntryView(entry: entry)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

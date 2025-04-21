@@ -1,5 +1,5 @@
 //
-//  RemovePasteboardIntent.swift
+//  SimpleTodoWidgetIntent.swift
 //  Simple Todo
 //
 //  Created by Subkhan Sarif on 21/04/25.
@@ -9,16 +9,24 @@ import SwiftUI
 import WidgetKit
 import AppIntents
 
-struct RemovePasteboardIntent: WidgetConfigurationIntent {
+let intentClear = "clear"
+let intentRemove = "remove"
+let intentCopy = "copy"
+let intentSeeMore = "seeMore"
+
+struct SimpleTodoWidgetIntent: WidgetConfigurationIntent {
     
     static var title: LocalizedStringResource = "Copy Pasteboard"
     static var description: IntentDescription = .init("Select Pasteboard item to copy")
     
     @Parameter(title: "pasteboard", default: "Pasteboard item")
     var pasteboard: String
+    @Parameter(title: "intent", default: "-")
+    var intent: String
     
-    init(pasteboard: String) {
+    init(pasteboard: String, intent: String) {
         self.pasteboard = pasteboard
+        self.intent = intent
     }
     
     init() {
@@ -30,8 +38,18 @@ struct RemovePasteboardIntent: WidgetConfigurationIntent {
             return .result()
         }
         
-        removePasteboard(userDefaults: userDefaults)
-        NotificationCenter.default.post(name: Notification.Name(pasteboardUpdateName), object: true)
+        switch intent {
+        case intentCopy:
+            copy()
+        case intentRemove:
+            removePasteboard(userDefaults: userDefaults)
+        case intentClear:
+            clear(userDefaults: userDefaults)
+        case intentSeeMore:
+            seeMore()
+        default:
+            break
+        }
         return .result()
     }
     
@@ -64,5 +82,26 @@ struct RemovePasteboardIntent: WidgetConfigurationIntent {
         
         userDefaults.set(rawPreference, forKey: "user-preference")
         userDefaults.synchronize()
+    }
+    
+    func copy() {
+        let pasteboard: NSPasteboard = .general
+        pasteboard.prepareForNewContents()
+        pasteboard.setString(self.pasteboard, forType: .string)
+    }
+    
+    func clear(userDefaults: UserDefaults) {
+        var preference = load(userDefaults: userDefaults)
+        preference.preferences[PrefKey.pasteboardKey] = PrefValue.stringArray([])
+        guard let rawPreference = encode(data: preference) else {
+            return
+        }
+        
+        userDefaults.set(rawPreference, forKey: "user-preference")
+        userDefaults.synchronize()
+    }
+    
+    func seeMore() {
+        
     }
 }

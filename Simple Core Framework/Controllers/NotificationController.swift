@@ -14,11 +14,8 @@ extension NSNotification.Name {
 }
 
 let notifCenterName = "id.subkhansarif.Simple-Todo"
-let pasteboardUpdateName = "id.subkhansarif.Simple-Todo.pasteboardUpdate"
 let notifCenterPublisher = NotificationCenter.default.publisher(for: Notification.Name(notifCenterName))
 let pasteboardPublisher = NotificationCenter.default.publisher(for: .NSPasteboardDidChange)
-let pasteboardUpdatePublisher = NotificationCenter.default.publisher(for: Notification.Name(pasteboardUpdateName))
-
 
 class NotificationController :NSObject, ObservableObject {
     static let instance = NotificationController()

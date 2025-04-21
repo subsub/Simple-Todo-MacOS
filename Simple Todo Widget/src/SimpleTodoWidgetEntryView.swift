@@ -18,7 +18,7 @@ struct SimpleTodoWidgetEntryView: View {
                 Text("Pasteboards")
                     .foregroundStyle(.blue)
                 Spacer()
-                Button(intent: RemovePasteboardIntent(pasteboard: "-")) {
+                Button(intent: SimpleTodoWidgetIntent(pasteboard: "", intent: intentClear)) {
                     Text("Clear")
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -33,7 +33,7 @@ struct SimpleTodoWidgetEntryView: View {
             }
             ForEach(entry.pasteboards.reversed(), id: \.self) { pasteboard in
                 HStack {
-                    Button(intent: RemovePasteboardIntent(pasteboard: pasteboard)) {
+                    Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboard, intent: intentCopy)) {
                         HStack {
                             Text(pasteboard)
                                 .lineLimit(1)
@@ -43,7 +43,7 @@ struct SimpleTodoWidgetEntryView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                     
-                    Button(intent: RemovePasteboardIntent(pasteboard: pasteboard)) {
+                    Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboard, intent: intentRemove)) {
                         Image(systemName: "trash")
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -51,7 +51,7 @@ struct SimpleTodoWidgetEntryView: View {
                 }
             }
             if entry.hasMore > 0 {
-                Button(intent: RemovePasteboardIntent(pasteboard: "-")) {
+                Button(intent: SimpleTodoWidgetIntent(pasteboard: "", intent: intentSeeMore)) {
                     Text("\(entry.hasMore) more...")
                         .font(.footnote)
                 }

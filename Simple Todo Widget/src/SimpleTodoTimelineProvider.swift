@@ -13,7 +13,7 @@ struct SimpleTodoTimelineProvider: AppIntentTimelineProvider {
         SimpleTodoWidgetEntry(date: Date(), pasteboards: ["Paste item 1", "Paste item 2"], hasMore: 0)
     }
     
-    func snapshot(for configuration: RemovePasteboardIntent, in context: Context) async -> SimpleTodoWidgetEntry {
+    func snapshot(for configuration: SimpleTodoWidgetIntent, in context: Context) async -> SimpleTodoWidgetEntry {
         guard let userDefaults = UserDefaults(suiteName: "group.com.subkhansarif.SimpleTodo") else {
             return SimpleTodoWidgetEntry(date: Date(), pasteboards: ["Paste item 1", "Paste item 2"], hasMore: 0)
         }
@@ -49,7 +49,7 @@ struct SimpleTodoTimelineProvider: AppIntentTimelineProvider {
     }
     
     
-    func timeline(for configuration: RemovePasteboardIntent, in context: Context) async -> Timeline<SimpleTodoWidgetEntry> {
+    func timeline(for configuration: SimpleTodoWidgetIntent, in context: Context) async -> Timeline<SimpleTodoWidgetEntry> {
         guard let userDefaults = UserDefaults(suiteName: "group.com.subkhansarif.SimpleTodo") else {
             let entry = SimpleTodoWidgetEntry(date: Date(), pasteboards: ["Paste item 1", "Paste item 2"], hasMore: 0)
             return Timeline(entries: [entry], policy: .never)
