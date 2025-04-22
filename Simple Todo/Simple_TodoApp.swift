@@ -37,7 +37,7 @@ struct Simple_TodoApp: App {
         let screenHeight = NSScreen.screens.first?.frame.height ?? 0
         return MenuBarExtra(content: {
             VStack {
-                if menuType == .main && false {
+                if menuType == .main {
                     MainMenuView()
                 }  else {
                     PasteboardMenuView()

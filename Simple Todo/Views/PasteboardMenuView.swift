@@ -17,42 +17,63 @@ struct PasteboardMenuView: View {
     @State var toastMessage: String = ""
     
     var body: some View {
-        VStack {
+        ZStack(alignment: .top) {
+            VStack {
+                Text("Select pasteboard to copy")
+                    .padding(.init(top: 8, leading: 0, bottom: 0, trailing: 0))
+                    .foregroundStyle(.secondary)
+                Rectangle()
+                    .fill(.secondary.opacity(0.5))
+                    .frame(height: 1)
+                    .padding(.init(top: 0, leading: 4, bottom: 0, trailing: 4))
+                ScrollView {
+                    VStack {
+                        if pasteboards.isEmpty {
+                            Text("Copied items will appear here.")
+                        }
+                        ForEach(pasteboards.reversed(), id: \.self) { value in
+                            HStack {
+                                Button {
+                                    copy(value)
+                                } label: {
+                                    Text(value)
+                                        .lineLimit(2)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                                .padding(.init(top: 4, leading: 4, bottom: 4, trailing: 4))
+                                .foregroundStyle(hoveredValue == value ? .white : .primary)
+                                
+                                Spacer()
+                                
+                                Button {
+                                    preferenceController.removeFromPasteboards(value)
+                                    pasteboards = preferenceController.getPasteboards()
+                                } label: {
+                                    Image(systemName: "trash")
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                                .padding(.init(top: 0, leading: 0, bottom: 0, trailing: 4))
+                                .foregroundStyle(hoveredValue == value ? .white : .secondary)
+                                
+                            }
+                            .background(hoveredValue == value ? .blue : .clear)
+                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                            .onHover { hovered in
+                                hoveredValue = value
+                            }
+                        }
+                    }
+                    
+                    .padding(.init(top: 0, leading: 8, bottom: 2, trailing: 8))
+                }
+                
+            }
+            
             MyToast(isShowing: $shouldShowToast, title: toastMessage, type: .Success)
                 .frame(height: shouldShowToast ? 50 : 0)
-            ForEach(pasteboards.reversed(), id: \.self) { value in
-                HStack {
-                    Button {
-                        copy(value)
-                    } label: {
-                        Text(value)
-                            .lineLimit(2)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .padding(.init(top: 2, leading: 4, bottom: 2, trailing: 4))
-                    .foregroundStyle(hoveredValue == value ? .white : .primary)
-                    
-                    Spacer()
-                    
-                    Button {
-                        preferenceController.removeFromPasteboards(value)
-                        pasteboards = preferenceController.getPasteboards()
-                    } label: {
-                        Image(systemName: "trash")
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .foregroundStyle(.secondary)
-                    
-                }
-                .background(hoveredValue == value ? .blue : .clear)
-                .clipShape(RoundedRectangle(cornerRadius: 4))
-                .padding(.init(top: 2, leading: 2, bottom: 2, trailing: 2))
-                .onHover { hovered in
-                    hoveredValue = value
-                }
-            }
+                .padding()
         }
-        .padding(.init(top: 2, leading: 8, bottom: 2, trailing: 8))
+        .padding(.init(top: 0, leading: 0, bottom: 4, trailing: 0))
         .onAppear {
             pasteboards = preferenceController.getPasteboards()
         }
@@ -68,5 +89,13 @@ struct PasteboardMenuView: View {
             toastMessage = "Copied ✅"
             shouldShowToast = true
         }
+    }
+}
+
+
+struct PasteboardMenuView_Previews: PreviewProvider {
+    static var previews: some View {
+        PasteboardMenuView()
+            .environmentObject(PreferenceController.instance)
     }
 }
