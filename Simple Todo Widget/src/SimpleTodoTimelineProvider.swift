@@ -14,7 +14,7 @@ struct SimpleTodoTimelineProvider: AppIntentTimelineProvider {
     }
     
     func snapshot(for configuration: SimpleTodoWidgetIntent, in context: Context) async -> SimpleTodoWidgetEntry {
-        guard let userDefaults = UserDefaults(suiteName: "group.com.subkhansarif.SimpleTodo") else {
+        guard let userDefaults = UserDefaults(suiteName: PrefKeys.suiteName) else {
             return SimpleTodoWidgetEntry(date: Date(), pasteboards: ["Paste item 1", "Paste item 2"], hasMore: 0)
         }
         
@@ -50,7 +50,7 @@ struct SimpleTodoTimelineProvider: AppIntentTimelineProvider {
     
     
     func timeline(for configuration: SimpleTodoWidgetIntent, in context: Context) async -> Timeline<SimpleTodoWidgetEntry> {
-        guard let userDefaults = UserDefaults(suiteName: "group.com.subkhansarif.SimpleTodo") else {
+        guard let userDefaults = UserDefaults(suiteName: PrefKeys.suiteName) else {
             let entry = SimpleTodoWidgetEntry(date: Date(), pasteboards: ["Paste item 1", "Paste item 2"], hasMore: 0)
             return Timeline(entries: [entry], policy: .never)
         }

@@ -69,6 +69,7 @@ struct Pasteboards: View {
             }
         }
         .controlGroupStyle(.menu)
+        .tag(pasteboardTag)
         .menuStyle(BorderlessButtonMenuStyle())
         .onAppear {
             pasteboards = preferenceController.getPasteboards()

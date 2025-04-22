@@ -39,6 +39,7 @@
 		B28E5C802A4FF4C600456FBC /* DeleteAllDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */; };
 		B29724052A595BEC00401655 /* CommentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29724042A595BEC00401655 /* CommentEditorView.swift */; };
 		B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */; };
+		B2A4C4BD2DB761DF005A653E /* PasteboardMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A4C4BC2DB761D9005A653E /* PasteboardMenuView.swift */; };
 		B2B810BA2DB538FC0075324D /* Simple_Core_Framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */; };
 		B2B810BB2DB538FC0075324D /* Simple_Core_Framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2B811242DB53D310075324D /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B811232DB53D2E0075324D /* ColorTheme.swift */; };
@@ -151,6 +152,7 @@
 		B28E5C7F2A4FF4C600456FBC /* DeleteAllDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllDoneButton.swift; sourceTree = "<group>"; };
 		B29724042A595BEC00401655 /* CommentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEditorView.swift; sourceTree = "<group>"; };
 		B2A004DA2A53282A00A2A690 /* PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeys.swift; sourceTree = "<group>"; };
+		B2A4C4BC2DB761D9005A653E /* PasteboardMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMenuView.swift; sourceTree = "<group>"; };
 		B2B810B22DB538FC0075324D /* Simple_Core_Framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Simple_Core_Framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2B811232DB53D2E0075324D /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		B2B8244F2A58B5DF0096F943 /* IssueCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentView.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				B23F96482A4DE4E900394187 /* MenuButtons */,
 				B23F963F2A4DCA0300394187 /* MainMenuView.swift */,
 				B23F96422A4DCEAB00394187 /* StatusMenuView.swift */,
+				B2A4C4BC2DB761D9005A653E /* PasteboardMenuView.swift */,
 				58E25C382A501BFD00CAA3C4 /* PreferenceView.swift */,
 				58E25C412A504E3C00CAA3C4 /* JiraAuthenticationView.swift */,
 				B2BD6E012A62F2C40082CE73 /* AboutView.swift */,
@@ -660,6 +663,7 @@
 				B22B4A272A4F2858002F205D /* QuitButton.swift in Sources */,
 				58E25C352A50186C00CAA3C4 /* MyMenuButton.swift in Sources */,
 				B2A004DB2A53282A00A2A690 /* PreferenceKeys.swift in Sources */,
+				B2A4C4BD2DB761DF005A653E /* PasteboardMenuView.swift in Sources */,
 				B23F96122A4DC80300394187 /* Simple_TodoApp.swift in Sources */,
 				B24FBD942A534C5D00D4D4E5 /* IssueTrackerListView.swift in Sources */,
 				B24FBD922A534A8400D4D4E5 /* IssueTrackerButton.swift in Sources */,

@@ -12,11 +12,22 @@ enum PreferenceEvent {
     case newPasteboardData(String), deletePasteboardData(String), none
 }
 
+class PrefKeys {
+    static let userPreferenceKey = "user-preference"
+    static let eventNotificationKey = "event-notification"
+    static let suiteName = "group.com.subkhansarif.SimpleTodo"
+}
+
 class PreferenceController: ObservableObject {
-    private let key = "user-preference"
-    private let suiteName = "group.com.subkhansarif.SimpleTodo"
     static let instance = PreferenceController()
     
+    
+    @AppStorage(PrefKeys.eventNotificationKey, store: UserDefaults(suiteName: PrefKeys.suiteName))
+    var eventNotification: String = "" {
+        didSet {
+            print(">> eventNotification \(eventNotification)")
+        }
+    }
     var rawPreferences: String = ""
     @Published var preference: UserPreference = UserPreference()
     @Published var preferenceEvent: PreferenceEvent = .none
@@ -55,19 +66,19 @@ class PreferenceController: ObservableObject {
         }
         
         self.rawPreferences = rawPreference
-        guard let userDefaults = UserDefaults(suiteName: suiteName) else {
+        guard let userDefaults = UserDefaults(suiteName: PrefKeys.suiteName) else {
             return
         }
-        userDefaults.set(rawPreference, forKey: key)
+        userDefaults.set(rawPreference, forKey: PrefKeys.userPreferenceKey)
         userDefaults.synchronize()
         WidgetCenter.shared.reloadAllTimelines()
     }
     
     private func load() {
-        guard let userDefaults = UserDefaults(suiteName: suiteName) else {
+        guard let userDefaults = UserDefaults(suiteName: PrefKeys.suiteName) else {
             return
         }
-        rawPreferences = userDefaults.string(forKey: key) ?? ""
+        rawPreferences = userDefaults.string(forKey: PrefKeys.userPreferenceKey) ?? ""
         preference = decode(preference, from: rawPreferences) ?? preference
     }
     

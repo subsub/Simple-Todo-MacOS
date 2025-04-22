@@ -44,6 +44,9 @@ struct StatusMenuView: View {
         .onReceive(prefController.$preferenceEvent) { output in
             switch output {
             case .newPasteboardData(var newContent):
+                guard prefController.isPasteboardsEnabled() else {
+                    return
+                }
                 newContent = newContent.replacing(/\s+/, with: " ")
                 newPasteboardContent = newContent.count > 20 ? "\(String(newContent[..<newContent.index(newContent.startIndex, offsetBy: 20)]))..." : newContent
                 if timer?.isValid == true {

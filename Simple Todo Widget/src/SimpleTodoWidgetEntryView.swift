@@ -35,7 +35,7 @@ struct SimpleTodoWidgetEntryView: View {
                 HStack {
                     Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboard, intent: intentCopy)) {
                         HStack {
-                            Text(pasteboard)
+                            Text(pasteboard.replacing(/\s+/, with: ""))
                                 .lineLimit(1)
                                 .truncationMode(.tail)
                             Spacer()
@@ -51,7 +51,7 @@ struct SimpleTodoWidgetEntryView: View {
                 }
             }
             if entry.hasMore > 0 {
-                Button(intent: SimpleTodoWidgetIntent(pasteboard: "", intent: intentSeeMore)) {
+                Button(intent: SimpleTodoWidgetIntent(pasteboard: seeMoreConstant, intent: intentSeeMore)) {
                     Text("\(entry.hasMore) more...")
                         .font(.footnote)
                 }

@@ -34,7 +34,8 @@ struct SimpleTodoWidgetIntent: WidgetConfigurationIntent {
     }
     
     func perform() async throws -> some IntentResult {
-        guard let userDefaults = UserDefaults(suiteName: "group.com.subkhansarif.SimpleTodo") else {
+        print(">> perform intent: \(intent)")
+        guard let userDefaults = UserDefaults(suiteName: PrefKeys.suiteName) else {
             return .result()
         }
         
@@ -54,7 +55,7 @@ struct SimpleTodoWidgetIntent: WidgetConfigurationIntent {
     }
     
     private func load(userDefaults: UserDefaults) -> UserPreference {
-        let rawPreferences = userDefaults.string(forKey: "user-preference") ?? "{}"
+        let rawPreferences = userDefaults.string(forKey: PrefKeys.userPreferenceKey) ?? "{}"
         let preference: UserPreference = UserPreference()
         let result = decode(preference, from: rawPreferences) ?? UserPreference()
         return result
@@ -80,7 +81,7 @@ struct SimpleTodoWidgetIntent: WidgetConfigurationIntent {
             return
         }
         
-        userDefaults.set(rawPreference, forKey: "user-preference")
+        userDefaults.set(rawPreference, forKey: PrefKeys.userPreferenceKey)
         userDefaults.synchronize()
     }
     
@@ -97,11 +98,14 @@ struct SimpleTodoWidgetIntent: WidgetConfigurationIntent {
             return
         }
         
-        userDefaults.set(rawPreference, forKey: "user-preference")
+        userDefaults.set(rawPreference, forKey: PrefKeys.userPreferenceKey)
         userDefaults.synchronize()
     }
     
     func seeMore() {
-        
+        print(">> see more")
+        let pasteboard: NSPasteboard = .general
+        pasteboard.prepareForNewContents()
+        pasteboard.setString(self.pasteboard, forType: .string)
     }
 }
