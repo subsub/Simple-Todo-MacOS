@@ -31,23 +31,27 @@ struct SimpleTodoWidgetEntryView: View {
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             }
-            ForEach(entry.pasteboards.reversed(), id: \.self) { pasteboard in
-                HStack {
-                    Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboard, intent: intentCopy)) {
-                        HStack {
-                            Text(pasteboard.replacing(/\s+/, with: ""))
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            Spacer()
+            if entry.family == .systemExtraLarge {
+                ExtraLargeWidgetList(pasteboards: entry.pasteboards.reversed())
+            } else {
+                ForEach(entry.pasteboards.reversed(), id: \.self) { pasteboard in
+                    HStack {
+                        Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboard, intent: intentCopy)) {
+                            HStack {
+                                Text(pasteboard.replacing(/\s+/, with: ""))
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                                Spacer()
+                            }
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboard, intent: intentRemove)) {
+                            Image(systemName: "trash")
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .foregroundStyle(.secondary)
                     }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboard, intent: intentRemove)) {
-                        Image(systemName: "trash")
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .foregroundStyle(.secondary)
                 }
             }
             if entry.hasMore > 0 {
@@ -61,5 +65,71 @@ struct SimpleTodoWidgetEntryView: View {
             Spacer()
         }
         .frame(alignment: .topLeading)
+    }
+}
+
+struct ExtraLargeWidgetList: View {
+    let pasteboards: [String]
+    let columnCount: Int = 12
+    
+    var body: some View {
+        HStack {
+            VStack(spacing: 6) {
+                ForEach(0..<firstColumnCount(), id: \.self) { index in
+                    HStack {
+                        Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboards[index], intent: intentCopy)) {
+                            HStack {
+                                Text(pasteboards[index].replacing(/\s+/, with: ""))
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                                Spacer()
+                            }
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboards[index], intent: intentRemove)) {
+                            Image(systemName: "trash")
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .foregroundStyle(.secondary)
+                    }
+                }
+            }
+            if shouldHaveTwoColumns() {
+                VStack(spacing: 6) {
+                    ForEach(columnCount..<pasteboards.count, id: \.self) { index in
+                        HStack {
+                            Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboards[index], intent: intentCopy)) {
+                                HStack {
+                                    Text(pasteboards[index].replacing(/\s+/, with: ""))
+                                        .lineLimit(1)
+                                        .truncationMode(.tail)
+                                    Spacer()
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            
+                            Button(intent: SimpleTodoWidgetIntent(pasteboard: pasteboards[index], intent: intentRemove)) {
+                                Image(systemName: "trash")
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func shouldHaveTwoColumns() -> Bool {
+        return pasteboards.count > columnCount
+    }
+    
+    func firstColumnCount() -> Int {
+        if shouldHaveTwoColumns() {
+            return columnCount
+        } else {
+            return pasteboards.count
+        }
     }
 }

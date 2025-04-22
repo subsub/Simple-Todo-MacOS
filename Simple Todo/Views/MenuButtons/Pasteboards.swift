@@ -50,8 +50,8 @@ struct Pasteboards: View {
                 }
             } label: {
                 Text("Pasteboards (\(pasteboards.count))")
+                    .foregroundStyle(isHovered ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
             }
-            .foregroundColor(isHovered ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
             .onHover { hovered in
                 isHovered = hovered
             }
@@ -67,10 +67,13 @@ struct Pasteboards: View {
             } callback: {
                 clearPasteboards()
             }
+            .padding(.init(top: 0, leading: -2, bottom: 0, trailing: 0))
         }
         .controlGroupStyle(.menu)
         .tag(pasteboardTag)
         .menuStyle(BorderlessButtonMenuStyle())
+        .labelStyle(.titleOnly)
+        .foregroundStyle(isHovered ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
         .onAppear {
             pasteboards = preferenceController.getPasteboards()
         }

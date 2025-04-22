@@ -21,5 +21,6 @@ struct SimpleTodoWidget: Widget {
                     .containerBackground(.thickMaterial, for: .widget)
                 
             }
+            .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
     }
 }

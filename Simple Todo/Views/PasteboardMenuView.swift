@@ -19,11 +19,14 @@ struct PasteboardMenuView: View {
     var body: some View {
         ZStack(alignment: .top) {
             VStack {
-                Text("Select pasteboard to copy")
-                    .padding(.init(top: 8, leading: 0, bottom: 0, trailing: 0))
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Image(systemName: "list.clipboard.fill")
+                    Text("Pasteboards")
+                }
+                .padding(.init(top: 8, leading: 0, bottom: 0, trailing: 0))
+                .foregroundStyle(.blue)
                 Rectangle()
-                    .fill(.secondary.opacity(0.5))
+                    .fill(.secondary.opacity(0.1))
                     .frame(height: 1)
                     .padding(.init(top: 0, leading: 4, bottom: 0, trailing: 4))
                 ScrollView {
@@ -63,7 +66,6 @@ struct PasteboardMenuView: View {
                             }
                         }
                     }
-                    
                     .padding(.init(top: 0, leading: 8, bottom: 2, trailing: 8))
                 }
                 
