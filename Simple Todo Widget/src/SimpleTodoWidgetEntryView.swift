@@ -15,7 +15,7 @@ struct SimpleTodoWidgetEntryView: View {
             HStack {
                 Image(systemName: "list.clipboard.fill")
                     .foregroundStyle(.blue)
-                Text("Pasteboards")
+                Text("Pasteboards (\(entry.totalCount))")
                     .foregroundStyle(.blue)
                 Spacer()
                 Button(intent: SimpleTodoWidgetIntent(pasteboard: "", intent: intentClear)) {
@@ -73,7 +73,7 @@ struct ExtraLargeWidgetList: View {
     let columnCount: Int = 12
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             VStack(spacing: 6) {
                 ForEach(0..<firstColumnCount(), id: \.self) { index in
                     HStack {

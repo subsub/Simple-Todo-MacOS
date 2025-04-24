@@ -135,4 +135,10 @@ class PreferenceController: ObservableObject {
     func reload() {
         self.load()
     }
+    
+    func searchPasteboards(_ keyword: String) -> [String] {
+        return self.getPasteboards().filter { pasteboard in
+            return pasteboard.contains(keyword)
+        }
+    }
 }

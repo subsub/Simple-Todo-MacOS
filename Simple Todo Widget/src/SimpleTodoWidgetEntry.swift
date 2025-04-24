@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SimpleTodoWidgetEntry: TimelineEntry {
     let date: Date
+    let totalCount: Int
     let pasteboards: [String]
     let hasMore: Int
     let family: WidgetFamily

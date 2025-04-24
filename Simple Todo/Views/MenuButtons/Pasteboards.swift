@@ -16,64 +16,18 @@ struct Pasteboards: View {
     @State var toastMessage: String = ""
     
     var body: some View {
-        VStack {
-            MyToast(isShowing: $shouldShowToast, title: toastMessage, type: .Success)
-                .frame(height: shouldShowToast ? 50 : 0)
-            ControlGroup {
-                Text("Select pasteboard to copy")
-                Divider()
-                if pasteboards.isEmpty {
-                    emptyClipboards
-                }
-                ForEach(pasteboards.reversed(), id: \.self) { value in
-                    Button {
-                        copy(value)
-                    } label: {
-                        HStack {
-                            //                            Image(systemName: "pin.fill")
-                            //                                .padding(.trailing, 4)
-                            ControlGroup {
-                                Button {
-                                    preferenceController.removeFromPasteboards(value)
-                                    pasteboards = preferenceController.getPasteboards()
-                                } label: {
-                                    HStack {
-                                        Text("Delete")
-                                        Image(systemName: "trash")
-                                    }
-                                }
-                            } label: {
-                                Text(value)
-                            }
-                        }
-                    }
-                }
-            } label: {
+        MyNavigationLink(id: "pasteboards", colorDelegate: ColorTheme.instance) {
+            HStack {
+                Image(systemName: "list.clipboard.fill")
+                    .foregroundStyle(isHovered ? .white : .blue)
                 Text("Pasteboards (\(pasteboards.count))")
-                    .foregroundStyle(isHovered ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
             }
-            .onHover { hovered in
-                isHovered = hovered
-            }
-            .padding(EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4))
-            .background(isHovered ? .blue : .clear)
-            .cornerRadius(4)
-            .padding(EdgeInsets(top: -8, leading: 4, bottom: 0, trailing: 4))
-            
-            MyMenuButton { _ in
-                AnyView(
-                    Text("Clear Pasteboards")
-                )
-            } callback: {
-                clearPasteboards()
-            }
-            .padding(.init(top: 0, leading: -2, bottom: 0, trailing: 0))
+        } destination: {
+            PasteboardMenuView()
         }
-        .controlGroupStyle(.menu)
-        .tag(pasteboardTag)
-        .menuStyle(BorderlessButtonMenuStyle())
-        .labelStyle(.titleOnly)
-        .foregroundStyle(isHovered ? ColorTheme.instance.staticWhite: ColorTheme.instance.textDefault)
+        .onHover { hovered in
+            isHovered = hovered
+        }
         .onAppear {
             pasteboards = preferenceController.getPasteboards()
         }
