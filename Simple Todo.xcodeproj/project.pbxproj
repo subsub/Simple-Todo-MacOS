@@ -916,7 +916,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Simple Todo/Simple_Todo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Simple Todo/Preview Content\"";
 				DEVELOPMENT_TEAM = K4S6P4RB2W;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -931,7 +931,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
 				PRODUCT_NAME = "Simple Todo Bar";
 				REGISTER_APP_GROUPS = YES;
@@ -949,7 +949,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Simple Todo/Simple_Todo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Simple Todo/Preview Content\"";
 				DEVELOPMENT_TEAM = K4S6P4RB2W;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -964,7 +964,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "id.subkhansarif.Simple-Todo";
 				PRODUCT_NAME = "Simple Todo Bar";
 				REGISTER_APP_GROUPS = YES;
