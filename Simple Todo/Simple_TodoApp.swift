@@ -35,6 +35,7 @@ struct Simple_TodoApp: App {
     
     var body: some Scene {
         let screenHeight = NSScreen.screens.first?.frame.height ?? 0
+        let menuHeight = max((NSScreen.screens.first?.visibleFrame.height ?? screenHeight) - 80, 400)
         return MenuBarExtra(content: {
             VStack {
                 if menuType == .main {
@@ -61,6 +62,7 @@ struct Simple_TodoApp: App {
             .environmentObject(jiraController)
             .environmentObject(appDelegate)
             .environment(\.screenHeight, screenHeight)
+            .environment(\.menuMaximumHeight, menuHeight)
         }, label: {
             StatusMenuView()
                 .onAppear {
@@ -88,7 +90,7 @@ struct Simple_TodoApp: App {
         .menuBarExtraAccess(isPresented: $isMenuPresented) { statusItem in // <-- the magic ✨
             self.statusItem = statusItem
         }
-        .defaultSize(width: 500, height: screenHeight - screenHeight/4)
+        .defaultSize(width: 500, height: 500)
     }
     
     func openStatusItemMenu() {
